@@ -1,0 +1,107 @@
+.gradient(@top, @bottom, @top-pos: 0%, @bottom-pos: 100%) {
+    background-image: -webkit-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: -moz-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: -o-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: -ms-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: linear-gradient(to bottom, @top @top-pos, @bottom @bottom-pos);
+}
+
+.image-and-gradient(@url, @top, @bottom, @fallback, @top-pos: 0%, @bottom-pos: 100%) {
+    background-image: @fallback url(@url);
+    background-image: url(@url), -webkit-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: url(@url), -moz-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: url(@url), -o-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: url(@url), -ms-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
+    background-image: url(@url), linear-gradient(to bottom, @top @top-pos, @bottom @bottom-pos);
+}
+
+.box-shadow(@input) {
+    -webkit-box-shadow: @input;
+    box-shadow: @input;
+}
+
+.box-sizing(@type: border-box) {
+    -webkit-box-sizing: @type;
+    -moz-box-sizing: @type;
+    -ms-box-sizing: @type;
+    box-sizing: @type;
+}
+
+.transition(@dur, @prop: all, @easing: linear) {
+    -webkit-transition: @prop @easing @dur;
+    -moz-transition: @prop @easing @dur;
+    -ms-transition: @prop @easing @dur;
+    -o-transition: @prop @easing @dur;
+    transition: @prop @easing @dur;
+}
+
+.no-select() {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.translate3d(@x, @y, @z) {
+    -webkit-transform: translate3d(@x, @y, @z);
+    -moz-transform: translate3d(@x, @y, @z);
+    -o-transform: translate3d(@x, @y, @z);
+    -ms-transform: translate3d(@x, @y, @z);
+    transform: translate3d(@x, @y, @z);
+}
+
+.translateZHack() {
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+}
+
+.columns(@column-count: 1, @column-width: auto) {
+    -webkit-columns: @column-count @column-width;
+    -moz-columns: @column-count @column-width;
+    columns: @column-count @column-width;
+}
+
+.font-smoothing() {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: antialiased;
+}
+
+.cf() {
+    &:before,
+    &:after {
+        content: " ";
+        display: table;
+    }
+
+    &:after {
+        clear: both;
+    }
+}
+
+.sticky() {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -ms-sticky;
+    position: -o-sticky;
+}
+
+.placeholder(@color, @shadow: none) {
+    &:-moz-placeholder {
+        color: @color;
+        text-shadow: @shadow;
+    }
+    &::-webkit-input-placeholder {
+        color: @color;
+        text-shadow: @shadow;
+    }
+}
+
+.makeTabContent(@i) when (@i > 0) {
+    &.tab__@{i} {
+        .translate3d((-100% / @tabs) * (@i - 1), 0, 0);
+    }
+    .makeTabContent((@i - 1));
+}

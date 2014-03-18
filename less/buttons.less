@@ -1,0 +1,50 @@
+@default: #4D90FE;
+
+.btn {
+    position: relative;
+    display: inline-block;
+    min-width: 110px;
+    .gradient(@default, darken(@default, 4%));
+    border: 1px solid darken(@default, 10%);
+    padding: 4px 12px;
+    border-radius: 3px;
+
+    vertical-align: top;
+    white-space: nowrap;
+    cursor: pointer;
+    overflow: visible;
+
+    color: #FFF;
+    font-size: 100%;
+    font-family: inherit;
+    text-decoration: none;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.22);
+    .box-sizing();
+
+    &.hvr,
+    &:hover {
+        .gradient(@default, darken(@default, 2%));
+    }
+
+    &.atv,
+    &:active {
+        .gradient(darken(@default, 8%), darken(@default, 8%));
+        .box-shadow(inset 0 2px 0 rgba(0, 0, 0, 0.15));
+    }
+
+    &:focus {
+        outline: none;
+    }
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+}
+
+.btn--full {
+    // width: 100%;
+}
+
+.btn-action {
+}

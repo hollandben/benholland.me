@@ -1,3 +1,14 @@
+.font-size(@sizeValue, @lineheight: @sizeValue + (@sizeValue * 0.5)) {
+    @remFontValue: (@sizeValue / 10);
+    @pxFontValue: @sizeValue;
+    @remLineValue: (@lineheight / 10);
+    @pxLineValue: @lineheight;
+    font-size: ~"@{pxFontValue}px"; 
+    font-size: ~"@{remFontValue}rem";
+    line-height: ~"@{pxLineValue}px"; 
+    line-height: ~"@{remLineValue}rem";
+}
+
 .gradient(@top, @bottom, @top-pos: 0%, @bottom-pos: 100%) {
     background-image: -webkit-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);
     background-image: -moz-linear-gradient(top, @top @top-pos, @bottom @bottom-pos);

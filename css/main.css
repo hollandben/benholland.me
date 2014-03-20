@@ -353,12 +353,14 @@ td,
 th {
   padding: 0;
 }
-html,
+html {
+  font-size: 62.5%;
+}
 body {
   background-color: #ffffff;
   color: #333333;
-  font-size: 14px;
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-family: 'Myriad Pro', Helvetica, Arial, sans-serif;
   line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
@@ -366,7 +368,7 @@ body {
 .content {
   position: relative;
   width: 85%;
-  max-width: 900px;
+  max-width: 600px;
   margin: 0 auto;
 }
 h1,
@@ -377,17 +379,40 @@ h5,
 h6 {
   margin: 0;
   color: #333333;
-  font-size: 1em;
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 24px;
+  line-height: 2.4rem;
   vertical-align: bottom;
 }
 h1 {
-  font-size: 1.6rem;
+  font-size: 24px;
+  font-size: 2.4rem;
+  line-height: 36px;
+  line-height: 3.6rem;
 }
 h2 {
-  font-size: 1.4rem;
+  font-size: 20px;
+  font-size: 2rem;
+  line-height: 30px;
+  line-height: 3rem;
 }
 a {
   color: #333;
+}
+ul.unstyled {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.meta {
+  color: #787878;
+  font-size: 12px;
+  font-size: 1.2rem;
+  line-height: 14px;
+  line-height: 1.4rem;
+  font-style: italic;
+  font-family: Georgia;
 }
 .btn {
   position: relative;

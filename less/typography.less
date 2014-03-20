@@ -1,18 +1,31 @@
 h1, h2, h3, h4, h5, h6 {
     margin: 0;
     color: @color;
-    font-size: 1em;
+    .font-size(16);
     vertical-align: bottom;
 }
 
 h1 {
-    font-size: 1.6rem;
+    .font-size(24);
 }
 
 h2 {
-    font-size: 1.4rem;
+    .font-size(20);
 }
 
 a {
     color: #333;
+}
+
+ul.unstyled {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.meta {
+    color: @meta;
+    .font-size(12, 14);
+    font-style: italic;
+    font-family: Georgia;
 }

@@ -16,7 +16,16 @@ module.exports = function (grunt) {
       }
     },
     less: {
-      'css/main.css': 'less/_build.less'
+      src: {
+        files: {
+          'css/main.css': 'less/_build.less'
+        }
+      },
+      site: {
+        files: {
+          '_site/css/main.css': 'less/_build.less'
+        }
+      }
     },
     shell: {
       jekyll: {

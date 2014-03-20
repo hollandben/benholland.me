@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Keeping Things Simple and Generic in jQuery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Keeping Things Simple and Generic in jQuery</h1>
+    <p class="meta">25 Oct 2011</p>
+
+    <div class="post__body">
+        <p>Keeping code simple and generic makes programming in all languages a lot easier. For this tutorial, I&#39;ll be using jQuery. We&#39;re going to be creating some hidden elements, that when click on, will slide down. Let&#39;s get started</p>
+
+<h3>The HTML</h3>
+
+<p>Firstly, check out this <a href="http://benholland.me/demo/generic-jquery.html,%20demo">demo</a> to see what we&#39;re going to be creating.</p>
+
+<p>Ok, so the code we&#39;ll be working with:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div id=&quot;questions&quot;&gt;
+    &lt;h3 id=&quot;title1&quot;&gt;Question 1&lt;/h3&gt;
+    &lt;p id=&quot;content1&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+
+    &lt;h3 id=&quot;title2&quot;&gt;Question 2&lt;/h3&gt;
+    &lt;p id=&quot;content2&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+
+    &lt;h3 id=&quot;title4&quot;&gt;Question 3&lt;/h3&gt;
+    &lt;p id=&quot;content3&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></div>
+<h3>The Original jQuery Code</h3>
+
+<p>The initial jQuery we&#39;ll be using is:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).ready(function(){
+    $(&#39;#content1, #content2, #content3&#39;).hide();
+
+    $(&#39;#title1&#39;).click(function(){
+        $(&#39;#content1&#39;).slideDown();
+    });
+
+    $(&#39;#title2&#39;).click(function(){
+        $(&#39;#content2&#39;).slideDown();
+    });
+
+    $(&#39;#title3&#39;).click(function(){
+        $(&#39;#content3&#39;).slideDown();
+    });
+});
+</code></pre></div>
+<p>Although this code works, its not very efficient, and if we wanted to add more questions later, we&#39;d have have to update the jQuery code as well as our HTML structure. Instead, we&#39;ll make the jQuery code more generic so that it fits all current and future questions. We&#39;re able to do this because there is a clear structure throughout the HTML, with the H3 tag and following paragraph tag being present everytime.</p>
+
+<h3>Making The Code Better</h3>
+
+<p>To make this code better, we&#39;ll have to start with the HTML. Throw out all the ID tags and replace them with the same class for each element. So our structure will now look like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div id=&quot;questions&quot;&gt;
+    &lt;h3 class=&quot;title&quot;&gt;Question 1&lt;/h3&gt;
+    &lt;p class=&quot;content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+
+    &lt;h3 class=&quot;title&quot;&gt;Question 2&lt;/h3&gt;
+    &lt;p class=&quot;content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+
+    &lt;h3 class=&quot;title&quot;&gt;Question 3&lt;/h3&gt;
+    &lt;p class=&quot;content&quot;&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec placerat mi a dolor tristique non dignissim dui euismod.&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>This way, we can use this same pattern for additional questions. Now we&#39;ll edit our jQuery code.</p>
+
+<p>We can start by hiding all of the paragraph elements that have the class <em>content</em>:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;p.content&#39;).hide();
+</code></pre></div>
+<p>Then we can scrap the rest of the code and write on function. This function will listen for when a H3 tag with the class of <em>title</em> is clicked. Then we&#39;re going to target the next paragraph element with the class <em>content</em> and slide it down, like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;h3.title&#39;).click(function(){
+    $(this).next(&#39;p.content&#39;).slideDown();
+});
+</code></pre></div>
+<p>We can make the code even better by changing the <em>slideDown</em> to <em>slideToggle</em>, making the paragraph elements slide up and down:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;h3.title&#39;).click(function(){
+    $(this).next(&#39;p.content&#39;).slideToggle();
+});
+</code></pre></div>
+<h3>Conclusion</h3>
+
+<p>And that&#39;s it, our code is now more efficient, more generic and allows for additional questions to be added without any changes being made. In conclusion, look at what your trying to do, see if there is a pattern or consistent structure within your HTML and write some generic code based upon that structure. Here&#39;s the final code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).ready(function(){
+    $(&#39;p.content&#39;).hide();
+
+    $(&#39;h3.title&#39;).click(function(){
+        $(this).next(&#39;p.content&#39;).slideToggle();
+    });
+});
+</code></pre></div>
+<p><a href="http://benholland.me/demo/generic-jquery.html,%20Check%20out%20the%20final%20demo%20here">Check out the final demo here</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

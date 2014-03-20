@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Adding and Subtracting Dates and Times in PHP</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Adding and Subtracting Dates and Times in PHP</h1>
+    <p class="meta">11 Mar 2012</p>
+
+    <div class="post__body">
+        <p>During a recent project, I found the need to check if rows in a database were more than 6 hours old. So here&#39;s how to add and subtract dates and times in PHP...</p>
+
+<p><strong>This adds 2 days to the current date:</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$date = date(&#39;Y-m-j&#39;);
+</code></pre></div>
+<p>$newdate = strtotime ( &#39;+2 day&#39; , strtotime ( $date ) ) ;
+ $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+<p><strong>This adds 2 months to the current date:</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text"> $date = date(&#39;Y-m-j&#39;);
+</code></pre></div>
+<p>$newdate = strtotime ( &#39;+2 month&#39; , strtotime ( $date ) ) ;
+ $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+<!--- extract -->
+
+<p><strong>This adds 2 years to the current date:</strong></p>
+
+<p>$date = date(&#39;Y-m-j&#39;);
+  $newdate = strtotime ( &#39;+2 year&#39; , strtotime ( $date ) ) ;
+  $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+<p><strong>This subtracts 6 hours from the current date:</strong></p>
+
+<p>$date = date(&#39;Y-m-j&#39;);
+  $newdate = strtotime ( &#39;-6 hour&#39; , strtotime ( $date ) ) ;
+  $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+<p><strong>This subtracts 10 minutes from the current date:</strong></p>
+
+<p>$date = date(&#39;Y-m-j&#39;);
+  $newdate = strtotime ( &#39;-10 minute&#39; , strtotime ( $date ) ) ;
+ $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+<p>If you want to change if from the current date, then simple replace the current date with the desired one...</p>
+
+<p>This adds 1 year to the date 2012-11-25:</p>
+
+<p>$date = date(&#39;2011-11-25&#39;);
+ $newdate = strtotime ( &#39;+1 year&#39; , strtotime ( $date ) ) ;
+  $newdate = date ( &#39;Y-m-j&#39; , $newdate );</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">echo $newdate;
+</code></pre></div>
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

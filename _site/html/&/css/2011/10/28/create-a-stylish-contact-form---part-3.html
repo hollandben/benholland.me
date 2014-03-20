@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Create A Stylish Contact Form - Part 3</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Create A Stylish Contact Form - Part 3</h1>
+    <p class="meta">28 Oct 2011</p>
+
+    <div class="post__body">
+        <p>Welcome to the final part of this tutorial on creating a stylish contact form. In this section, we&#39;ll be adding some AJAX functionality, submitting the form and tidying it up so it&#39;s ready for the world to see. When we&#39;ve completed this part of the tutorial, we&#39;ll have this finished form which looks like this - <a href="http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html,%20DEMO">DEMO</a></p>
+
+<h2>Part 3 - Adding AJAX and Submitting The Form</h2>
+
+<h3>The Setup</h3>
+
+<p>The final setup we need to do is getting our PHP file which is going to send the data within the contact form to where ever it needs to go. Create a new file in your project folder and call it &quot;sendForm.php&quot;. Then copy the code below into it, remember to replaced the &quot;$to&quot; variable to the target email address. Replace all cases of &quot;example.com&quot; with your own website:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;?php
+    if(isset($_POST[&#39;submit&#39;])){
+        foreach($_POST as $key=&gt;$value){
+        $$key = $value;
+        }
+        $to      = &quot;john@example.com&quot;;
+        $subject = &#39;example.com - Contact Form&#39;;
+        $message = &quot;Message from &quot;.$name.&quot;.\r\n Comment:\r\n&quot;.$comment;
+        $headers = &#39;From: noreply@example.com&#39; . &quot;\r\n&quot; .
+            &#39;Reply-To:&#39;.$email.&quot;\r\n&quot; .
+            &#39;X-Mailer: PHP/&#39; . phpversion();
+        if(mail($to, $subject, $message, $headers)) {
+            echo &quot;success&quot;;
+       }
+    }
+?&gt;
+</code></pre></div>
+<p>This will probably seem very alien to you, but you won&#39;t have to concern yourself with it so don&#39;t worry.</p>
+
+<h3>Writing Our AJAX Code</h3>
+
+<p>The next thing we need to do is write our AJAX code. If you don&#39;t know what AJAX is, then here is a small definition (read more):</p>
+
+<blockquote>
+<p>AJAX (Asynchronous JavaScript and XML) is an approach which allows components within a web page to update individually rather than requiring a full web page update. This enables quicker and much richer web applications.</p>
+</blockquote>
+
+<p>This basically means we can send forms, log in to restricted areas and load data without leaving the page we&#39;re currently on . So here is the function that will send our AJAX requsest:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function submitForm(){
+    var inputs = [];
+    $(&#39;#contact_form :input&#39;).each(function() {
+        inputs.push(this.name+&quot;=&quot;+escape(this.value));
+    });
+    query = inputs.join(&#39;&amp;&#39;);
+    jQuery.ajax({
+        type: &#39;post&#39;,
+        url: &#39;sendForm.php&#39;,
+        data: query,
+        error: function() {
+            $(&#39;.error&#39;).text(&quot;Something went wrong. Try again&quot;).fadeIn();
+        },
+        success: function(r) {
+            if(response == &quot;success&quot;){
+                $(&#39;.success&#39;).fadeIn();
+            }
+        }
+    });
+}
+</code></pre></div>
+<p>Let&#39;s break it down like we&#39;ve been doing before.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var inputs = [];
+$(&#39;#contact_form :input&#39;).each(function() {
+    inputs.push(this.name+&quot;=&quot;+escape(this.value));
+});
+query = inputs.join(&#39;&amp;&#39;);
+</code></pre></div>
+<p>This handy section of code prepares out data so that it can be sent the PHP file. We start by creating an array called inputs. We then loop through all the input fields in our form (it&#39;s slightly different that before because this line gets all inputs, including the submit button) and then pushing both the name and value into the array inputs. So the first input field it finds is our name. So it would push the string &quot;name=Joe Blogs&quot; into our array. The last line then joins all the elements in the array to give us our query. An example of this query would be:</p>
+
+<p>&quot;name=Joe Blogs&amp;email=joe@blogs.com&amp;comment=I really like your website&quot;
+ The web browser will fill in the blanks with the appropriate special characters.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">jQuery.ajax({
+    type: &#39;post&#39;,
+    url: &#39;sendForm.php&#39;,
+    data: query,
+</code></pre></div>
+<p>Here we begin our AJAX request. We have to set the type of request, in our case this is post. Then we tell the request what file to post the data to. This is our sendForm.php file. And finally we tell it what data to post to that url. This is the query we just created.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">error: function() {
+    $(&#39;.error&#39;).text(&quot;Something went wrong. Try again&quot;).fadeIn();
+},
+success: function(r) {
+    if(response == &quot;success&quot;){
+        $(&#39;.success&#39;).fadeIn();
+    }
+}
+</code></pre></div>
+<p>Now we deal with the outcome of this request. If sending the request fails, then the error function is run, and the error div fades in containing the text &quot;Something went wrong. Try again&quot;. If the request is successful, then it runs the success function.</p>
+
+<p>You&#39;ll notice with the success function, we&#39;re bringing a parameter into the function in the form of &quot;response&quot;. The value of response is whatever we get back from our sendForm.php file. So if the email is send successfully, the php file sends back the text &quot;success&quot;. We check that the repsonse is equal to success and, if it is, we fade in the success div containing the text &quot;Thank you for contacting us&quot;.</p>
+
+<p>The last thing we need to do is change our section of code so that this function runs. If you remember, in the previous part of this tutorial we checked to see if there was any errors.Well this is were we run our function. So replace this code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if(errors == 0){
+    $(&#39;.success&#39;).fadeIn();
+}
+</code></pre></div>
+<p>With this code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if(errors == 0){
+    submitForm();
+}
+</code></pre></div>
+<p>And that&#39;s all. Everything is finished now. You can check out the final form should look like (it will vary in later IE versions).</p>
+
+<p><a href="http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html,%20See%20finished%20form%20and%20more%20demos">See finished form and more demos</a></p>
+
+<p>You can also <a href="http://benholland.me/demo/stylish-contact-form/stylish-contact-form.zip,%20download%20the%20source%20files%20for%20tutorial">download the source files for tutorial</a></p>
+
+<p><strong>NOTE:</strong> To actually send an email using this form, your files will have to be hosted on a web server!!</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

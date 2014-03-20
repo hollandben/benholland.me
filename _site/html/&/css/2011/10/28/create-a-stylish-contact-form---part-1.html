@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Create A Stylish Contact Form - Part 1</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Create A Stylish Contact Form - Part 1</h1>
+    <p class="meta">28 Oct 2011</p>
+
+    <div class="post__body">
+        <p>Almost every website has a contact page, and if it doesn&#39;t then it really should. So why not make a contact form that really impresses visitors and leaves a lasting impression. Creating a great looking is simple and easy to do. In this 3 part tutorial, I&#39;ll be showing you how to build a form using the latest CCS3 styles to make it eye catching, some jQuery to make it more interactive and topping it off with some AJAX to make the functionality of the form slick to really impress you users.</p>
+
+<p>When you&#39;ve completed all three parts of the tutorial, this is what you will see - <a href="http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html,%20DEMO">DEMO</a></p>
+
+<h2>Part 1 - Styling The Form</h2>
+
+<h3>The Setup</h3>
+
+<p>Before we get going, you&#39;ll need to download <a href="http://meyerweb.com/eric/tools/css/reset/reset.css,%20Eric%20Meyer&#x27;s%20CSS%20reset%20file">Eric Meyer&#39;s CSS reset file</a>. Place the file in your project folder and your ready to go...</p>
+
+<p><strong>Creating The HTML Form</strong></p>
+
+<p>We need to create our HTML form. We&#39;re going to have 3 fields; name, email and comment followed by a submit button. This is what the form structure looks like:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div id=&quot;container&quot;&gt;
+    &lt;h1&gt;Drop Us A Note&lt;/h1&gt;
+    &lt;form id=&quot;contact_form&quot;&gt;
+        &lt;input type=&quot;text&quot; id=&quot;name&quot; class=&quot;input-field&quot; name=&quot;name&quot; value=&quot;Name *&quot; /&gt;
+        &lt;input type=&quot;text&quot; id=&quot;email&quot; class=&quot;input-field&quot; name=&quot;email&quot; value=&quot;Email *&quot; /&gt;
+        &lt;textarea id=&quot;comment&quot; class=&quot;input-field&quot; name=&quot;comment&quot;&gt;Comment *&lt;/textarea&gt;
+        &lt;input type=&quot;submit&quot; id=&quot;submit&quot; name=&quot;submit&quot; /&gt;
+    &lt;/form&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>I&#39;ve given each field an id and name associating to that fields purpose, along with a class of input-field which we will reference to later. Also, I&#39;ve set an initial value for each field so the user knows what information is required.</p>
+
+<p><strong>Styling The Form</strong></p>
+
+<p>Next, we need to style our form. First things first, we need to import our CSS files. The reset.css file is used to eradicate cross compatibility issues with browsers by reseting the formatting of all elements, i.e. setting margins and padding to 0. Then we include our <code>styles.css</code> file (your site should already have one of these). Just put this link in the head section of your page, pointing to the correct location of your files:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;link rel=&quot;stylesheet&quot; href=&quot;css/reset.css&quot; type=&quot;text/css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; href=&quot;css/styles.css&quot; type=&quot;text/css&quot; /&gt;
+</code></pre></div>
+<p>So here&#39;s all the styles I used. We&#39;ll go through it below:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">body {
+    background: url(../images/bg.png) repeat;
+    font-family: &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: #666;
+    font-size: 28px;
+    letter-spacing: -2px;
+    text-shadow: 0 0 1px rgba(102,102,102,0.3);
+    margin-bottom: 15px;
+}
+#container {
+    width: 420px;
+    height: 275px;
+    position: absolute;
+    left: 50%;
+    top: 10%;
+    margin-left: -220px;
+}
+#contact_form {
+    padding: 20px 20px 60px 20px;
+    background: #E8EDE8;
+    background: rgba(190,200,190,0.6);
+    border-radius: 10px;
+    border: 10px solid #ddd;
+    border: 10px solid rgba(170,170,170,0.6);
+    box-shadow: 0 0 12px #aaa;
+}
+input, textarea {
+    width: 300px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 14px;
+    display: block;
+    color: #999;
+    background: #ffffff;
+    background: rgba(255,255,255,0.5);
+    font-family:  inherit;
+    font-size: 13px;
+}
+textarea {
+    width: 360px;
+    min-height: 120px;
+    resize: vertical;
+}
+input: focus, textarea: focus {
+    color: #666;
+    outline: none;
+    background: #ffffff;
+    background: rgba(255,255,255,0.7);
+}
+input#submit {
+    width: 120px;
+    float: right;
+}
+input#submit: hover {
+    color: #666;
+    background: #ffffff;
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+}
+</code></pre></div>
+<p>Let&#39;s break this down bit by bit</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">body {
+    background: url(../images/bg.png) repeat;
+    font-family: &quot;Lucida Sans Unicode&quot;, Verdana, Arial, Helvetica, sans-serif;
+}
+h1 {
+    color: #666;
+    font-size: 28px;
+    letter-spacing: -2px;
+    text-shadow: 0 0 1px rgba(102,102,102,0.3);
+    margin-bottom: 15px;
+}
+</code></pre></div>
+<p>These are the styles for the body and all H1 tags. Most of them you should know, but here we encounter our first CSS3 feature, <code>text-shadow</code>. I&#39;m using it for anti-aliasing purposes (read more here).</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">#container {
+    width: 420px;
+    height: 275px;
+    position: absolute;
+    left: 50%;               /* position container half way across screen */
+    top: 10%;
+    margin-left: -220px;     /* move container left by half it&#39;s width */
+}
+</code></pre></div>
+<p>Setting the width and height of the container that houses our form. I am positioning it in the middle of the page (then shifting it back half it&#39;s width) and 10% from the top.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">#contact_form {
+    padding: 20px 20px 60px 20px;
+    background: #E8EDE8;
+    background: rgba(190,200,190,0.6);
+    border-radius: 10px;
+    border: 10px solid #ddd;   /* fallback colour */
+    border: 10px solid rgba(170,170,170,0.6);
+    box-shadow: 0 0 12px #aaa;
+}
+</code></pre></div>
+<p>Set the width and height of the form and apply 20px padding around it. This then creates a 10px border around the form. border-radius is a new CSS3 feature which curves the border at each corner giving a softer and more stylish feel to the form. The final line uses the box-shadow feature which is also new in CSS3. It generates a shadow around the form. So in our case, the shadow is positioned horizontally 0px, vertically 0px and has a blur radius of 12px.</p>
+
+<p>You&#39;ll notice that for both the background and border I&#39;ve used rgba to set the colour instead of using the more conventional hex code. This is a new feature in CSS3, allowing you to change the opacity of a colour easily. I have also provided a fallback colour for older browsers. The reason why I&#39;m reducing the opacity of the background and border is so the texture of the background shows through.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input, textarea {
+    width: 300px;
+    border-radius: 4px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 14px;
+    display: block;
+    color: #999;
+    background: #ffffff;       /* fallback colour */
+    background: rgba(255,255,255,0.5);
+    font-family: &quot;Lucida Sans Unicode&quot;, Verdana, sans-serif;
+    font-size: 13px;
+}
+</code></pre></div>
+<p>Here we set styles for the input and textarea fields. The default border is removed and some styles associated with the text are applied.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">textarea {
+    width: 360px;
+    min-height: 120px;
+    resize: vertical;
+}
+</code></pre></div>
+<p>This extends the width of the textarea, not the other input fields, and sets a minimum height for it. We also tell the browser to only resize the textarea vertically. This allows the user to extend the textarea so they have more space.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input: focus, textarea: focus {
+    color: #666;
+    outline: none;
+    background: #ffffff;      /* fallback colour */
+    background: rgba(255,255,255,0.7);
+}
+input#submit {
+    width: 120px;
+    float: right;
+}
+input#submit: hover {
+    color: #666;
+    background: #ffffff;      /* fallback colour */
+    background: rgba(255,255,255,0.7);
+    cursor: pointer;
+}
+</code></pre></div>
+<p>Here we are styling the input fields and submit button so they give some feedback to the user. This is important to remember, as it gives the user a clear indicated that they can click a button or edit/insert text in a field. The outline is removed (read more here) for all fields and the font colour is set.</p>
+
+<p>The submit button is floated right and a width is set. Also, the background colour is set the become lighter, the cursor is changed to a pointer (the hand) and the font colour becomes darker to make it clear that the button is active and can be pressed.</p>
+
+<p>So that&#39;s it for part 1. This is what it should you should have now - <a href="http://benholland.me/demo/stylish-contact-form/demo-part1.html,%20see%20part%201%20DEMO">see part 1 DEMO</a></p>
+
+<p><a href="http://benholland.me/coding/create-a-stylish-contact-form-part-2/,%20Go%20ahead%20to%20part%202%20of%20this%20tutorial">Go ahead to part 2 of this tutorial</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>5 Useful CSS Tips and Tricks You Might Not Know About</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">5 Useful CSS Tips and Tricks You Might Not Know About</h1>
+    <p class="meta">30 Sep 2011</p>
+
+    <div class="post__body">
+        <p>CSS has been around the web since the start of 1997 and hasn&#39;t stopped growing since, and with the introduced of CSS3 last year, the styling language is making coding websites a lot more efficient. Here are some of my tips and tricks that you might not know about...</p>
+
+<h3>1. Remove outline for WebKit browsers</h3>
+
+<p>Have you been coding a form and noticed that both Safari and Chrome add a blue or yellow border around your input elements? To remove this outline simple add the following code to your stylesheet:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">input[type=&quot;text&quot;]:focus {
+    outline: none;
+}
+</code></pre></div>
+<p>Beware, these outlines are used for accessibility purposes so it is advised that instead of removing the outline, style it differently to suit your needs.</p>
+
+<h3>2. Center a fixed sized element</h3>
+
+<p>I recently used this trick to make sure that a pop up module I created at in the absolute middle of the screen. To do this, the element must have a specific height and width. Then set the position to absolute and set it left 50% and 50% from the top. This positions the element in the middle of the page, but using the top left corner of the element as your center. But we want the center to be the middle of our element. So to fix this, apply a negative margin to the left and at the top of half your width and height. Here&#39;s what the code should look like:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">p {
+    position: absolute;
+    top: 50%; 
+    left: 50%; 
+    width: 500px; 
+    height: 400px;
+    margin-top: -200px;   /* 1/2 of your element height*/
+    margin-left: -250px;  /* 1/2 of your element width */
+}
+</code></pre></div>
+<p>Also note that the parent container of this element should have a position set to relative.</p>
+
+<h3>3. Vertical align text</h3>
+
+<p>Vertically aligning text can be tricky, especially cross browser. So here&#39;s a cheeky solution. Align to text horizontally using <em>text-align:center</em> as you normally would. Now set the <em>line-height</em> of the text to equal the same as the parent container. In this case, the <em>line-height</em> is equal to 100px:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">p {
+    width: 100px;
+    height: 100px;
+}
+
+p {
+    text-align: center;
+    line-height: 100px;
+}
+</code></pre></div>
+<p>This trick works well for vertically aligning words or sentences that fit on one line. When the text flows over multiple lines then it gets more tricky. Also remember to set <em>margin</em> and <em>padding</em> to 0.</p>
+
+<h3>4. Text transform</h3>
+
+<p>On a number of occasions this simple command has slipped my mind and let me to unnecessarily rewrite a lot of content. By using <em>text-transform</em> you can avoid this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">p {
+    text-transform:uppercase; // CAPITALIZES ALL TEXT
+}
+
+div p {
+    text-transform: lowercase;  // sets all text to lower case
+}
+
+div p {
+    text-transform: capitalize;// Capitalizes The First Letter Of Each Word
+}
+</code></pre></div>
+<h3>5. Use Google Fonts API to embed fonts easily</h3>
+
+<p>Google has a growing number of fonts online that you can quite easily embed into your website by adding a simple _link _in the head section of your webpage. Go to <a href="www.google.com/webfonts,%20Google%20Web%20Fonts">Google Web Fonts</a>, choose your font and add the link provided into the head section. The link should look something like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;link href=&quot;http://fonts.googleapis.com/css?family=Spinnaker&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;
+</code></pre></div>
+<p>Then use the name of that font in your stylesheet, targeting it via the <em>font-family</em> command.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">font-family: &#39;Spinnaker&#39;, Arial, serif;   /* Remember to have some fonts to fall back on */
+</code></pre></div>
+<p>And that&#39;s it for now. 5 quick tips and tricks that have made my styling life easier.</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

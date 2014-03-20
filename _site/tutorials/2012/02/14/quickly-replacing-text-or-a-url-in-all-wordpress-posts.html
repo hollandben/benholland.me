@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Quickly Replacing Text or A URL In All WordPress Posts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Quickly Replacing Text or A URL In All WordPress Posts</h1>
+    <p class="meta">14 Feb 2012</p>
+
+    <div class="post__body">
+        <p>I recently moved a WordPress blog from one domain to another without a hitch, well at least I thought. Turned out that a lot of the links within the posts still pointed towards to old domain. This was poor for both site performance and SEO purposes, not forgetting that the domain would soon be cleared leaving the user at a dead end when they clicked the links. So here is a method to replace a series of text or a URL in all your WordPress posts...</p>
+
+<h3>Changing Text or URL in WordPress Content</h3>
+
+<p>The first step is to access your database, whether that be using phpMyAdmin, MySQL Workbench or Sequel Pro. Select the WordPress database you wish to edit and open up a new SQL query window. Then place the code below in and hit GO (obviously replacing the example with your text or URL).</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">UPDATE wp_posts SET post_content = REPLACE(post_content, &#39;http://example.com&#39;, &#39;http://new-example.com&#39;);
+</code></pre></div>
+<p>That should be complete now. Check the links on your website and see them pointing in the right direction.</p>
+
+<p><strong>NOTE:</strong> Be careful when replacing text as any occurrence of this text within any of your posts content will be replaced. Also, it&#39;s a good idea to make a backup of the database before performing this</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How to Setup and Work with Virtual Hosts using WAMP Server</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">How to Setup and Work with Virtual Hosts using WAMP Server</h1>
+    <p class="meta">10 Jan 2013</p>
+
+    <div class="post__body">
+        <p>What you&#39;ll need:</p>
+
+<ul>
+<li>A Windows machine</li>
+<li>A working copy of WAMP server (<a href="/tutorial/setting-up-a-wamp-server-on-windows,%20go%20here%20if%20not">go here if not</a>)</li>
+</ul>
+
+<h3>What is a virtual host?</h3>
+
+<p>The Wikipedia definition is:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Virtual hosting is a method for hosting multiple domain names (with separate handling of each name) on a single server (or pool of servers)
+</code></pre></div>
+<p>In my workflow, I use the prefix &#39;local&#39; to keep my local sites separate from real ones. So for a site called &#39;test-site&#39;, I would create the virtual host &#39;http://local.test-site&#39;. This allows the site to act like it would if I pushed it to a live server.</p>
+
+<h3>Creating a Virtual Host</h3>
+
+<p>We&#39;ll need to modify a few configuration files to do this. So open the WAMP directory and navigate to:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">C:\wamp\bin\apache\apache2.2.22\conf\
+</code></pre></div>
+<p>Open up <code>httpd.conf</code>, scroll to the bottom and uncomment the following line by removing the hash:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Include conf/extra/httpd-vhosts.conf
+</code></pre></div>
+<p>Now navigate to the <code>extra</code> folder and open up <code>httpd-vhosts.conf</code></p>
+
+<p>This file show be pre-populated with some dummy examples for you to use. Feel free to keep them, but I removed them. Add the following to create a new virtual host:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;VirtualHost *:80&gt;
+    DocumentRoot &quot;c:/wamp/www/test-site&quot;
+    ServerName local.test-site
+    &lt;Directory &quot;c:/wamp/www/test-site&quot;&gt;
+      Allow from all
+    &lt;/Directory&gt;
+&lt;/VirtualHost&gt;
+</code></pre></div>
+<p>Here, we are defining a new virtual host with the server name we want to use, the root of our site and the settings for this directory.</p>
+
+<p>Now open up our machine host files, which can be found at <code>C:\Windows\system32\drivers\etc\hosts</code>.</p>
+
+<p>This file keeps your host file entries. Here we tell the machine where to go if we request a certain URL. So here&#39;s an example of routing Google to our local host:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">127.0.0.1       www.google.com
+</code></pre></div>
+<p>Every request made to the url &#39;www.google.com&#39; from this machine will redirect it to the IP 127.0.0.1 (our localhost)</p>
+
+<p>To route to our test site, we create a new host entry:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">127.0.0.1       local.test-site
+</code></pre></div>
+<p>This will redirect any requests to <code>http://local.test-site</code> to our localhost, which will then make the <code>test-site</code> folder our default location.</p>
+
+<p>You will find that there is already an entry for &#39;localhost&#39;. Just add our new entry below this one.</p>
+
+<h3>Summary</h3>
+
+<p>Easy peesy. So whenever you add a new site, create a new virtual host by changing the server name and root location, then add the server name to your host entries.</p>
+
+<p>Our final step is to restart the WAMP server. You can do this by clicking on the WAMP icon in the system tray and hitting &#39;Restart all services&#39;</p>
+
+<p><strong>Note:</strong> All this switching between host files can get annoying, so if you use Sublime Text, here&#39;s a neat tip - LINK</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

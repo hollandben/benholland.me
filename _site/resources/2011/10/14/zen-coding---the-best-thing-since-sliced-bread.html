@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Zen Coding - The Best Thing Since Sliced Bread</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Zen Coding - The Best Thing Since Sliced Bread</h1>
+    <p class="meta">14 Oct 2011</p>
+
+    <div class="post__body">
+        <p>Ever sat there writing line after line of repetitive code, adding new list item after list item and applying a sequential ID to all of these? Wouldn&#39;t it be so much easier if there was a tool that could make this process a thousand time easier. A tool that would change the speed that you could produce quality HTML and CSS code? Well your prayers have been answered with Zen Coding, an amazing plugin for all major editors...Trying to describe how Zen Coding works is hard, so I&#39;m going to show you. Say I wanted to create a large navigation with 8 list items with links inside them. Here&#39;s how I would write this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ul&gt;li*8&gt;a
+</code></pre></div>
+<p>And this is the output:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<p>Incredible right? Now lets say I want to add the same class to each of these item. Here&#39;s how I would write it:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ul&gt;li.item*8&gt;a
+</code></pre></div>
+<p>And this is the output:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ul&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<p>WOW, so easy!! But what if I wanted to add a sequential ID to each item. Well, here&#39;s how I would write it:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ul&gt;li#link$.item*8&gt;a
+</code></pre></div>
+<p>And this is the output:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ul&gt;
+    &lt;li id=&quot;link1&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link2&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link3&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link4&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link5&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link6&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link7&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+    &lt;li id=&quot;link8&quot; class=&quot;item&quot;&gt;&lt;a href=&quot;&quot;&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<p>What&#39;s that sound? Oh that&#39;s right, it&#39;s your mind blowing!! OK let&#39;s get serious here. This is an amazing plugin, one that I have only been using for 2 days and now the thought of writing the above code without Zen Coding&#39;s assistance scares me. And I have only scratched the surface. You can use it for all HTML and CSS code (<a href="http://code.google.com/p/zen-coding/downloads/detail?name=ZenCodingCheatSheet.pdf,%20see%20the%20cheat%20sheet%20here">see the cheat sheet here</a>).</p>
+
+<p>So my advice to you? Go to the <a href="http://code.google.com/p/zen-coding/,%20Zen%20Coding%20project">Zen Coding project</a>, download it and install it for whatever software you use. It fully supports a range of editors such as:</p>
+
+<ul>
+<li>Sublime Text 2</li>
+<li>Aptana/Eclipse</li>
+<li>NetBeans</li>
+<li>Notepad++</li>
+<li>TextMate</li>
+<li>Coda</li>
+<li>Expresso</li>
+<li>Komodo Edit/IDE</li>
+<li>Dreamweaver</li>
+<li>BBEdit/Textwrangler</li>
+<li>Visual Studio</li>
+</ul>
+
+<p><em>EDIT</em>:</p>
+
+<p>Using the wrap around feature, you can turn a plain list of items into HTML code. Here&#39;s how:</p>
+
+<ul>
+<li>Aptana/Eclipse</li>
+<li>NetBeans</li>
+<li>Notepad++</li>
+<li>TextMate</li>
+<li>Coda</li>
+</ul>
+
+<p>Combined with:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">ul#nav&gt;li.item-$*&gt;a
+</code></pre></div>
+<p>Gives us:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;ul id=&quot;nav&quot;&gt;
+    &lt;li class=&quot;item-1&quot;&gt;&lt;a href=&quot;&quot;&gt;Aptana/Eclipse&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item-2&quot;&gt;&lt;a href=&quot;&quot;&gt;NetBeans&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item-3&quot;&gt;&lt;a href=&quot;&quot;&gt;Notepad++&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item-4&quot;&gt;&lt;a href=&quot;&quot;&gt;TextMate&lt;/a&gt;&lt;/li&gt;
+    &lt;li class=&quot;item-5&quot;&gt;&lt;a href=&quot;&quot;&gt;Coda&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre></div>
+<p>Let me know if you&#39;ve found any other cool features...</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

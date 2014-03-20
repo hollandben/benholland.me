@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>5 Quick jQuery Code Snippets</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">5 Quick jQuery Code Snippets</h1>
+    <p class="meta">15 Nov 2011</p>
+
+    <div class="post__body">
+        <p>Here are 5 quick code snippets to help you either improve or learn some jQuery...</p>
+
+<h3>Check If Element Exists</h3>
+
+<p>Simple and quick method of checking if an element exists</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).ready(function(){
+    if($(element).length){
+        // Do something
+    } else {
+        // Do something else
+    }
+});
+</code></pre></div>
+<h3>Check If Element Is Visible</h3>
+
+<p>Another quick method of checking if an element is currently visiable</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).ready(function(){
+    if($(element).length){
+        // Do something
+    } else {
+        // Do something else
+    }
+});
+</code></pre></div>
+<h3>Get Mouse Position</h3>
+
+<p>Finds the mouse position and outputs it to the console</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Get Mouse Position
+$(document).ready(function(){
+    $(window).mousemove(function(e){
+        var mouseX = e.pageX;
+        var mouseY = e.pageY;
+
+        console.log(&quot;(&quot;+mouseX+&quot;,&quot;+mouseY+&quot;)&quot;);
+    });
+});
+</code></pre></div>
+<h3>Disable Right Click Menu</h3>
+
+<p>Disables the right-click menu, useful if you don&#39;t want people to easily save your precise images</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Disable Right Click Menu
+$(document).ready(function(){
+    $(document).bind(&quot;contextmenu&quot;, function(e){
+        return false;
+    });
+});
+</code></pre></div>
+<h3>Prevent Default Action</h3>
+
+<p>Stops the default action (e.g. stops href=&quot;#&quot; jumping to the top of the page). Also, &quot;return: false&quot; can be used, but &quot;preventDefault&quot; is a better method</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Prevent default action
+$(document).ready(function(){
+    $(element).click(function(e){
+        e.preventDefault();
+    }):
+});
+</code></pre></div>
+<p>There you are!! 5 quick and easy snippets of code</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Turn Off Trackbacks For All WordPress Posts and Pages</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Turn Off Trackbacks For All WordPress Posts and Pages</h1>
+    <p class="meta">27 Feb 2012</p>
+
+    <div class="post__body">
+        <p>Recently I&#39;ve been getting a tonne of spammy trackbacks on this blog, resulting in very annoying emails and constantly logging in to tell WordPress it&#39;s a spam comment. If you don&#39;t how to disable these, then simply go to Settings &gt; Discussion and untick the option &quot;Allow link notifications from other blogs (pingbacks and trackbacks)&quot;. This will set the ping status of all future posts to false, preventing any trackbacks for those posts. But if you&#39;re like me and didn&#39;t select this setting (or it wasn&#39;t turned on during migration) you&#39;ll need to set the ping status of all the posts to false. Here&#39;s how...</p>
+
+<p>So you&#39;ll need access to you&#39;re database to carry this out. If you don&#39;t have many posts then it&#39;s probably easier to uncheck the ping status in the Quick Edit menu of each post. But if your like me and have a lot of posts, you can use this SQL statment to turn it off for all posts and pages.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">UPDATE wp_posts SET ping_status=&#39;closed&#39; WHERE post_status = &#39;publish&#39; AND post_type = &#39;post&#39;;
+UPDATE wp_posts SET ping_status=&#39;closed&#39; WHERE post_status = &#39;publish&#39; AND post_type = &#39;page&#39;;
+</code></pre></div>
+<p>Copy these lines into the query window of your application and it&#39;s all done. I found this very useful so hopefully someone else will!!</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

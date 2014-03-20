@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Using jQuery .on() and .off() in jQuery 1.7</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Using jQuery .on() and .off() in jQuery 1.7</h1>
+    <p class="meta">10 Feb 2012</p>
+
+    <div class="post__body">
+        <p>jQuery 1.7 was released back in November 2011 and contained a series of changes. One of those was the introduction of .on() and .off(). The purpose - to unify all types of event handling in jQuery and make code more efficient. Here&#39;s the changes and how to use the new handlers...</p>
+
+<h3>Changes to .bind()</h3>
+
+<p>Nothing much changes here. Simple replace .bind() with .on() and you&#39;re sorted.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;div a&#39;).bind(&#39;click&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+
+// new way
+$(&#39;div a&#39;).on(&#39;click&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+</code></pre></div>
+<h3>Changes to .live()</h3>
+
+<p>jQuery&#39;s .live() was used to attach handlers to elements there were dynamically generated. It has been depreciated in jQuery 1.7 and replaced with .on(). These are the changes.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;div a&#39;).live(&#39;click&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+
+// new way
+$(&#39;div&#39;).on(&#39;click&#39;, &#39;a&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+</code></pre></div>
+<h3>Changes to .delegate()</h3>
+
+<p>The changes to .delegate() are similar to .bind(), except the selector and event have swapped places.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;div&#39;).delegate(&#39;a&#39;, &#39;click&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+
+// new way
+$(&#39;div&#39;).on(&#39;click&#39;, &#39;a&#39;, function(event) {
+    console.log(&#39;clicked&#39;);
+});
+</code></pre></div>
+<h3>Changes to .unbind()</h3>
+
+<p>Nothing much changes here either. Simple replace .unbind() with .off() and you&#39;re sorted.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;#container a&#39;).unbind(&#39;click&#39;);
+
+// new way
+$(&#39;div a&#39;).off(&#39;click&#39;);
+</code></pre></div>
+<p>Or to unbind a specific handler, use:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;div a&#39;).off(&#39;click&#39;, clickHandler);
+</code></pre></div>
+<h3>Changes to .die()</h3>
+
+<p>The same as .live() but using .die().</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;div a&#39;).die(&#39;click&#39;);
+
+// new way
+$(&#39;div&#39;).off(&#39;click&#39;, &#39;a&#39;);
+</code></pre></div>
+<h3>Changes to .undelegate()</h3>
+
+<p>Just the same as .delegate(), the selector and event have swapped places.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// old way
+$(&#39;div a&#39;).undelegate(&#39;a&#39;, &#39;click&#39;);
+
+// new way
+$(&#39;div a&#39;).off(&#39;click&#39;, &#39;a&#39;);
+</code></pre></div>
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

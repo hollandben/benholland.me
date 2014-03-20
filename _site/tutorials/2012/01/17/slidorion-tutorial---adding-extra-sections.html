@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Slidorion Tutorial - Adding Extra Sections</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Slidorion Tutorial - Adding Extra Sections</h1>
+    <p class="meta">17 Jan 2012</p>
+
+    <div class="post__body">
+        <p>I&#39;ve had quite a few questions recently asking how to increase the number of sections displayed in Slidorion. If you are having trouble with this, then here&#39;s a quick and easy tutorial showing how to do this. Let&#39;s get started...</p>
+
+<p>Firstly you&#39;ll need to download <a href="http://www.slidorion.com,%20Slidorion">Slidorion</a>. Extract the zip file and open up the &quot;demo.html&quot; file inside of the demo folder. We use this as it&#39;s the most basic example.</p>
+
+<h3>Adding The New Elements</h3>
+
+<p>What we&#39;re trying to do here is increase the number of accordion sections and slider panels from 3 to 4.</p>
+
+<p><strong>Note:</strong> if the nummber of accordion sections doesn&#39;t equal the number of slider sections, the plugin will fail!!</p>
+
+<p>We need to add some new code to our file. Here&#39;s a few lines of code we need to add, you can re-write it yourself or just copy the element above it:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div id=&quot;slide4&quot; class=&quot;slide&quot;&gt;
+    ![](../img/thor.jpg)
+&lt;/div&gt;
+</code></pre></div>
+<p>We add that code after all our other slider panels.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div class=&quot;link-header&quot;&gt;New Accordion Panel&lt;/div&gt;
+&lt;div class=&quot;link-content&quot;&gt;
+    &lt;p&gt;
+        &lt;strong&gt;Thor&lt;/strong&gt; was a movie about a man with a hammer. He was pretty cool and beat a lot of people up, mostly dude&#39;s made of ice.
+    &lt;/p&gt;
+    &lt;p&gt;He&#39;s pretty badass so don&#39;t mess with him&lt;/p&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>Here we are adding another accordion section, adding some new text. If we preview the changes we&#39;ve made, they won&#39;t be visible. This is because the height of each accordion section is fixed depending on the height of your Slidorion.</p>
+
+<p>To ammed this, we need to open the Slidorion CSS file. This is in the CSS folder in the zip file and is called &quot;slidorion.css&quot;. This next part takes some trial and error. (Alternative you can use <a href="http://benholland.me//tutorials/chrome-developer-tools-change-the-element-state/,%20Google%20Developer%20Tools">Google Developer Tools</a> or Firebug to change the height on the page dynamically, so you get the correct height straight away).</p>
+
+<p>In our CSS file, scroll to the bottom where you&#39;ll find the element <code>#accordion &gt; .link-content</code>. Inside this CSS rule is a height attribute (this will be commented). Simple change the height of this so that all your accordion tabs can now be seen. For this demo, a height of 221px will fit perfectly.</p>
+
+<p>And there you have it. That is how to change the number of tabs shown within <a href="http://slidorion.com,%20Slidorion">Slidorion</a>. Enjoy!!</p>
+
+<p>Feel free to leave your thoughts below and let me know if you need any further help.</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

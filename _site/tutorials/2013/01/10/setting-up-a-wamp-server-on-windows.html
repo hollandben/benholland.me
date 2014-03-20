@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Setting Up a WAMP Server on Windows</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Setting Up a WAMP Server on Windows</h1>
+    <p class="meta">10 Jan 2013</p>
+
+    <div class="post__body">
+        <p>What you&#39;ll need:</p>
+
+<ul>
+<li>A Windows machine</li>
+</ul>
+
+<h3>What is a WAMP server?</h3>
+
+<p>WAMP stands for Windows, Apache, MySQL and PHP and is a set of applications allowing a web server to run locally on a Windows machine. This makes build websites with server side content (PHP in our case) super easy.</p>
+
+<p>This post, along with some others, is a guide to setting up a Linux server on your machine...</p>
+
+<h3>Installing WAMP</h3>
+
+<p>Firstly, we need to grab a copy of WAMP. Head over to the <a href="http://www.wampserver.com/en/,%20WampServer%20website">WampServer website</a>, click the &quot;start using WampServer&quot; and download the correct version for you, depending on whether you&#39;re running a 32 or 64 bit version of Windows. (to see your version, right-click on &#39;My Computer&#39; and find &#39;System Type&#39;). I normally select &#39;WampServer (64 bits &amp; PHP 5.4) 2.2E.</p>
+
+<p><img src="/assets/2013/01/wampserver-download.jpg" alt=""></p>
+
+<p>Install the program, leaving all settings as default.</p>
+
+<p>When the install is finished, launch <a href="http://localhost,%20http://localhost">http://localhost</a> in your browser. You may be greeted by a pleasant message saying &quot;Forbidden - You don&#39;t have permission to access / on this server&quot;. Let&#39;s fix this.</p>
+
+<p>By default, the server we created will deny all incoming connections, so we need to change this. Click on the WAMP icon in the system tray, hover over <code>Apache</code> then click <code>httpd.conf</code>. Open this file and search for:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;Directory &quot;c:/wamp/www/&quot;&gt;
+</code></pre></div>
+<p>Change this to <code>Allow from all</code>.</p>
+
+<p>Now, when you go to <a href="http://localhost,%20http://localhost">http://localhost</a>, you should see the WAMP homepage!</p>
+
+<p><img src="/assets/2013/01/wampserver-localhost-homepage.jpg" alt=""></p>
+
+<h3>Creating A Site</h3>
+
+<p>Open the WAMP directory again, and go to <code>www</code> folder. This is the where all your sites are going to be kept.</p>
+
+<p>You should already see a <code>index.php</code> file in here. Open that within your text editor, add some text, save and close. Now head back to your browser and refresh the page to see the change.</p>
+
+<p>Create a new folder called <code>test-site</code> and within this copy the <code>index.php</code> file, delete everything in it and add some markup:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;h1&gt;Welcome to Test-Site&lt;/h1&gt;
+</code></pre></div>
+<p>Now go to <code>http://localhost/test-site</code> in your browser. As you can see, we have created a new website on our local server.</p>
+
+<p><strong>Note:</strong> If you are currently using Dropbox to sync projects across multiple machines, you can change the location of your Dropbox folder to the <code>www</code> folder. This will allow all your environments to sync automatically. (I have this setup on my work/home PC and laptop).</p>
+
+<h3>Summary</h3>
+
+<p>Stopping here is fine. You can work using this directory format, but things can get tricky with larger sites when it comes to htaccess and image/file paths (they did for me). So to combat this we create &#39;virtual hosts&#39;. They allow you to point a custom URL to a certain project folder, i.e. <code>http://local.test-site</code> redirects to our test-site folder.</p>
+
+<p>To read more about this, checkout this post on &quot;<a href="#,%20How%20to%20Setup%20and%20Work%20with%20Virtual%20Hosts%20using%20WAMP%20Server">How to Setup and Work with Virtual Hosts using WAMP Server</a>&quot;</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

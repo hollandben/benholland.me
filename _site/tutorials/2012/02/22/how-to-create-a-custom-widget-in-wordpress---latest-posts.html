@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How To Create A Custom Widget in WordPress - Latest Posts</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">How To Create A Custom Widget in WordPress - Latest Posts</h1>
+    <p class="meta">22 Feb 2012</p>
+
+    <div class="post__body">
+        <p>When I login to this or any other WordPress blog, I am always greeted with the same boring and useless widgets. Ok some aren&#39;t useless. Recent drafts and recent comments are useful and at a push the &#39;Right Now&#39; widget, but that is rarely used. So I asked myself, what would I like on the homepage? Well I find myself from time to time having to go back into the admin area to amend a spelling mistake that I missed before publishing a post. So creating a &quot;Latest Posts&quot; widget that displays the most current posts would be a good place to start. Adding widgets in WordPress is really simple. Here&#39;s how...</p>
+
+<h3>Adding Our Widget</h3>
+
+<p>Something I never realised when I started working with WordPress (just like Neo in The Matrix) is the functions.php file in your theme&#39;s folder extends into the admin side of the site. This makes it so easy to add or edit things without touching the core code. So locate your functions.php file (if you don&#39;t have one, create one in your theme folder). Add the following code to the file:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Create your hook
+function latestPostsWidget() {
+    wp_add_dashboard_widget(&#39;latest-posts&#39;, &#39;Latest Posts&#39;, &#39;lastestDashboardPosts&#39;);
+}
+
+// hook your widget
+add_action(&#39;wp_dashboard_setup&#39;, &#39;latestPostsWidget&#39; );
+</code></pre></div>
+<p>We are creating our hook and adding this hook to the action &#39;wp<em>dashboard</em>setup&#39;. So when the dashboard loads, our function &#39;latestPostsWidget&#39; runs. We then add our widget the dashboard. The first parameter is the widgets ID, the second is the name that will be displayed in the widgets handle and the last is the content. We are calling another function which will load in the latest posts. This function looks like this:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// What your Widget Does
+function lastestDashboardPosts() {
+    $content = &#39;&lt;table&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Author&lt;/th&gt;&lt;th&gt;Date&lt;/th&gt;&lt;/thead&gt;&lt;/tr&gt;&#39;;
+    $args = array(&#39;numberposts&#39;=&gt;4, &#39;orderby&#39;=&gt;&#39;post_date&#39;);
+    $posts = get_posts($args);
+    foreach($posts as $post):setup_postdata($post);
+        $content .= &#39;&lt;tr&gt;
+            &lt;td&gt;&#39;.$post-&gt;post_title.&#39;&lt;/td&gt;
+            &lt;td&gt;&#39;.get_the_author($post-&gt;post_author).&#39;&lt;/td&gt;
+            &lt;td&gt;&#39;.date(&#39;d/m/Y&#39;, strtotime($post-&gt;post_date_gmt)).&#39;&lt;/td&gt;
+        &lt;/tr&gt;&#39;;
+    endforeach;
+    $content .= &#39;&lt;/table&gt;&#39;;
+    echo $content;
+}
+</code></pre></div>
+<p>What we want this function to do is create a table of the last 5 posts and display it inside out widget. The function starts by creating a string called &#39;content&#39;. This will house everything we are outputting. The first set of HTML are the headings for each column. I&#39;ve chosen &#39;Title&#39;, &#39;Author&#39; and &#39;Date&#39;.</p>
+
+<p>Now we need to query the database for our most recent 4 posts. Create some arguments in the &#39;args&#39; array like I have done. If you want to display something different the 4 posts, then change the number to the desire number of posts. You can read more on how to get posts here.</p>
+
+<p>We then request the data and loop through each set of results. Within this loop, we are adding some more code to our $content string. So we start by adding a new row, and then the post title, the author and finally the date it was published. The code at the end simply ends the foreach loop, adds the closing table tag to our string and echos $content so it can be displayed as our widget.</p>
+
+<p>If you&#39;ve done that all correctly then the widget should look something like this...
+<img src="/assets/2012/02/latest-posts.jpg" alt=""></p>
+
+<h3>Finishing Touches</h3>
+
+<p>So the widget displays our latest posts, but they aren&#39;t currently linked to each post. So we need add a bit to our code so that the post title is linked with the desired target. This is the amended code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">foreach($posts as $post):setup_postdata($post);
+    $content .= &#39;&lt;tr&gt;
+        &lt;td&gt;&lt;strong&gt;[ID.&#39;&amp;action=edit&quot; title=&quot;Edit &quot;&#39;.$post-&gt;post_title.&#39;&quot;&quot;&gt;&#39;.$post-&gt;post_title.&#39;](&#39;.get_bloginfo(, ID.&#39;&amp;action=edit&quot; title=&quot;Edit &quot;&#39;.$post-&gt;post_title.&#39;&quot;&quot;&gt;&#39;.$post-&gt;post_title.&#39;)&lt;/strong&gt;&lt;/td&gt;
+        &lt;td&gt;&#39;.get_the_author($post-&gt;post_author).&#39;&lt;/td&gt;
+        &lt;td&gt;&#39;.date(&#39;d/m/Y&#39;, strtotime($post-&gt;post_date_gmt)).&#39;&lt;/td&gt;
+     &lt;/tr&gt;&#39;;
+  endforeach;
+</code></pre></div>
+<p>Also, we need to style the widget. There are various ways to do this. You can either add the styles to the admin CSS file somewhere in the wp-admin folder. Or you can install the plugin WP Admin Theme. This is a plugin that adds an option to the settings menu and allows you to write some additional styles for the admin section without having to edit any of the core files. Whichever method you used, these are the styles I applied:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">#latest-posts table {
+    border-collapse: collapse;
+    width: 100%;
+}
+#latest-posts thead {
+    text-align: left;
+    border-collapse: collapse;
+}
+#latest-posts thead, #latest-posts thead .headers, #latest-posts thead .headers th {
+    padding: 3px 22px 3px 3px;
+    border-bottom: 1px solid #D0DFE9;
+    border-collapse: collapse;
+}
+#latest-posts table td {
+    padding: 10px 22px 10px 3px;
+    border-bottom: 1px solid #dadada;
+    border-collapse: collapse;
+    color: #21759B;
+}
+#latest-posts table td:last-child {
+    color: #666;
+}
+</code></pre></div>
+<p>And that&#39;s it done!! You should now have a fully functional widget. This process can be copied to create any kind of widget you need really. Feel free the comment with any other suggestions, I&#39;d love to hear them!!</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

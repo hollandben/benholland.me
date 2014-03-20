@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Create A Stylish Contact Form - Part 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Create A Stylish Contact Form - Part 2</h1>
+    <p class="meta">28 Oct 2011</p>
+
+    <div class="post__body">
+        <p>Welcome to part 2 of this 3 part tutorial on creating a stylish contact form. In this section, we&#39;ll be adding some functionality using jQuery, a JavaScript library. When I say functionality, I mean adding some extra features which will improve usability and also validating our form, itself from accidently submissions and mistakes.</p>
+
+<p>This is what we&#39;ll be making in this tutorial - <a href="http://benholland.me/demo/stylish-contact-form/demo-part2.html,%20DEMO">DEMO</a>.</p>
+
+<p>When you&#39;ve completed all three parts of the tutorial, this is what you will see - <a href="http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html,%20DEMO">DEMO</a></p>
+
+<h2>Part 2 - Adding Functionality with jQuery</h2>
+
+<h3>The Setup</h3>
+
+<p>As with before, we need to download a file. This is going to be the jQuery source code, which can be found here. When that&#39;s done, we can get going...</p>
+
+<h3>Setting Up jQuery</h3>
+
+<p>As with our CSS files, we need import the jQuery file so we can use it. Put this link in the head section of your page, pointing to the correct location of the file:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<h3>Giving The User Some Feedback</h3>
+
+<p>You&#39;ll notice that in our form that when a text field is selected, the initial value is still there forcing the user to delete it themselves. Because we&#39;re such kind people, we&#39;re going to do this form them using some jQuery. Here&#39;s the code we&#39;ll be using. Place this between two:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script type=&quot;text/javascript&quot;&gt;
+$(&#39;input#name, input#email, textarea#comment&#39;).each(function() {
+    var default_value = this.value;
+    $(this).focus(function() {
+        $(&#39;.error&#39;).hide();
+        if(this.value == default_value) {
+            this.value = &#39;&#39;;
+        }
+    });
+    $(this).blur(function() {
+        if(this.value == &#39;&#39;) {
+            this.value = default_value;
+            $(this).css({&#39;background-color&#39;:&#39;&#39;, &#39;color&#39;:&#39;&#39;});
+        } else {
+            $(this).css({&#39;background-color&#39;:&#39;rgba(255,255,255,0.7)&#39;, &#39;color&#39;:&#39;#666&#39;});
+        }
+    });
+});
+&lt;/script&gt;
+</code></pre></div>
+<p>Ok, so if you&#39;re not similar with jQuery, this is probably going to scare the bejesus out of you. But don&#39;t fear, I shall explain:</p>
+
+<p>First of all, we place all our jQuery between two script tags:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script type=&quot;text/javascript&quot;&gt;
+// code goes here
+&lt;/script&gt;
+</code></pre></div>
+<p>Then were telling the browser to run all the code when the browser loads. That&#39;s this line:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).ready(function(){
+</code></pre></div>
+<p>This line targets the fields we want to change when they are focused on. In our case, the name, email and comment fields:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;input#name, input#email, textarea#comment&#39;).each(function() {
+</code></pre></div>
+<p>The next line assigns the default value, i.e <code>name</code> or <code>email</code>, to a variable for future use:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var default_value = this.value;
+</code></pre></div>
+<p>Next, we are going to set a function where, when the user clicks (or focuses) on it, the text changes or stays the same depending on it&#39;s value. This is done by checking if the current value is equal to the default value earlier. So if the current value is still &quot;email” then it&#39;s removed and replaced with an empty field:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(this).focus(function() {
+    $(&#39;.error&#39;).hide();                   /* we&#39;ll get to this later */
+    if(this.value == default_value) {
+        this.value = &#39;&#39;;
+    }
+});
+</code></pre></div>
+<p>So that clears the input field if it&#39;s still it&#39;s default value. Now we check to see if the user has enter something. If they leave the field empty, it&#39;s replaced with the default value, but if it&#39;s been changed then we leave it alone. We detect when a user leaves a field by using the blur function. But if the user has entered something different, then the field remains a lighter colour with darker text (the same as when focused on), indicating that details have been entered. If the field is then emptied, the background and font colour resets itself to it&#39;s original setting:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(this).blur(function() {
+    if(this.value == &#39;&#39;) {
+        this.value = default_value;
+        $(this).css({&#39;background-color&#39;:&#39;&#39;, &#39;color&#39;:&#39;&#39;});
+    } else {
+        $(this).css({&#39;background-color&#39;:&#39;rgba(255,255,255,0.7)&#39;, &#39;color&#39;:&#39;#666&#39;});
+    }
+});
+</code></pre></div>
+<p>So that&#39;s that done. Not too hard in the end and it looks really slick. Now on to validation.</p>
+
+<h3>Validating Our Form</h3>
+
+<p>There are lots of validation plugins out there that your might want to experiment with, but I&#39;m going to be making our own. Validation is vital when user&#39;s are required to enter data, whether it be a contact form or a login page. We don&#39;t want the user to accidently forget to fill in an important field, such as their email, so we are going to validate the form before it gets sent and let the user know if they&#39;ve missed anything.</p>
+
+<p>Firstly, we need to add some extra HTML and CSS. Add these two div tags to our contact form just above the submit button:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div class=&quot;success&quot;&gt;Thank you for your message!&lt;/div&gt;
+&lt;div class=&quot;error&quot;&gt;&lt;/div&gt;
+</code></pre></div>
+<p>And add this to your CSS:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.success, .error {
+    width:210px;
+    height:33px;
+    line-height:33px;
+    font-size:12px;
+    float:left;
+}
+.success {
+    color: green;
+}
+.error {
+    color: red;
+}
+</code></pre></div>
+<p>Ok so what we&#39;ve done here is add two div tags that will show our success and error messages along with the styles for them. Now let&#39;s move on to the jQuery code...</p>
+
+<p>The code for this section is:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;.success, .error&#39;).hide();
+$(&#39;#contact_form&#39;).submit(function(){
+    var errors = 0;
+    $(&#39;.error&#39;).hide();
+    $(&#39;input#name, input#email, textarea#comment&#39;).each(function() {
+        var value = this.value.toLowerCase();
+        var name = this.name.toLowerCase();
+        if(name == &quot;email&quot;) {
+        email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+            if(!email_regex.test(value)){
+                $(&#39;.error&#39;).text(&quot;Enter a valid email address&quot;).fadeIn();
+                errors++;
+            }
+        }
+        switch(value){
+            case &#39;name *&#39;:
+                $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+                errors++;
+                break;
+            case &#39;email *&#39;:
+                $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+                errors++;
+                break;
+            case &#39;comment *&#39;:
+                $(&#39;.error&#39;).text(&quot;Come on, Jamaica... say something!&quot;).fadeIn();
+                errors++;
+                break;
+        }
+    });
+    if(errors == 0){
+        $(&#39;.success&#39;).fadeIn();
+    }
+    return false;
+});
+</code></pre></div>
+<p>Again, that looks reasonably complex and contains letters and symbols that make no sense at all. But its all good, we&#39;ll dissect each bit of the code and explain what it&#39;s doing.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(&#39;.success, .error&#39;).hide();
+$(&#39;#contact_form&#39;).submit(function(){
+</code></pre></div>
+<p>Here we&#39;re hiding the success and error div tags we just inserted into the text so that the user doesn&#39;t see them. Then we&#39;re using the submit function the listen for when the form is submitted.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var errors = 0;
+$(&#39;.error&#39;).hide();
+$(&#39;#contact_form .input-field&#39;).each(function() {
+    var value = this.value.toLowerCase();
+    var name = this.name.toLowerCase();
+</code></pre></div>
+<p>We then initialise a new variable errors so we can keep count of the errors, then we hide all the error messages again. This is for when the user has entered invalid data and we need to clear the error messages. Then we start to loop through each element with the class input-field, assigning that value and name to their own variables, just like we did earlier.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if(name == &quot;email&quot;) {
+    email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+    if(!email_regex.test(value)){
+        $(&#39;.error&#39;).text(&quot;Enter a valid email address&quot;).fadeIn();
+        errors++;
+    }
+}
+</code></pre></div>
+<p>Now for the cool stuff. This section of code is checking that the email provided is actually an email. We do this using regular expressions (read more), which checks the structure of the email address, checking for things such as the ‘@&#39; symbol and the address ending in <code>.com</code> or <code>.co.uk</code>. If this regular expression check fails, we set the text of the error div and then fade it in.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">switch(value){
+    case &#39;name *&#39;:
+        $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+        break;
+    case &#39;email *&#39;:
+        $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+        break;
+    case &#39;comment *&#39;:
+        $(&#39;.error&#39;).text(&quot;Come on, Jamaica... say something!&quot;).fadeIn();
+        break;
+}
+</code></pre></div>
+<p>Here we are using a switch statement to check the value of the field. So if the user didn&#39;t enter a name, the value is still &quot;Name *”  and our error div is updated with the error message and then faded in. This is the same for email and comment. You can customise these names depending on what you called your input fields earlier.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">if(errors == 0){
+    $(&#39;.success&#39;).fadeIn();
+}
+return false;
+</code></pre></div>
+<p>The last few lines check if there are any errors using our errors variable. If there are no errors then we fade in our success message. The last line is here to prevent the form from being submitted, overriding it&#39;s default action. We don&#39;t want to submit the form just yet, that comes in part 3.</p>
+
+<p>And that&#39;s all for part 2. Here is the full jQuery code that we learnt today:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script src=&quot;js/jquery.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+$(document).ready(function()M{
+    $(&#39;input#name, input#email, textarea#comment&#39;).each(function() {
+        var default_value = this.value;
+            $(this).focus(function() {
+                $(&#39;.error&#39;).hide();
+                if(this.value == default_value) {
+                    this.value = &#39;&#39;;
+                }
+            });
+            $(this).blur(function() {
+            if(this.value == &#39;&#39;) {
+                this.value = default_value;
+                $(this).css({&#39;background-color&#39;:&#39;&#39;, &#39;color&#39;:&#39;&#39;});
+            } else {
+                $(this).css({&#39;background-color&#39;:&#39;rgba(255,255,255,0.7)&#39;, &#39;color&#39;:&#39;#666&#39;});
+            }
+        });
+    });
+
+    $(&#39;.success, .error&#39;).hide();
+    $(&#39;#contact_form&#39;).submit(function(){
+        var errors = 0;
+        $(&#39;.error&#39;).hide();
+        $(&#39;#contact_form .input-field&#39;).each(function() {
+            var value = this.value.toLowerCase();
+            var name = this.name.toLowerCase();
+            if(name == &quot;email&quot;) {
+                email_regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                if(!email_regex.test(value)){
+                    $(&#39;.error&#39;).text(&quot;Enter a valid email address&quot;).fadeIn();
+                    errors++;
+                }
+            }
+            switch(value){
+                case &#39;name *&#39;:
+                    $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+                    errors++;
+                    break;
+                case &#39;email *&#39;:
+                    $(&#39;.error&#39;).text(&quot;Please enter you&#39;re &quot;+name).fadeIn();
+                    errors++;
+                    break;
+                case &#39;comment *&#39;:
+                    $(&#39;.error&#39;).text(&quot;Come on, Jamaica... say something!&quot;).fadeIn();
+                    errors++;
+                    break;
+            }
+        });
+        if(errors == 0){
+            $(&#39;.success&#39;).fadeIn();
+        }
+        return false;
+    });
+});
+&lt;/script&gt;
+</code></pre></div>
+<p>This is what it should you should have now - <a href="http://benholland.me/demo/stylish-contact-form/demo-part2.html,%20see%20part%202%20DEMO">see part 2 DEMO</a></p>
+
+<p><a href="http://benholland.me/news/create-a-stylish-contact-form-part-3/,%20Go%20ahead%20to%20part%203%20of%20this%20tutorial">Go ahead to part 3 of this tutorial</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

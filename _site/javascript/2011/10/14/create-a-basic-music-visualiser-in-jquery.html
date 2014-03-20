@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Create a Basic Music Visualiser in jQuery</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Create a Basic Music Visualiser in jQuery</h1>
+    <p class="meta">14 Oct 2011</p>
+
+    <div class="post__body">
+        <p>In this tutorial, I&#39;m going to show you how to create a basic music visualiser in jQuery. Although the visualiser won&#39;t be working in sync with any music, it&#39;s a great animation to put on your site and you can learn some cool stuff about jQuery. Let&#39;s start...</p>
+
+<p><a href="http://benholland.me/demo/visualiser/visualiser.html,%20See%20demo">See demo</a></p>
+
+<p><a href="http://benholland.me/demo/visualiser/visualiser-style.html,%20See%20advance%20demo%20(view%20in%20Chrome%20+%20FireFox">See advance demo (view in Chrome + FireFox)</a>)</p>
+
+<h3>The Setup</h3>
+
+<p>We start by importing jQuery into our page along with a CSS reset file (this isn&#39;t necessary but is recommended) and lay the framework for our visualiser. This is pretty simple, a <code>&lt;div&gt;</code> containing several elements that will be our bars.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Music Visualiser&lt;/title&gt;
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;reset.css&quot; /&gt;
+        &lt;script src=&quot;http://code.jquery.com/jquery-1.6.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;visualiser&quot;&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<h3>Adding Styles</h3>
+
+<p>Next we add some styles to our bars.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.visualiser {
+    line-height: 200px;
+}
+.bar {
+    width: 30px;
+    height: 200px;
+    margin-right: -2px;
+    background-color: #2989d8;
+    vertical-align: bottom;
+}
+</code></pre></div>
+<p>First, we set the <code>line-height</code> of the <code>visualiser</code> container. This is the same as giving it a height, but we use <code>line-height</code> so that this height will stay constant else the bars will shift up as they change height. Next, we set the <code>width</code> and <code>height</code> of the bars. Bare in mind that the height of the bars should not exceed the <code>line-height</code> previously set. We then set the <code>margin-right</code> to -2 pixels so that the bars are closer together, give it a background and set the <code>vertical alignment</code> to bottom. This is important because it will change the height of the bars from the bottom up, which is what we want.</p>
+
+<h3>Adding jQuery</h3>
+
+<p>Now we&#39;re ready to start animating our bars. We&#39;re going to do this by generating a random height of each bar every time we loop through the function.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function genHeight(bar) {
+    var minHeight = 20;
+    var maxHeight = 150;
+    var barHeight = Math.ceil((Math.random() * maxHeight) + minHeight);
+    var time = barHeight * 5;
+    bar.animate({
+        height: barHeight
+    }, time, function() {
+        genHeight($(this));
+    });
+}
+$(document).ready(function() {
+    $(&quot;.bar&quot;).each(function(i) {
+    genHeight($(this));
+});
+});
+</code></pre></div>
+<p>Let&#39;s break this code down:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var minHeight = 20;     // Ranges from 0 to maxHeight
+var maxHeight = 150;    // Ranges from minHeight to height of bars
+</code></pre></div>
+<p>First we set the minimum and maximum height of the bar. The <code>minHeight</code> must be greater than 0 and no larger than the <code>maxHeight</code>. The <code>maxHeight</code> must be greater than the <code>minHeight</code> but not exceed the height we set in our CSS earlier.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var barHeight = Math.ceil((Math.random()*maxHeight)+minHeight);
+</code></pre></div>
+<p>This line generates a random height based upon our <code>minHeight</code> and <code>maxHeight</code>. Lets work inside to out starting with <code>Math.random.</code> This generates a random number which is then multiplied by our <code>maxHeight.</code> In my case, it would be <code>Math.random()*150</code>. We then add the <code>minHeight</code> to this number and use the function <code>Math.ceil</code> to round this number up.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var time = barHeight * 5;
+</code></pre></div>
+<p>We randomly generate the time of the animation using the height of the bar. To make the animation of each bar shorter, lower the number and vice versa.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">bar.animate({
+    height: barHeight
+}, time, function() {
+    genHeight($(this));
+});
+</code></pre></div>
+<p>Here we animate the bar by using the .animate() feature of jQuery (<a href="http://api.jquery.com/animate/,%20read%20more%20here">read more here</a>). We set the new height of the bar using barHeight and tell it the time for the animation using the variable time. Then we call the same function again when the animation is complete, creating an infinite loop.</p>
+
+<p>This code kick starts the animation when the page has loaded.</p>
+
+<p>Here is the full code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Music Visualiser&lt;/title&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;reset.css&quot; /&gt;
+    &lt;script src=&quot;http://code.jquery.com/jquery-1.6.4.min.js&quot;&gt;&lt;/script&gt;
+    &lt;script&gt;
+        function genHeight(bar) {
+            var minHeight = 20;
+            var maxHeight = 150;
+            var barHeight = Math.ceil((Math.random()*maxHeight)+minHeight);
+            var time = barHeight * 5;
+            bar.animate({
+                height: barHeight
+            }, time, function() {
+                genHeight($(this));
+            });
+        }
+        $(document).ready(function(){
+            $(&quot;.bar&quot;).each(function(i) {
+                genHeight($(this));
+            });
+        });
+    &lt;/script&gt;
+        &lt;style&gt;
+        .visualiser {
+            line-height: 200px;
+        }
+        .bar {
+            width: 30px;
+            height: 200px;
+            margin-right: -2px;
+            background-color: #2989d8;
+            vertical-align: bottom;
+        }
+        &lt;/style&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;div class=&quot;visualiser&quot;&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+            &lt;span class=&quot;bar&quot;&gt;&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+</code></pre></div>
+<p>And that&#39;s it. You now have a working jQuery music visualiser which is fully customisable. You can add gradients to bars and even <a href="http://benholland.me/demo/visualiser/visualiser-style.html,%20apply%20a%20reflection">apply a reflection</a>. Feel free to comment with any improves or issues...</p>
+
+<p><a href="http://jsfiddle.net/GeJgH/,%20Check%20it%20out%20on%20JSFiddle">Check it out on JSFiddle</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

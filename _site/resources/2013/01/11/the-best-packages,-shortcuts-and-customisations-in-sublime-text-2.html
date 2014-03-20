@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>The Best Packages, Shortcuts and Customisations in Sublime Text 2</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">The Best Packages, Shortcuts and Customisations in Sublime Text 2</h1>
+    <p class="meta">11 Jan 2013</p>
+
+    <div class="post__body">
+        <p>The best thing about Sublime Text 2 is the amount of customization it gives the user and the ease in which it does this. Here are a list of the best features I use on a day-to-day basis...</p>
+
+<h3>Projects</h3>
+
+<p>During the day I can work on up to 5 or 6 various tasks, so having my different codebases setup into projects is extremely useful. All you need to do to create a new project is drag a folder into your sidebar, go to Project in the menu bar and click save as. You can add multiple folders to a project.</p>
+
+<p>To easily switch between projects, hit <code>Ctrl+Alt+P</code> (Cmd+Shift+P on Mac) and start searching for the project you&#39;re after.</p>
+
+<p>Once within a project, you can hit <code>Ctrl+P</code> (Cmd+P) and search for any filename within that project. Pretty cool stuff!</p>
+
+<h3>Packages</h3>
+
+<p>There are loads of packages out there for Sublime. The number is always growing, and to keep most of them in one place, Package Control was created.</p>
+
+<p>You first need to install <a href="http://wbond.net/sublime_packages/package_control,%20Package%20Control">Package Control</a>. Once that&#39;s done, hit <code>Ctrl+Shift+P</code> (Cmd+Shift+P). This is the command palette and lists all available commands currently installed. Start typing &quot;Install Package&quot; and hit enter. From here you can search for packages within the Package Control repo. You can even manually install them using a link (usually a public GitHub link).</p>
+
+<p>Here are the packages I used often:</p>
+
+<ul>
+<li><strong>SublimeCodeIntel</strong> - Code intelligence plugin ported from Open Komodo Editor</li>
+<li><strong>SublimeLinter</strong> - SublimeLinter comes with built in linters for loads of languages</li>
+<li><strong>Prefixr</strong> - A Sublime Text 2 plugin to run CSS through the Prefixr API</li>
+<li><strong>Emmet</strong> - (previously Zen Coding) lets you use shortcuts to generate HTML and CSS</li>
+<li><strong>Clipboard History</strong> - Saves previously copied text for easy retrieval</li>
+<li><strong>Code Alignment</strong> - Easily align code using colons, commas etc</li>
+<li><strong>JsFormat</strong> - Formats given JavaScript code</li>
+<li><strong>CssLisible</strong> - Tidy up CSS based on given rules</li>
+<li><strong>FileDiffs</strong> - Compares two given files</li>
+<li><strong>LESS build</strong> - Adds a build engine to compile LESS</li>
+<li><strong>Markdown Previewer</strong> - Lets you see a temp file of your markdown code. Comes with GitHub flavoring option</li>
+<li><strong>Sidebar Enhancements</strong> - Adds windows functionality to the sidebar (right-click menu)</li>
+<li><strong>Themes</strong> - <a href="https://github.com/daylerees/colour-schemes,%20Colour%20Schemes%3C/a%3E%20:%20%3Ca%20href=%22https://github.com/chriskempson/tomorrow-theme%22%3ETomorrow%20Theme">Colour Schemes</a> : <a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Theme</a></li>
+</ul>
+
+<p>There a loads more out there, so let me know if you find some more useful ones</p>
+
+<h3>Special Customizations</h3>
+
+<p>Sublime comes with lots of various options that you can configure to your needs. You&#39;ll find all the available settings in the default settings file (Preferences &gt; Settings - Default). It&#39;s filled with comments explaining what each option does, so if some of the ones below don&#39;t make sense, do a quick search for them:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;font_face&quot;: &quot;Consolas&quot;,
+&quot;font_size&quot;: 9,
+&quot;caret_style&quot;: &quot;phase&quot;,
+&quot;highlight_line&quot;: true,
+&quot;line_padding_top&quot;: 1,
+&quot;line_padding_bottom&quot;: 1,
+&quot;bold_folder_labels&quot;: true,
+&quot;highlight_modified_tabs&quot;: true,
+&quot;tab_size&quot;: 4,
+&quot;translate_tabs_to_spaces&quot;: true,
+&quot;trim_trailing_white_space_on_save&quot;: true,
+&quot;dictionary&quot;: &quot;Packages/Language - English/en_GB.dic&quot;
+</code></pre></div>
+<p>These are some more handy settings to look into:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&quot;spell_check&quot;: false,
+&quot;gutter&quot;: true,
+&quot;line_numbers&quot;: true,
+&quot;save_on_focus_lost&quot;: false,
+&quot;highlight_modified_tabs&quot;: false,
+&quot;folder_exclude_patterns&quot;: [&quot;.svn&quot;, &quot;.git&quot;, &quot;.hg&quot;, &quot;CVS&quot;],
+&quot;file_exclude_patterns&quot;: [&quot;*.pyc&quot;, &quot;*.pyo&quot;, &quot;*.exe&quot;, &quot;*.dll&quot;, &quot;*.obj&quot;,&quot;*.o&quot;, &quot;*.a&quot;, &quot;*.lib&quot;, &quot;*.so&quot;, &quot;*.dylib&quot;, &quot;*.ncb&quot;, &quot;*.sdf&quot;, &quot;*.suo&quot;, &quot;*.pdb&quot;],
+</code></pre></div>
+<p>You can have specific settings set for each project as well. So I have a project which contains all my blog posts. Within this project, I have the option <code>spell_check</code> turned on. You can enable settings for projects by going to <em>Projects &gt; Edit Project</em> and adding your settings</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">{
+    &quot;folders&quot;:
+    [
+        {
+            &quot;path&quot;: &quot;/C/folder/project_location&quot;
+        }
+    ],
+    &quot;settings&quot;:
+    {
+        &quot;spell_check&quot;: true,
+        &quot;dictionary&quot;: &quot;Packages/Language - English/en_GB.dic&quot;
+    }
+}
+</code></pre></div>
+<h3>Shortcuts</h3>
+
+<p>Knowing shortcuts in any program can increase productivity massively. Here are the ones I use most often (replace Ctrl for Cmd on a Mac). Again, all the key bindings live in <em>Settings &gt; Key Bindings - Default</em></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">Ctrl+P                 =&gt; Search for file in project
+Ctrl+Shift+P       =&gt; Launch command palette
+
+Ctrl+F                  =&gt; Find
+Ctrl+H                 =&gt; Find and Replace
+Ctrl+Shift+F        =&gt; Find in Project
+
+Ctrl+D                 =&gt; Select current word
+Ctrl+Shift+D       =&gt; Duplicate line or selected text
+
+Ctrl+Shift+Up         =&gt; Move line up
+Ctrl+Shift+Down    =&gt; Move line down
+
+Alt+Shift+1        =&gt; Split into 1 of columns
+Alt+Shift+2        =&gt; Split into 2 of columns
+Alt+Shift+3        =&gt; Split into 3 of columns
+Alt+Shift+4        =&gt; Split into 4 of columns
+
+Alt+Shift+5        =&gt; Split into a grid of 4
+
+Alt+Shift+8        =&gt; Split into a 2 rows
+Alt+Shift+9        =&gt; Split into a 3 rows
+
+Ctrl+B                  =&gt; Build
+Ctrl+R                  =&gt; Shows all methods/functions/selectors in that file
+Ctrl+K, Ctrl+B      =&gt; Hide/Show sidebar
+Shift+F11             =&gt; Distraction Free Mode
+</code></pre></div>
+<p>One shortcut that gets it&#39;s own special mention is <code>Ctrl+T</code>. This bad boy allows you to create a new file relative to the file you are in now. A small bar will appear at the bottom of the window allowing you to type the folder and file names. Here are some examples:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// Lets say we are currently editing the file&#39; /css/main.css&#39; and we hit Ctrl+T
+// If we create a new file from here with the following paths...
+
+fonts.css                =&gt; creates the file &#39;fonts.css&#39;
+module/file.css     =&gt; creates the file &#39;file.css&#39; in the &#39;modules&#39; folder
+../index.html         =&gt; creates the file index.html in the parent folder
+
+// if a folder doesn&#39;t exist, Sublime will create it for us
+// you can&#39;t create a new file which already exists
+</code></pre></div>
+<h3>Snippets</h3>
+
+<p>Snippets are incredible useful. They are the things that popup in the autocomplete box as you type. If you find yourself writing the same code over and over, put it into a snippet.</p>
+
+<p>To create a snippet, go to <em>Tools &gt; New Snippet</em>. A new window will open with some code and some options.</p>
+
+<p>Firstly, the snippet content is the code we want to produce. The text mark with a <code>$</code> signifies a tab point. So when the user selects the snippet, the cursor moves to position one <code>${1:this}</code>. If tab is hit, then the cursor moves to position 2 <code>${2:snippet}</code>.</p>
+
+<p>The text within the brackets is the default values and will be highlighted when you get to that position. Alternatively, if you don&#39;t want a default value, just use <code>$1</code> or <code>$2</code>.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;snippet&gt;
+    &lt;content&gt;&lt;![CDATA[
+Hello, ${1:this} is a ${2:snippet}.
+]]&gt;&lt;/content&gt;
+    &lt;!-- Optional: Set a tabTrigger to define how to trigger the snippet --&gt;
+    &lt;!-- &lt;tabTrigger&gt;hello&lt;/tabTrigger&gt; --&gt;
+    &lt;!-- Optional: Set a scope to limit where the snippet will trigger --&gt;
+    &lt;!-- &lt;scope&gt;source.python&lt;/scope&gt; --&gt;
+&lt;/snippet&gt;
+</code></pre></div>
+<p>You can set a tabTrigger, which is the word or phrase to trigger than snippet showing up in the autocomplete results. Pick something you will easily remember. The final option is scope which only shows that snippet up for a certain syntax</p>
+
+<p>Here are a few examples I created...</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">// creates console.log(&#39;&#39;) and places the cursor inside of the parentheses
+
+&lt;snippet&gt;
+    &lt;content&gt;&lt;![CDATA[
+console.log(&#39;$1&#39;);
+]]&gt;&lt;/content&gt;
+    &lt;tabTrigger&gt;console&lt;/tabTrigger&gt;
+    &lt;scope&gt;source.js&lt;/scope&gt;
+    &lt;description&gt;console.log&lt;/description&gt;
+&lt;/snippet&gt;
+
+
+// quickly adds jQuery source to a file
+
+&lt;snippet&gt;
+    &lt;content&gt;&lt;![CDATA[
+&lt;script src=&quot;//ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+]]&gt;&lt;/content&gt;
+    &lt;tabTrigger&gt;jQuery&lt;/tabTrigger&gt;
+    &lt;description&gt;imports jQuery&lt;/description&gt;
+&lt;/snippet&gt;
+</code></pre></div>
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

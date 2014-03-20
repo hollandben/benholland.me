@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Detecting When A User Clicks Outside of An Element</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Detecting When A User Clicks Outside of An Element</h1>
+    <p class="meta">13 Mar 2013</p>
+
+    <div class="post__body">
+        <p>I was recently working on a complex problem involving a popup element. I wanted the popup to disappear when the user interacted with any other element on the page, except for the popup itself.</p>
+
+<p>Like most, I Googled the problem and very few elegant solutions came up. There was one however. Take a look below:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).mouseup(function(e) {
+    var container = $(&quot;SELECTOR&quot;);
+
+    if (!container.is(e.target) &amp;&amp; container.has(e.target).length === 0) {
+        container.hide();
+    }
+});
+</code></pre></div>
+<p>The snippet of code checks if the click element is either the popup itself or one of it&#39;s children. You can read more about the <code>has</code> method in the <a href="http://api.jquery.com/has,%20jQuery%20API%20documentation">jQuery API documentation</a>.</p>
+
+<h3>EDIT</h3>
+
+<p>It was pointed out by <a href="http://benhowdle.im,%20Ben%20Howdle%3C/a%3E%20and%20%3Ca%20href=%22http://danharper.me/%22%20target=%22_blank%22%3EDan%20Harper">Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper</a> that there is an even simpler way to solve this problem. Check it out:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var popup = $(&#39;#popup&#39;);
+
+$(document).on(&#39;click&#39;, function(){
+    popup.hide();
+});
+
+popup.click(function(e) {
+    e.stopPropagation();
+});
+</code></pre></div>
+<p>You can <a href="http://jsfiddle.net/hollandben/RqPfV/1/,%20see%20this%20in%20action%3C/a%3E%20and%20readup%20about%20%3Ca%20href=%22http://api.jquery.com/has%22%20target=%22_blank%22%3Ee.stopPropagation">see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation</a> in the jQuery documentation.</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

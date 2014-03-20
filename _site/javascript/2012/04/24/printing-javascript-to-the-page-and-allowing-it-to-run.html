@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Printing JavaScript to the Page and Allowing It To Run</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Printing JavaScript to the Page and Allowing It To Run</h1>
+    <p class="meta">24 Apr 2012</p>
+
+    <div class="post__body">
+        <p>I encountered a very peculiar problem today, where all my JavaScript was being printed to the page whilst still running in the browser. I was quite sure what caused this so I did some investigating (slowly undoing all my changes to see what caused it. really basic I know!!) and finally found the problem was with a CSS change I had made.</p>
+
+<p>Whilst adding some global styles using the <code>*</code> operator, I had added the code <code>display: block</code> to it. Turns out that this tells all HTML tags, <code>script</code> included, to display as a block element. Quite an interesting discovery really, and is a great way of easily printing out code, whether it be development purposes or simple for blog like this very one.</p>
+
+<!--- extract -->
+
+<p>So to just target the script tags, then use this CSS code:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">script {
+    display: block;
+    white-space: pre;
+ }
+</code></pre></div>
+<p>Adding the &quot;white-space: pre;&quot; will preserve the line breaks exactly as they are in the code.</p>
+
+<p><a href="http://benholland.me/demo/script-block.html,%20Click%20here%20for%20an%20example...">Click here for an example...</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

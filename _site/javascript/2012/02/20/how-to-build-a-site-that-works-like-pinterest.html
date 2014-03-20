@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>How To Build A Site That Works Like Pinterest</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">How To Build A Site That Works Like Pinterest</h1>
+    <p class="meta">20 Feb 2012</p>
+
+    <div class="post__body">
+        <p>Ok, if you have no idea what <a href="http://www.pinterest.com/,%20Pinterest%3C/a%3E%20is%20then%20go%20check%20it%20out.%20It%20is%20a%20website%20that%20lets%20you%20organise%20and%20share%20all%20your%20favourite%20things%20by%20using%20pinboards.%20It%20really%20is%20a%20cool%20site,%20but%20what%20I%20find%20interesting%20is%20how%20these%20pinboards%20are%20laid%20out.%20I&#x27;ve%20seen%20something%20similar%20before%20with%20%3Ca%20href=%22http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/%22%3EjQuery%20Isotope">Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I&#39;ve seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope</a> where blocks are perfectly positioned into a series of columns, and as the screen size changes, the columns re-shuffle to make sure they fit inside the screen. So the purpose of this tutorial is to re-create this responsive block effect ourselves...</p>
+
+<p><a href="http://benholland.me/labs/pinterest/,%20Click%20here%20to%20see%20a%20demonstration%20of%20what%20we&#x27;re%20making">Click here to see a demonstration of what we&#39;re making</a> Tip: resize the window</p>
+
+<h3>The Theory</h3>
+
+<p>Right, before jumping into the code, we need to get the theory sorted in our heads. It&#39;s a relatively simple system once you grasp the concept. To make this system work, we first need to know 3 things; the window width, the width of the blocks and the margin between these blocks.</p>
+
+<p><img src="/assets/2012/02/diagram.jpg" alt=""></p>
+
+<p>From this data, we then calculate the number of possibly blocks that would fit in the window. This gives us our number of columns, so in the diagram above, it would be 4. So we create an array with 4 values in, defaulted at the value of the margin. This array is used to store the running heights of each column. E.g. a block of height 120px is added to column 3, so that value in the array is increased by 120. We also use the index number of each value to calculate the position from the left of the screen. Here&#39;s a flow diagram of how the function will work. This will also run everytime the window is resized so the blocks can update themselves.</p>
+
+<p><img src="/assets/2012/02/flow-diagram.jpg" alt=""></p>
+
+<h3>Setting Up The Blocks</h3>
+
+<p>So there&#39;s some information about the theory behind both Pinterest and jQuery Isotope. If it didn&#39;t make much sense then hopefully getting stuck into some code will help. To start, we need a simple HTML structure. From this HTML, we need to grab 3 vital values; the window width, the width of the blocks and the margin between the blocks.</p>
+
+<p><strong>The HTML Structure</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;body onload=&quot;setupBlocks();&quot;&gt;
+    &lt;!-- Create multiple versions of this with different content --&gt;
+    &lt;div class=&quot;block&quot;&gt;
+        &lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis nisi pellentesque. Morbi posuere mauris elementum metus intlla faProin et malesuada arcu. Quisque sed nulla odio, at interdum diam. Proin mollis, dui eget tristique dictum, diam purus hendrerit urna, lacinia interdum sem justo sit amet justo. Morbi a neque ut velit tempus auctor. Sed condimentum dolor in est facilisis id malesuad&lt;/p&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+</code></pre></div>
+<p><strong>The CSS</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.block {
+    position: absolute;
+    background: #eee;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid #ddd;
+}
+</code></pre></div>
+<p><strong>The jQuery</strong></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var colCount = 0;
+var colWidth = 0;
+var margin = 20;
+var windowWidth = 0;
+var blocks = [];
+
+function setupBlocks() {
+    windowWidth = $(window).width();
+    colWidth = $(&#39;.block&#39;).outerWidth();
+    colCount = Math.floor(windowWidth/(colWidth+margin));
+    for(var i=0;i&lt;colCount;i++) {
+        blocks.push(margin);
+    }
+    alert(blocks);
+}
+</code></pre></div>
+<p>We start by setting some global variables, along with our empty array we&#39;ll be using to store the heights of each column. Then, when create our function &#39;setupBlocks&#39;. This does as it says and sets the blocks up correctly for positioning.</p>
+
+<p><strong>Note:</strong> We use <code>onload</code> on the body tag to call our setup function.</p>
+
+<p>In the setup, we grab the width of the window, along with the width of the blocks. We set the window with as &#39;windowWidth&#39; and the blocks width as &#39;colWidth&#39;.</p>
+
+<p>The next line calculates the number of columns that will fit in current window. Here we add the margin to the width of each column and then divide the window width by this number. Finally, the number is rounded down to give us a whole integer.</p>
+
+<p>We create a loop which creates values for each column. So if there are 4 possible columns that could fit in the window, there will be 4 values in the array.</p>
+
+<p>The code above should produce something like this... <a href="http://benholland.me/labs/pinterest/demo-1.php,%20DEMO">DEMO</a></p>
+
+<p>(try changing the width of the window and refreshing. take note of the effect this has on the array)</p>
+
+<h3>Positioning The Blocks</h3>
+
+<p>Did you notice what was happening? When the window was smaller, there were less number of values in the array. This is because there were less columns that would fit into the window.</p>
+
+<p>Now we&#39;ve set up our blocks and have an array of the starting heights of each column. So now we&#39;re just left to determining the position of each block. Here&#39;s the function, I&#39;ll go into more detail afterwards...</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">function positionBlocks() {
+    $(&#39;.block&#39;).each(function(){
+        var min = Array.min(blocks);
+        var index = $.inArray(min, blocks);
+        var leftPos = margin+(index*(colWidth+margin));
+        $(this).css({
+            &#39;left&#39;:leftPos+&#39;px&#39;,
+            &#39;top&#39;:min+&#39;px&#39;
+        });
+        blocks[index] = min+block.outerHeight()+margin;
+    });
+}
+
+// Function to get the Min value in Array
+Array.min = function(array) {
+    return Math.min.apply(Math, array);
+};
+</code></pre></div>
+<p>Let&#39;s break this function down. Firstly we definite the function with the name <code>positionBlocks</code>. We then loop through each element on the page with the class &#39;block&#39;. Two variables are then set. The first is &#39;min&#39;, which represents the lowest value in the array, which is also the column with the lowest height. The next is <code>index</code> which represents the index number of this value, along with the column number we need to place the next block in.</p>
+
+<p>E.g. our array looks like this <code>[20, 95, 75]</code>. The lowest number is 20, so <code>min=20</code> and <code>index=0</code>. We can then calculate the position from the left of the screen based on these numbers.</p>
+
+<p>function positionBlocks() {
+        $(&#39;.block&#39;).each(function(){
+            var min = Array.min(blocks);
+            var index = $.inArray(min, blocks);</p>
+
+<p>To calculate the left position, we add the width of each column to the margin, multiple that by our index and finally add another margin. This additional margin acts as a padding on the left of the window. The new <code>leftPos</code> value and <code>min</code> is applied to that block. The last line is simply updating the array with the new height. This height is calculated by adding the current height, to the height of the current block and the margin.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">var leftPos = margin+(index*(colWidth+margin));
+$(this).css({
+    &#39;left&#39;:leftPos+&#39;px&#39;,
+    &#39;top&#39;:min+&#39;px&#39;
+});
+blocks[index] = min+$(this).outerHeight()+margin;
+</code></pre></div>
+<p>The function at the end is used to get the minimum value from the array. <a href="http://ejohn.org/blog/fast-javascript-maxmin/,%20You%20can%20read%20more%20about%20it%20here%20John%20Resig">You can read more about it here John Resig</a>. We finally need to call the function &#39;positionBlocks&#39; to the end of the &#39;setupBlocks&#39; function so it runs.</p>
+
+<p>Then you&#39;re code should produce something like this... <a href="http://benholland.me/labs/pinterest/demo-2.php,%20DEMO">DEMO</a></p>
+
+<h3>Finishing Touches</h3>
+
+<p>You&#39;ll notice that if the window is resized, nothing happens. It&#39;s because we haven&#39;t added a function to fire when the window is resized. To do this, add the following code to our loading function, below <code>setupBlocks();</code></p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">$(window).resize(setupBlocks);
+</code></pre></div>
+<p>So that is it really. You should have system that looks and works just like Pinterest and jQuery Isotope. Another good addition is to add this to <code>block</code> class in your CSS:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">.block {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+</code></pre></div>
+<p>This will animate the blocks both on load, and when the window is resized. I hope this has been some help to you. I really enjoyed building this solution and working with the maths behind the scenes.</p>
+
+<p>Feel free to comment if this makes no sense or you&#39;re having problems with the code.</p>
+
+<p><a href="http://benholland.me/labs/pinterest/,%20Check%20out%20the%20finished%20code%20here">Check out the finished code here</a></p>
+
+<p><a href="http://benholland.me/labs/pinterest/demo-centered.php,%20Also,%20check%20out%20the%20demo%20that%20keeps%20the%20blocks%20centered%20in%20the%20screen">Also, check out the demo that keeps the blocks centered in the screen</a></p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

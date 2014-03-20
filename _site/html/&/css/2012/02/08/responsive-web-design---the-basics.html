@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Responsive Web Design - The Basics</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/main.css">
+
+        <!-- syntax highlighting CSS -->
+        <link rel="stylesheet" href="/css/syntax.css">
+
+    </head>
+    <body>
+
+        <nav>
+            <a href="/" title="Posts">Posts</a>
+            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
+            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
+            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
+        </nav>
+
+        <main class="content">
+            <div class="post post--full">
+    <h1 class="post__title">Responsive Web Design - The Basics</h1>
+    <p class="meta">08 Feb 2012</p>
+
+    <div class="post__body">
+        <p>A term that has been thrown around as the biggest trend in 2012 is responsive web design, something that you should definitely take note of. A responsive design solves the problem of providing different cross-platform websites, mainly mobile sites. The recent increase in mobile devices and tablets capable of browsing the web with ease has been a main catalyst for the technique as it allows for changes to be made to a site depending on the screen dimensions. In theory, you&#39;re creating one website to rule them all! Ok that&#39;s a bad Lord of the Rings pun, but lets&#39;s get stuck in to what it&#39;s all about...</p>
+
+<!--- extract -->
+
+<h3>What Is Responsive Web Design</h3>
+
+<p>RWD is a technique created by <a href="http://www.alistapart.com/articles/responsive-web-design/,%20Ethan%20Marcotte%3C/a%3E%20back%20in%202010,%20that%20adjusts%20certain%20aspects%20of%20a%20website%20depending%20on%20the%20dimensions%20of%20the%20viewing%20screen.%20Loosely%20based%20on%20Fluid%20Grids,%20something%20that%20was%20never%20that%20popular,%20the%20technique%20moves%20away%20from%20having%20a%20fixed%20grid%20such%20as%20960px%20and%20encourages%20you%20to%20utilise%20the%20full%20size%20of%20the%20screen.%20Two%20excellent%20examples%20of%20this%20are%20%3Ca%20href=%22http://wwww.smashingmagazine.com/%22%3ESmashing%20Magazine%3C/a%3E%20and%20%3Ca%20href=%22http://www.css-tricks.com/%22%3ECSS-Tricks">Ethan Marcotte</a> back in 2010, that adjusts certain aspects of a website depending on the dimensions of the viewing screen. Loosely based on Fluid Grids, something that was never that popular, the technique moves away from having a fixed grid such as 960px and encourages you to utilise the full size of the screen. Two excellent examples of this are <a href="http://wwww.smashingmagazine.com/">Smashing Magazine</a> and <a href="http://www.css-tricks.com/">CSS-Tricks</a>. Try adjusting you&#39;re browser size and you&#39;ll see how the website responds.</p>
+
+<p>CSS3 media queries are the key to responsive web design. They are expressions that check for conditions and apply different styles depending on these conditions. Confused?? Let&#39;s take a look at an example of a media query.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">@media screen and (max-width: 960px) {
+    .class {
+        color: #000;
+    }
+}
+</code></pre></div>
+<p>In this query, we&#39;re checking to make sure the media is a screen and if the width is 960px or less. If these conditions are true, then the color of the class will become black. I&#39;ll delve further into this later.</p>
+
+<h3>How To Implement These Queries</h3>
+
+<p>Firstly, we need to do some house cleaning to make sure that the website is displayed correctly in our browser. Include the meta tag below:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+</code></pre></div>
+<p>This tag tells our browser that it&#39;s width should be the same as the viewport.</p>
+
+<p>Internet Explorer 8 and below don&#39;t support media queries so you should include this Javascript file to sort that.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;script src=&quot;http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js&quot;&gt;&lt;/script&gt;
+</code></pre></div>
+<p>There are 2 basic stages to implementing a responsive design. We first need to create our HTML structure. This can be seen below:</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">&lt;div id=&quot;wrapper&quot;&gt;
+    &lt;header&gt;This Is The Header&lt;/header&gt;
+    &lt;section&gt;&lt;/section&gt;
+    &lt;aside&gt;&lt;/aside&gt;
+    &lt;footer&gt;This is the footer&lt;/footer&gt;
+&lt;/div&gt;
+</code></pre></div>
+<p>The styles</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">#wrapper {
+    width: 960px;
+    margin: 20px auto;
+    background: #fff;
+}
+header {
+    width: 100%;
+    font-size: 200%;
+    border: 1px solid #ddd;
+    background: #eee;
+    height: 80px;
+}
+section {
+    width: 65%;
+    border: 1px solid #ddd;
+    background: #eee;
+    float: left;
+}
+aside {
+    width: 28%;
+    border: 1px solid #ddd;
+    background: #eee;
+    float: right;
+}
+footer {
+    width: 100%;
+    height: 60px;
+    font-size: 120%;
+    background: #eee;
+    border: 1px solid #ddd;
+    clear: both;
+}
+</code></pre></div>
+<p>I&#39;ve create a simple HTML structure and styled each element. As you can see, with the exception of the wrapper, all the widths are in percentages and not pixels. This is the bases of a responsive design and always for a our elements to change depending on the parent&#39;s dimensions.</p>
+
+<p>Next we need to add some media queries. What I want to do is make sure the wrapper stays inside of the screen when the width is smaller than the 960px initially set. Then, when the screen gets to 600px I want to remove the aside to make more space, also increasing the main body of text to 100%. Here&#39;s the code.</p>
+<div class="highlight"><pre><code class="text language-text" data-lang="text">@media screen and (max-width:960px) {
+    #wrapper {
+        width: 98%;
+    }
+}
+@media screen and (max-width:600px) {
+    aside {
+        display: none;
+    }
+    section {
+        width: 100%;
+    }
+}
+</code></pre></div>
+<p>And that&#39;s basically it. You can see a <a href="http://benholland.me/demo/repsonsive-web-design-structure.html,%20working%20demonstration">working demonstration</a> - all you need to do is resize the browser window and you can see how the elements changed based on the width of the viewport.</p>
+
+<p>So there&#39;s a quick introduction to responsive web design. Have a play around with media queries and see what you can come up with, they&#39;re pretty cool!!</p>
+
+    </div>
+</div>
+
+        </main>
+
+    </body>
+</html>

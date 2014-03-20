@@ -355,20 +355,32 @@ th {
 }
 html {
   font-size: 62.5%;
+  font-size: calc(0.625em);
 }
 body {
   background-color: #ffffff;
   color: #333333;
-  font-size: 16px;
+  font-size: 1.6em;
+  line-height: 1.5;
   font-family: 'Myriad Pro', Helvetica, Arial, sans-serif;
-  line-height: 1.9;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: antialiased;
 }
+@media (min-width: 560px) {
+  body {
+    font-size: 1.6em;
+    line-height: 1.6;
+  }
+}
 .content {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   position: relative;
-  width: 85%;
-  max-width: 600px;
+  width: 100%;
+  max-width: 640px;
+  padding: 0 2%;
   margin: 0 auto;
 }
 h1,
@@ -377,7 +389,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin: 0 0 $baseline 0;
   color: #333333;
   font-size: 16px;
   font-size: 1.6rem;
@@ -386,16 +398,30 @@ h6 {
   vertical-align: bottom;
 }
 h1 {
-  font-size: 24px;
-  font-size: 2.4rem;
-  line-height: 36px;
-  line-height: 3.6rem;
-}
-h2 {
   font-size: 20px;
   font-size: 2rem;
-  line-height: 30px;
-  line-height: 3rem;
+  line-height: 26px;
+  line-height: 2.6rem;
+}
+h1 a {
+  text-decoration: none;
+}
+@media (min-width: 640px) {
+  h1 {
+    font-size: 24px;
+    font-size: 2.4rem;
+    line-height: 36px;
+    line-height: 3.6rem;
+  }
+}
+h2 {
+  font-size: 16px;
+  font-size: 1.6rem;
+  line-height: 24px;
+  line-height: 2.4rem;
+}
+p {
+  margin: 0 0 12px 0;
 }
 a {
   color: #333;
@@ -407,12 +433,20 @@ ul.unstyled {
 }
 .meta {
   color: #787878;
-  font-size: 12px;
-  font-size: 1.2rem;
-  line-height: 14px;
-  line-height: 1.4rem;
+  font-size: 11px;
+  font-size: 1.1rem;
+  line-height: 13px;
+  line-height: 1.3rem;
   font-style: italic;
   font-family: Georgia;
+}
+@media (min-width: 640px) {
+  .meta {
+    font-size: 12px;
+    font-size: 1.2rem;
+    line-height: 14px;
+    line-height: 1.4rem;
+  }
 }
 .btn {
   position: relative;
@@ -506,4 +540,13 @@ th,
 td {
   padding: 8px 10px;
   text-align: left;
+}
+.post {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 20px;
+  margin-bottom: 36px;
+  box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.15);
 }

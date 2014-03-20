@@ -2,7 +2,6 @@ name: benholland.me
 markdown: redcarpet
 pygments: true
 highlighter: pygments
-encoding: UTF-8
 
 exclude: [less, Gruntfile.js, package.json]
 

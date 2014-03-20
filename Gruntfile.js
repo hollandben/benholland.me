@@ -18,10 +18,19 @@ module.exports = function (grunt) {
     less: {
       'css/main.css': 'less/_build.less'
     },
+    shell: {
+      jekyll: {
+        command: 'jekyll build'
+      }
+    },
     watch: {
       gruntfile: {
         files: '<%= jshint.gruntfile.src %>',
         tasks: ['jshint:gruntfile']
+      },
+      watch: {
+        files: ['_layouts/**', '_posts/**', 'css/**'],
+        tasks: ['shell:jekyll']
       },
       less: {
         files: 'less/*.less',

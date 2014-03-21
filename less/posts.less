@@ -1,20 +1,23 @@
 .post {
     .box-sizing();
+    background-color: #ffffff;
     padding: 20px;
-    margin-bottom: @baseline*3;
-    box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.15);
+}
 
-    @media (min-width: 640px) {
-        box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.15);
-    }
+.post--full {
+    margin-bottom: 0;
+}
+
+.post__title {
+    margin-bottom: @baseline;
 }
 
 .post__body {
 
     img {
-        width: 112%;
+        width: 106%;
         margin: 10px 0;
         background-color: @border;
-        margin-left: -6%;
+        margin-left: -3%;
     }
 }

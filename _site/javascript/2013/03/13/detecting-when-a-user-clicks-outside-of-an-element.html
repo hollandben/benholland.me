@@ -50,13 +50,13 @@
         <p>I was recently working on a complex problem involving a popup element. I wanted the popup to disappear when the user interacted with any other element on the page, except for the popup itself.</p>
 
 <p>Like most, I Googled the problem and very few elegant solutions came up. There was one however. Take a look below:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">$(document).mouseup(function(e) {
-    var container = $(&quot;SELECTOR&quot;);
+<div class="highlight"><pre><code class="javascript language-javascript" data-lang="javascript"><span class="nx">$</span><span class="p">(</span><span class="nb">document</span><span class="p">).</span><span class="nx">mouseup</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">container</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;SELECTOR&quot;</span><span class="p">);</span>
 
-    if (!container.is(e.target) &amp;&amp; container.has(e.target).length === 0) {
-        container.hide();
-    }
-});
+    <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">container</span><span class="p">.</span><span class="nx">is</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="nx">container</span><span class="p">.</span><span class="nx">has</span><span class="p">(</span><span class="nx">e</span><span class="p">.</span><span class="nx">target</span><span class="p">).</span><span class="nx">length</span> <span class="o">===</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">container</span><span class="p">.</span><span class="nx">hide</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
 </code></pre></div>
 <p>The snippet of code checks if the click element is either the popup itself or one of it&#39;s children. You can read more about the <code>has</code> method in the <a href="http://api.jquery.com/has,%20jQuery%20API%20documentation">jQuery API documentation</a>.</p>
 

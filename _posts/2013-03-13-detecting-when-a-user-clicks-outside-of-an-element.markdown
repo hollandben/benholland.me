@@ -9,13 +9,15 @@ I was recently working on a complex problem involving a popup element. I wanted 
 
 Like most, I Googled the problem and very few elegant solutions came up. There was one however. Take a look below:
 
-    $(document).mouseup(function(e) {
-        var container = $("SELECTOR");
+```javascript
+$(document).mouseup(function(e) {
+    var container = $("SELECTOR");
 
-        if (!container.is(e.target) && container.has(e.target).length === 0) {
-            container.hide();
-        }
-    });
+    if (!container.is(e.target) && container.has(e.target).length === 0) {
+        container.hide();
+    }
+});
+```
 
 The snippet of code checks if the click element is either the popup itself or one of it's children. You can read more about the `has` method in the [jQuery API documentation](http://api.jquery.com/has, jQuery API documentation).
 

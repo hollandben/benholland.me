@@ -1,4 +1,5 @@
 .header {
+    background-color: #ffffff;
     text-align: center;
 
     .header__nav {
@@ -8,6 +9,7 @@
             display: inline-block;
             vertical-align: top;
             padding: @baseline @horz-padding/2;
+            padding: @baseline @horz-padding/2 @baseline/2 @horz-padding/2;
             overflow: hidden;
             text-align: center;
             text-decoration: none;
@@ -28,7 +30,10 @@
     .header__title {
         .box-sizing();
         padding: @baseline/2 0;
-        margin: 0 @horz-padding/2;
         box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.15);
+
+        h2 {
+            margin-bottom: @baseline/2;
+        }
     }
 }

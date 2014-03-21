@@ -38,8 +38,10 @@ module.exports = function(grunt) {
         htmlmin: {
             dist: {
                 options: {
+                    useShortDoctype: true,
                     removeComments: true,
-                    collapseWhitespace: true
+                    collapseWhitespace: true,
+                    removeRedundantAttributes: true
                 },
                 files: [{
                     expand: true,  

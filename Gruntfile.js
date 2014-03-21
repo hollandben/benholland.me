@@ -35,6 +35,20 @@ module.exports = function(grunt) {
                 command: 'jekyll build'
             }
         },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                    expand: true,  
+                    cwd: '_sites/',
+                    src: ['**/*.html'],
+                    dest: '_sites/'
+                }]
+            }
+        },
         watch: {
             gruntfile: {
                 files: '<%= jshint.gruntfile.src %>',

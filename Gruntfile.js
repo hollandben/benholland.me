@@ -40,8 +40,7 @@ module.exports = function(grunt) {
                 options: {
                     removeComments: true,
                     useShortDoctype: true,
-                    collapseWhitespace: true,
-                    removeRedundantAttributes: true
+                    collapseWhitespace: true
                 },
                 files: [{
                     expand: true,  

@@ -15,12 +15,31 @@
     </head>
     <body>
 
-        <nav>
-            <a href="/" title="Posts">Posts</a>
-            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
-            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
-            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
-        </nav>
+        <header class="header">
+            <nav class="header__nav">
+                <a class="nav__link" href="/" title="Posts">
+                    <i class="i-home nav__icon"></i>
+                    <span class="nav__label">Posts</span>
+                </a>
+                <a class="nav__link" href="http://labs.benholland.me/" title="Labs">
+                    <i class="i-testtube nav__icon"></i>
+                    <span class="nav__label">Labs</span>
+                </a>
+                <a class="nav__link" href="http://github.com/hollandben" title="GitHub">
+                    <i class="i-github nav__icon"></i>
+                    <span class="nav__label">GitHub</span>
+                </a>
+                <a class="nav__link" href="http://twitter.com/hollandben" title="Twitter">
+                    <i class="i-twitter nav__icon"></i>
+                    <span class="nav__label">Twitter</span>
+                </a>
+            </nav>
+
+            <div class="header__title">
+                <h1>Ben Holland</h1>
+                <h2>Web Developer and JavaScript Nerd</h2>
+            </div>
+        </header>
 
         <main class="content">
             {{ content }}

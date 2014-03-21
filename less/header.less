@@ -1,0 +1,34 @@
+.header {
+    text-align: center;
+
+    .header__nav {
+        text-align: center;
+
+        .nav__link {
+            display: inline-block;
+            vertical-align: top;
+            padding: @baseline @horz-padding/2;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .nav__icon {
+        }
+
+        .nav__label {
+            display: none;
+
+            @media (min-width: 640px) {
+                display: block;
+            }
+        }
+    }
+
+    .header__title {
+        .box-sizing();
+        padding: @baseline/2 0;
+        margin: 0 @horz-padding/2;
+        box-shadow: 0 4px 10px -4px rgba(0, 0, 0, 0.15);
+    }
+}

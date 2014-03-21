@@ -15,12 +15,31 @@
     </head>
     <body>
 
-        <nav>
-            <a href="/" title="Posts">Posts</a>
-            <a href="http://labs.benholland.me/" title="Labs">Labs</a>
-            <a href="http://github.com/hollandben" title="GitHub">GitHub</a>
-            <a href="http://twitter.com/hollandben" title="Twitter">Twitter</a>
-        </nav>
+        <header class="header">
+            <nav class="header__nav">
+                <a class="nav__link" href="/" title="Posts">
+                    <i class="i-home nav__icon"></i>
+                    <span class="nav__label">Posts</span>
+                </a>
+                <a class="nav__link" href="http://labs.benholland.me/" title="Labs">
+                    <i class="i-testtube nav__icon"></i>
+                    <span class="nav__label">Labs</span>
+                </a>
+                <a class="nav__link" href="http://github.com/hollandben" title="GitHub">
+                    <i class="i-github nav__icon"></i>
+                    <span class="nav__label">GitHub</span>
+                </a>
+                <a class="nav__link" href="http://twitter.com/hollandben" title="Twitter">
+                    <i class="i-twitter nav__icon"></i>
+                    <span class="nav__label">Twitter</span>
+                </a>
+            </nav>
+
+            <div class="header__title">
+                <h1>Ben Holland</h1>
+                <h2>Web Developer and JavaScript Nerd</h2>
+            </div>
+        </header>
 
         <main class="content">
             <ul class="unstyled posts">
@@ -31,6 +50,197 @@
 
         <div class="post__body">
             <p>I was recently working on a complex problem involving a popup element. I wanted the popup to disappear when the user interacted with any other element on the page, except for the popup itself.</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/resources/2013/01/11/the-best-packages%2C-shortcuts-and-customisations-in-sublime-text-2.html">The Best Packages, Shortcuts and Customisations in Sublime Text 2</a></h1>
+        <p class="meta">11 Jan 2013</p>
+
+        <div class="post__body">
+            <p>The best thing about Sublime Text 2 is the amount of customization it gives the user and the ease in which it does this. Here are a list of the best features I use on a day-to-day basis...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2013/01/10/beware-of-trailing-slashes-when-using-disqus.html">Beware of Trailing Slashes When Using Disqus</a></h1>
+        <p class="meta">10 Jan 2013</p>
+
+        <div class="post__body">
+            <p>I ran into a small bug with the commenting system <a href="http://www.disqus.com,%20Disqus">Disqus</a> today. After migrating all my posts from WordPress to Disqus, I noticed that comments weren&#39;t appearing on some blog posts. With some further investigation, it turned out that my WordPress URLs all had a trailing slash at the end, whereas in the new build of my site, they don&#39;t. This meant that the URLs I was serving visitors and those that were in the system didn&#39;t match.</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2013/01/10/how-to-setup-and-work-with-virtual-hosts-using-wamp-server.html">How to Setup and Work with Virtual Hosts using WAMP Server</a></h1>
+        <p class="meta">10 Jan 2013</p>
+
+        <div class="post__body">
+            <p>What you&#39;ll need:</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2013/01/10/setting-up-a-wamp-server-on-windows.html">Setting Up a WAMP Server on Windows</a></h1>
+        <p class="meta">10 Jan 2013</p>
+
+        <div class="post__body">
+            <p>What you&#39;ll need:</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2012/12/05/first-look---myspace.html">First Look - Myspace</a></h1>
+        <p class="meta">05 Dec 2012</p>
+
+        <div class="post__body">
+            <p>Like many others, I thought Myspace was dead and buried. Since Facebook overtook it in the Alexia ranking in 2008, the site has been considered only a distant memory. But not for much longer. The beaten down social network is on the rise again and this time it&#39;s packing a punch...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2012/10/30/slidorion---one-year-on.html">Slidorion - One Year On</a></h1>
+        <p class="meta">30 Oct 2012</p>
+
+        <div class="post__body">
+            <p>Cast your mind back one year. What were you doing? Where were you? I was starting my final year of University, and with masses of time to kill, I built <a href="http://www.slidorion.com,%20Slidorion">Slidorion</a> - a jQuery accordion/slider combo. It&#39;s amazing how much can happen in a year, and the progress of Slidorion has stunned me. A few days ago I logged into Google Analytics to have a look at some of the stats over the past year. Here&#39;s what I found...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/html/&/css/2012/07/17/working-with-less---the-css-preprocessor.html">Working With Less - The CSS Preprocessor</a></h1>
+        <p class="meta">17 Jul 2012</p>
+
+        <div class="post__body">
+            <p>I recently started working on a project which used the CSS preprocessor LESS. If you don&#39;t know what LESS or even a pre-processor is, then here&#39;s a quick description.</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/javascript/2012/06/25/responsive-script-to-center-list-items.html">Responsive Script To Center List Items</a></h1>
+        <p class="meta">25 Jun 2012</p>
+
+        <div class="post__body">
+            <p>I was recently assigned the task of creating a webpage with some list items that we&#39;re centered within a container. Easy enough to do, just create a row of list items and set the margin to auto so it will always be in the center. Turns out, not so simple. I was asked to make the list items responsive, so when the page was made smaller, the list items reshuffled themselves and become centered again. The result of this was <a href="http://benholland.me/labs/centering/,%20a%20responsive%20script%20that%20centers%20list%20items%3C/a%3E%20when%20the%20page%20is%20resized.You%20can%20download%20the%20script%20from%20the%20%3Ca%20title=%22A%20Responsive%20Script%20That%20Centers%20List%20Items%22%20href=%22http://benholland.me/labs/centering/%22%20target=%22_blank%22%3Edemo%3C/a%3E%20or%20%3Ca%20title=%22Download%20Zip%22%20href=%22labs/centering/centerItems.zip%22%20target=%22_blank%22%3Edownload%20this%20zip%20file">a responsive script that centers list items</a> when the page is resized.You can download the script from the <a title="A Responsive Script That Centers List Items" href="http://benholland.me/labs/centering/" target="_blank">demo</a> or <a title="Download Zip" href="labs/centering/centerItems.zip" target="_blank">download this zip file</a> which has the example included.</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/javascript/2012/04/24/printing-javascript-to-the-page-and-allowing-it-to-run.html">Printing JavaScript to the Page and Allowing It To Run</a></h1>
+        <p class="meta">24 Apr 2012</p>
+
+        <div class="post__body">
+            <p>I encountered a very peculiar problem today, where all my JavaScript was being printed to the page whilst still running in the browser. I was quite sure what caused this so I did some investigating (slowly undoing all my changes to see what caused it. really basic I know!!) and finally found the problem was with a CSS change I had made.</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2012/03/19/generating-a-random-string-in-php---useful-for-securing-passwords.html">Generating A Random String in PHP - Useful For Securing Passwords</a></h1>
+        <p class="meta">19 Mar 2012</p>
+
+        <div class="post__body">
+            <p>A lot of projects I&#39;ve worked on recently have required unique ids or numbers being entered into a database. I&#39;ve been working with this function for a while now and it&#39;s proved very useful, so thought I would share it with everyone...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2012/03/11/adding-and-subtracting-dates-and-times-in-php.html">Adding and Subtracting Dates and Times in PHP</a></h1>
+        <p class="meta">11 Mar 2012</p>
+
+        <div class="post__body">
+            <p>During a recent project, I found the need to check if rows in a database were more than 6 hours old. So here&#39;s how to add and subtract dates and times in PHP...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2012/02/28/new-minimalistic-facebook-layout---created-using-stylebot.html">New Minimalistic Facebook Layout - Created Using Stylebot</a></h1>
+        <p class="meta">28 Feb 2012</p>
+
+        <div class="post__body">
+            <p>Yesterday I discovered a great website for the Chrome plugin Stylebot where users can upload their CSS changes of popular websites for others to use and comment on. I think this is a really cool idea, and although half of the reworked skins are poor, the other half are really cool. There&#39;s a limited amount you can do when you&#39;re not able to re-structure any of the code, but I managed to work this out...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2012/02/27/turn-off-trackbacks-for-all-wordpress-posts-and-pages.html">Turn Off Trackbacks For All WordPress Posts and Pages</a></h1>
+        <p class="meta">27 Feb 2012</p>
+
+        <div class="post__body">
+            <p>Recently I&#39;ve been getting a tonne of spammy trackbacks on this blog, resulting in very annoying emails and constantly logging in to tell WordPress it&#39;s a spam comment. If you don&#39;t how to disable these, then simply go to Settings &gt; Discussion and untick the option &quot;Allow link notifications from other blogs (pingbacks and trackbacks)&quot;. This will set the ping status of all future posts to false, preventing any trackbacks for those posts. But if you&#39;re like me and didn&#39;t select this setting (or it wasn&#39;t turned on during migration) you&#39;ll need to set the ping status of all the posts to false. Here&#39;s how...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2012/02/22/how-to-create-a-custom-widget-in-wordpress---latest-posts.html">How To Create A Custom Widget in WordPress - Latest Posts</a></h1>
+        <p class="meta">22 Feb 2012</p>
+
+        <div class="post__body">
+            <p>When I login to this or any other WordPress blog, I am always greeted with the same boring and useless widgets. Ok some aren&#39;t useless. Recent drafts and recent comments are useful and at a push the &#39;Right Now&#39; widget, but that is rarely used. So I asked myself, what would I like on the homepage? Well I find myself from time to time having to go back into the admin area to amend a spelling mistake that I missed before publishing a post. So creating a &quot;Latest Posts&quot; widget that displays the most current posts would be a good place to start. Adding widgets in WordPress is really simple. Here&#39;s how...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/javascript/2012/02/20/how-to-build-a-site-that-works-like-pinterest.html">How To Build A Site That Works Like Pinterest</a></h1>
+        <p class="meta">20 Feb 2012</p>
+
+        <div class="post__body">
+            <p>Ok, if you have no idea what <a href="http://www.pinterest.com/,%20Pinterest%3C/a%3E%20is%20then%20go%20check%20it%20out.%20It%20is%20a%20website%20that%20lets%20you%20organise%20and%20share%20all%20your%20favourite%20things%20by%20using%20pinboards.%20It%20really%20is%20a%20cool%20site,%20but%20what%20I%20find%20interesting%20is%20how%20these%20pinboards%20are%20laid%20out.%20I&#x27;ve%20seen%20something%20similar%20before%20with%20%3Ca%20href=%22http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/%22%3EjQuery%20Isotope">Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I&#39;ve seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope</a> where blocks are perfectly positioned into a series of columns, and as the screen size changes, the columns re-shuffle to make sure they fit inside the screen. So the purpose of this tutorial is to re-create this responsive block effect ourselves...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2012/02/16/my-90-minute-challenge---the-result.html">My 90 Minute Challenge - The Result</a></h1>
+        <p class="meta">16 Feb 2012</p>
+
+        <div class="post__body">
+            <p>I was sat around last night not really sure of what to do. I&#39;d had a boring day and wasn&#39;t feeling motivated, so after going for a run and clearing my head, I decided to create a small challenge for myself - to build something cool within the next 90 minutes, a bit like a Hackathon but with a shorter time frame. It was pretty hard! Having to take something from a simple idea to a finished product in that time frame is tough, but there&#39;s something about being under the pressure of a short time frame that made it work. I didn&#39;t have time to worry if this colour was correct, or if that padding needed to be an extra pixel. It all comes down to, does it work? So here is what I came up with...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/tutorials/2012/02/14/quickly-replacing-text-or-a-url-in-all-wordpress-posts.html">Quickly Replacing Text or A URL In All WordPress Posts</a></h1>
+        <p class="meta">14 Feb 2012</p>
+
+        <div class="post__body">
+            <p>I recently moved a WordPress blog from one domain to another without a hitch, well at least I thought. Turned out that a lot of the links within the posts still pointed towards to old domain. This was poor for both site performance and SEO purposes, not forgetting that the domain would soon be cleared leaving the user at a dead end when they clicked the links. So here is a method to replace a series of text or a URL in all your WordPress posts...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/javascript/2012/02/10/using-jquery-.on%28%29-and-.off%28%29-in-jquery-1.7.html">Using jQuery .on() and .off() in jQuery 1.7</a></h1>
+        <p class="meta">10 Feb 2012</p>
+
+        <div class="post__body">
+            <p>jQuery 1.7 was released back in November 2011 and contained a series of changes. One of those was the introduction of .on() and .off(). The purpose - to unify all types of event handling in jQuery and make code more efficient. Here&#39;s the changes and how to use the new handlers...</p>
+
+        </div>
+    </li>
+
+    <li class="post">
+        <h1 class="post__title"><a href="/news/2012/02/08/new-facebook-photo-viewer.html">New Facebook Photo Viewer</a></h1>
+        <p class="meta">08 Feb 2012</p>
+
+        <div class="post__body">
+            <p>Once again Facebook have slyly pushed out another change that people will be seeing instantly. This time, they&#39;ve been tinkering with the photo viewer. You might think it&#39;s only a minor change but with 250 million photos uploaded each day on average, it&#39;s one of the most used features of the social networking site. So what have they changed? Let&#39;s take a look...
+<img src="/assets/2012/02/fb.jpg" alt=""></p>
 
         </div>
     </li>

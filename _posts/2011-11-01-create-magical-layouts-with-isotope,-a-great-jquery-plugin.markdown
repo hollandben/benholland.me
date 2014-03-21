@@ -12,6 +12,7 @@ Isotope is an exquisite jQuery plugin for magical layouts that can readjustment 
 ### So How Can I Use Isotope In My Projects?
 
 It's really simple. As with all jQuery plugins, it starts with downloading and importing. After that's done it's a simple task of setting some options. The standard layout for Isotope is **masonry**, which will fit all elements into a beautiful layout that fits perfectly. There are other layout options such as **straightDown** and **masonryHorizontal**. The joy of **Isotope** is that it will re-shuffle itself to fit the current browser dimensions, even after it's been resized.
+
 ![]({{ site.url }}/assets/2011/11/masonry.jpg)
 
 ### It's All Very Nice, But What Can I Change?

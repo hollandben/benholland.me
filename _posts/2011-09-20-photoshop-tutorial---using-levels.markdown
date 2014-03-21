@@ -23,4 +23,6 @@ Now if you take a look at the levels histogram, you can see that there is a gap 
 ![]({{ site.url }}/assets/2011/09/change_level2.jpg)
 
 ### Step 4 - And that's it
-There is nothing else to do now but sit back and admire the visible improvement.![]({{ site.url }}/assets/2011/09/doubles.jpg)
+There is nothing else to do now but sit back and admire the visible improvement.
+
+![]({{ site.url }}/assets/2011/09/doubles.jpg)

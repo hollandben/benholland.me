@@ -44,6 +44,7 @@ Now we need to query the database for our most recent 4 posts. Create some argum
 We then request the data and loop through each set of results. Within this loop, we are adding some more code to our $content string. So we start by adding a new row, and then the post title, the author and finally the date it was published. The code at the end simply ends the foreach loop, adds the closing table tag to our string and echos $content so it can be displayed as our widget.
 
 If you've done that all correctly then the widget should look something like this...
+
 ![]({{ site.url }}/assets/2012/02/latest-posts.jpg)
 
 ### Finishing Touches

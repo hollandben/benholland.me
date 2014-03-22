@@ -31,6 +31,32 @@ module.exports = function(grunt) {
                 }
             }
         },
+        imagemin: {
+            png: {
+                options: {
+                    optimizationLevel: 7
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'assets/',
+                    src: ['**/*.png'],
+                    dest: 'assets/',
+                    ext: '.png'
+                }]
+            },
+            jpg: {
+                options: {
+                    progressive: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'assets/',
+                    src: ['**/*.jpg'],
+                    dest: 'assets/',
+                    ext: '.jpg'
+                }]
+            }
+        },
         shell: {
             jekyll: {
                 command: 'jekyll build'

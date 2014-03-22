@@ -1,4 +1,6 @@
 .header {
+    .box-sizing();
+    width: 100%;
     background-color: #ffffff;
     text-align: center;
 
@@ -13,6 +15,24 @@
             overflow: hidden;
             text-align: center;
             text-decoration: none;
+
+            @media (min-width: 640px) {
+                &:nth-child(1) {
+                    margin-left: 5%;
+                }
+                &:nth-child(1),
+                &:nth-child(2) {
+                    float: left;
+                }
+
+                &:nth-child(3) {
+                    margin-right: 5%;
+                }
+                &:nth-child(3),
+                &:nth-child(4) {
+                    float: right;
+                }
+            }
         }
 
         .nav__icon {

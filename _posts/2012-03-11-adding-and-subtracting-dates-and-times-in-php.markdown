@@ -59,7 +59,7 @@ echo $newdate;
 
 If you want to change if from the current date, then simple replace the current date with the desired one...
 
-This adds 1 year to the date 2012-11-25:
+**This adds 1 year to the date 2012-11-25:**
 
 ```php
 $date = date('2011-11-25');

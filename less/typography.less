@@ -19,7 +19,15 @@ h1 {
 
 h2 {
     .font-size(16);
-    // .font-size(20);
+}
+
+h3 {
+    .font-size(18);
+    margin-bottom: @baseline/3;
+
+    @media (min-width: 640px) {
+        .font-size(20);
+    }
 }
 
 p {

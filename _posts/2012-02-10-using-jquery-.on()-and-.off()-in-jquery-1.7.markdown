@@ -11,79 +11,91 @@ jQuery 1.7 was released back in November 2011 and contained a series of changes.
 
 Nothing much changes here. Simple replace .bind() with .on() and you're sorted.
 
-    // old way
-    $('div a').bind('click', function(event) {
-        console.log('clicked');
-    });
+```javascript
+// old way
+$('div a').bind('click', function(event) {
+    console.log('clicked');
+});
 
-    // new way
-    $('div a').on('click', function(event) {
-        console.log('clicked');
-    });
+// new way
+$('div a').on('click', function(event) {
+    console.log('clicked');
+});
+```
  
 
 ### Changes to .live()
 
 jQuery's .live() was used to attach handlers to elements there were dynamically generated. It has been depreciated in jQuery 1.7 and replaced with .on(). These are the changes.
 
-    // old way
-    $('div a').live('click', function(event) {
-        console.log('clicked');
-    });
+```javascript
+// old way
+$('div a').live('click', function(event) {
+    console.log('clicked');
+});
 
-    // new way
-    $('div').on('click', 'a', function(event) {
-        console.log('clicked');
-    });
+// new way
+$('div').on('click', 'a', function(event) {
+    console.log('clicked');
+});
+```
  
 
 ### Changes to .delegate()
 
 The changes to .delegate() are similar to .bind(), except the selector and event have swapped places.
 
-    // old way
-    $('div').delegate('a', 'click', function(event) {
-        console.log('clicked');
-    });
+```javascript
+// old way
+$('div').delegate('a', 'click', function(event) {
+    console.log('clicked');
+});
 
-    // new way
-    $('div').on('click', 'a', function(event) {
-        console.log('clicked');
-    });
- 
+// new way
+$('div').on('click', 'a', function(event) {
+    console.log('clicked');
+});
+```
 
 ### Changes to .unbind()
 
 Nothing much changes here either. Simple replace .unbind() with .off() and you're sorted.
 
-    // old way
-    $('#container a').unbind('click');
+```javascript
+// old way
+$('#container a').unbind('click');
 
-    // new way
-    $('div a').off('click');
+// new way
+$('div a').off('click');
+```
 
 Or to unbind a specific handler, use:
 
-    $('div a').off('click', clickHandler);
+```javascript
+$('div a').off('click', clickHandler);
+```
  
 
 ### Changes to .die()
 
 The same as .live() but using .die().
 
-    // old way
-    $('div a').die('click');
+```javascript
+// old way
+$('div a').die('click');
 
-    // new way
-    $('div').off('click', 'a');
- 
+// new way
+$('div').off('click', 'a');
+```
 
 ### Changes to .undelegate()
 
 Just the same as .delegate(), the selector and event have swapped places.
 
-    // old way
-    $('div a').undelegate('a', 'click');
+```javascript
+// old way
+$('div a').undelegate('a', 'click');
 
-    // new way
-    $('div a').off('click', 'a');
+// new way
+$('div a').off('click', 'a');
+```

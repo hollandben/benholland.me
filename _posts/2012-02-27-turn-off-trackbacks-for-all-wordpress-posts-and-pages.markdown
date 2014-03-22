@@ -9,7 +9,9 @@ Recently I've been getting a tonne of spammy trackbacks on this blog, resulting 
 
 So you'll need access to you're database to carry this out. If you don't have many posts then it's probably easier to uncheck the ping status in the Quick Edit menu of each post. But if your like me and have a lot of posts, you can use this SQL statment to turn it off for all posts and pages.
 
-    UPDATE wp_posts SET ping_status='closed' WHERE post_status = 'publish' AND post_type = 'post';
-    UPDATE wp_posts SET ping_status='closed' WHERE post_status = 'publish' AND post_type = 'page';
+```sql
+UPDATE wp_posts SET ping_status='closed' WHERE post_status = 'publish' AND post_type = 'post';
+UPDATE wp_posts SET ping_status='closed' WHERE post_status = 'publish' AND post_type = 'page';
+```
 
 Copy these lines into the query window of your application and it's all done. I found this very useful so hopefully someone else will!!

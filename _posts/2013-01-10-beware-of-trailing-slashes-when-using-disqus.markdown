@@ -9,6 +9,8 @@ I ran into a small bug with the commenting system [Disqus](http://www.disqus.com
 
 It's not a complicated bug to deal with, but something that can be easily missed. To solve the problem, I added this to my htaccess file. It redirects all URLs without a trailing slash to one does:
 
-    # add trailing slash
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^.*[^/]$ /$0/ [L,R=301]
+```
+# htaccess trailing slash
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*[^/]$ /$0/ [L,R=301]
+```

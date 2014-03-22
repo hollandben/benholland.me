@@ -25,8 +25,10 @@ It's really simple. As with all jQuery plugins, it starts with downloading and i
 
 Well, the most basic implementation is to tell the plugin what container to apply itself too and what items to sort. It looks something like this:
 
-    $('#container').isotope({
-        itemSelector: '.element'
-    });
+```javascript
+$('#container').isotope({
+    itemSelector: '.element'
+});
+```
 
 That's it really. So easy to implement and, if it tickles your fancy, very customisable. So why not give it a try...

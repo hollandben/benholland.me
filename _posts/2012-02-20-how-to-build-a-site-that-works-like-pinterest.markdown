@@ -25,40 +25,46 @@ So there's some information about the theory behind both Pinterest and jQuery Is
 
 **The HTML Structure**
 
-    <body onload="setupBlocks();">
-        <!-- Create multiple versions of this with different content -->
-        <div class="block">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis nisi pellentesque. Morbi posuere mauris elementum metus intlla faProin et malesuada arcu. Quisque sed nulla odio, at interdum diam. Proin mollis, dui eget tristique dictum, diam purus hendrerit urna, lacinia interdum sem justo sit amet justo. Morbi a neque ut velit tempus auctor. Sed condimentum dolor in est facilisis id malesuad</p>
-        </div>
-    </body>
+```javascript
+<body onload="setupBlocks();">
+    <!-- Create multiple versions of this with different content -->
+    <div class="block">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in dui velit. Curabitur purus odio, adipiscing ut vehicula at, pulvinar eu justo. Suspendisse potenti. Suspendisse dictum massa non mi posuere ac convallis nisi pellentesque. Morbi posuere mauris elementum metus intlla faProin et malesuada arcu. Quisque sed nulla odio, at interdum diam. Proin mollis, dui eget tristique dictum, diam purus hendrerit urna, lacinia interdum sem justo sit amet justo. Morbi a neque ut velit tempus auctor. Sed condimentum dolor in est facilisis id malesuad</p>
+    </div>
+</body>
+```
 
 **The CSS**
 
-    .block {
-        position: absolute;
-        background: #eee;
-        padding: 20px;
-        width: 300px;
-        border: 1px solid #ddd;
-    }
+```css
+.block {
+    position: absolute;
+    background: #eee;
+    padding: 20px;
+    width: 300px;
+    border: 1px solid #ddd;
+}
+```
 
 **The jQuery**
 
-    var colCount = 0;
-    var colWidth = 0;
-    var margin = 20;
-    var windowWidth = 0;
-    var blocks = [];
+```javascript
+var colCount = 0;
+var colWidth = 0;
+var margin = 20;
+var windowWidth = 0;
+var blocks = [];
 
-    function setupBlocks() {
-        windowWidth = $(window).width();
-        colWidth = $('.block').outerWidth();
-        colCount = Math.floor(windowWidth/(colWidth+margin));
-        for(var i=0;i<colCount;i++) {
-            blocks.push(margin);
-        }
-        alert(blocks);
+function setupBlocks() {
+    windowWidth = $(window).width();
+    colWidth = $('.block').outerWidth();
+    colCount = Math.floor(windowWidth/(colWidth+margin));
+    for(var i=0; i < colCount; i++) {
+        blocks.push(margin);
     }
+    alert(blocks);
+}
+```
 
 We start by setting some global variables, along with our empty array we'll be using to store the heights of each column. Then, when create our function 'setupBlocks'. This does as it says and sets the blocks up correctly for positioning.
 
@@ -80,41 +86,47 @@ Did you notice what was happening? When the window was smaller, there were less 
 
 Now we've set up our blocks and have an array of the starting heights of each column. So now we're just left to determining the position of each block. Here's the function, I'll go into more detail afterwards...
 
-    function positionBlocks() {
-        $('.block').each(function(){
-            var min = Array.min(blocks);
-            var index = $.inArray(min, blocks);
-            var leftPos = margin+(index*(colWidth+margin));
-            $(this).css({
-                'left':leftPos+'px',
-                'top':min+'px'
-            });
-            blocks[index] = min+block.outerHeight()+margin;
+```javascript
+function positionBlocks() {
+    $('.block').each(function(){
+        var min = Array.min(blocks);
+        var index = $.inArray(min, blocks);
+        var leftPos = margin+(index*(colWidth+margin));
+        $(this).css({
+            'left':leftPos+'px',
+            'top':min+'px'
         });
-    }
+        blocks[index] = min+block.outerHeight()+margin;
+    });
+}
 
-    // Function to get the Min value in Array
-    Array.min = function(array) {
-        return Math.min.apply(Math, array);
-    };
+// Function to get the Min value in Array
+Array.min = function(array) {
+    return Math.min.apply(Math, array);
+};
+```
 
 Let's break this function down. Firstly we definite the function with the name `positionBlocks`. We then loop through each element on the page with the class 'block'. Two variables are then set. The first is 'min', which represents the lowest value in the array, which is also the column with the lowest height. The next is `index` which represents the index number of this value, along with the column number we need to place the next block in.
 
 E.g. our array looks like this `[20, 95, 75]`. The lowest number is 20, so `min=20` and `index=0`. We can then calculate the position from the left of the screen based on these numbers.
 
+```javascript
 function positionBlocks() {
-        $('.block').each(function(){
-            var min = Array.min(blocks);
-            var index = $.inArray(min, blocks);
+    $('.block').each(function(){
+        var min = Array.min(blocks);
+        var index = $.inArray(min, blocks);
+```        
 
 To calculate the left position, we add the width of each column to the margin, multiple that by our index and finally add another margin. This additional margin acts as a padding on the left of the window. The new `leftPos` value and `min` is applied to that block. The last line is simply updating the array with the new height. This height is calculated by adding the current height, to the height of the current block and the margin.
 
-    var leftPos = margin+(index*(colWidth+margin));
-    $(this).css({
-        'left':leftPos+'px',
-        'top':min+'px'
-    });
-    blocks[index] = min+$(this).outerHeight()+margin;
+```javascript
+var leftPos = margin+(index*(colWidth+margin));
+$(this).css({
+    'left':leftPos+'px',
+    'top':min+'px'
+});
+blocks[index] = min+$(this).outerHeight()+margin;
+```
 
 The function at the end is used to get the minimum value from the array. [You can read more about it here John Resig](http://ejohn.org/blog/fast-javascript-maxmin/, You can read more about it here John Resig). We finally need to call the function 'positionBlocks' to the end of the 'setupBlocks' function so it runs.
 
@@ -124,17 +136,21 @@ Then you're code should produce something like this... [DEMO](http://benholland.
 
 You'll notice that if the window is resized, nothing happens. It's because we haven't added a function to fire when the window is resized. To do this, add the following code to our loading function, below `setupBlocks();`
 
-    $(window).resize(setupBlocks);
+```javascript
+$(window).resize(setupBlocks);
+```
 
 So that is it really. You should have system that looks and works just like Pinterest and jQuery Isotope. Another good addition is to add this to `block` class in your CSS:
 
-    .block {
-        -webkit-transition: all 1s ease-in-out;
-        -moz-transition: all 1s ease-in-out;
-        -o-transition: all 1s ease-in-out;
-        -ms-transition: all 1s ease-in-out;
-        transition: all 1s ease-in-out;
-    }
+```css
+.block {
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    transition: all 1s ease-in-out;
+}
+```
 
 This will animate the blocks both on load, and when the window is resized. I hope this has been some help to you. I really enjoyed building this solution and working with the maths behind the scenes.
 

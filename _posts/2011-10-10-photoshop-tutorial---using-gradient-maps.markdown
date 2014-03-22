@@ -14,7 +14,6 @@ In the layers panel, create a _new adjustment layer_ and select _gradient map_.
 
 ![]({{ site.url }}/assets/2011/10/add-adjustment.jpg)
 
-
 ### Step 2 - Edit the gradient map
 In the adjustment's view, click on the gradient to edit ("click 1"). I choose to select a pre-set gradient ("click 2") as it worked really well for this image, but you can create your own gradient if they don't do the job. Select what gradient you want and hit the OK button.
 

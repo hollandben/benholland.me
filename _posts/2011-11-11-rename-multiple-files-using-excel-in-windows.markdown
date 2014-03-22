@@ -21,7 +21,9 @@ Then we need to change the current directory to the one we want. An easy way of 
 
 Now we need to generate the list of images. Type this:
 
-    dir /b > _list.txt
+```
+dir /b > _list.txt
+```
 
 This will create a list of all the files in the folder and export them to a new file called `_list.txt`. You can call this file what you want.
 
@@ -47,7 +49,9 @@ That's the file names changed, now we need to write our command so that the comm
 
 The syntax for renaming files with the command prompt are as so:
 
-    ren [original filename] [new filename]
+```
+ren [original filename] [new filename]
+```
 
 So in our spreadsheet we are going to create this. To make sure we don't encounter any errors, we're going to wrap our old and new file name in quotes. Whenever we want to write quotes within excel, we need to use four of them together. This is so it knows to print a quote symbol and not to interpret it as a string. This is what our next column should look like:
 

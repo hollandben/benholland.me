@@ -7,31 +7,33 @@ categories: tutorials
 
 A lot of projects I've worked on recently have required unique ids or numbers being entered into a database. I've been working with this function for a while now and it's proved very useful, so thought I would share it with everyone...
 
+```php
 ### Generating a Random Number
 
-    function genRandomString($len)  {
-        $str = "";
-        $char = "012346789";
-        for ($i=0; $i<$len; $i++) {
-            $str .= substr($char, mt_rand(0, $len-1), 1);
-        }
-        return $str;
+function genRandomString($len)  {
+    $str = "";
+    $char = "012346789";
+    for ($i=0; $i<$len; $i++) {
+        $str .= substr($char, mt_rand(0, $len-1), 1);
     }
+    return $str;
+}
+```
 
 This function creates a for loop based on the length variable `$len` we pass it. In this loop, a new number is added to our `$str` variable by randomly selecting a number from our $char string. This string can contain whatever characters you want to use. After the loop has finished, our newly generated string is returned.
 
-<!--- extract -->
-
+```php
 ### Generating a Random String
 
-    function genRandomString($len) {
-        $str = "";
-        $char = "012346789abcedfghijklmnopqrstuvwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ";
-        for ($i=0; $i<$len; $i++) {
-            $str .= substr($char, mt_rand(0, $len-1), 1);
-        }
-        return $str;
+function genRandomString($len) {
+    $str = "";
+    $char = "012346789abcedfghijklmnopqrstuvwxyzABCEDFGHIJKLMNOPQRSTUVWXYZ";
+    for ($i=0; $i<$len; $i++) {
+        $str .= substr($char, mt_rand(0, $len-1), 1);
     }
+    return $str;
+}
+```
 
 This function is the same as before, except I've included a lot of extra characters. If you are using this to store unique ids, beware that there is the slight possibility that the same string will be generated.
 

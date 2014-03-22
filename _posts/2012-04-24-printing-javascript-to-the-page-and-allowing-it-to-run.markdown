@@ -9,14 +9,14 @@ I encountered a very peculiar problem today, where all my JavaScript was being p
 
 Whilst adding some global styles using the `*` operator, I had added the code `display: block` to it. Turns out that this tells all HTML tags, `script` included, to display as a block element. Quite an interesting discovery really, and is a great way of easily printing out code, whether it be development purposes or simple for blog like this very one.
 
-<!--- extract -->
-
 So to just target the script tags, then use this CSS code:
 
-    script {
-        display: block;
-        white-space: pre;
-     }
+```javascript
+script {
+    display: block;
+    white-space: pre;
+}
+```
 
 Adding the "white-space: pre;" will preserve the line breaks exactly as they are in the code.
 

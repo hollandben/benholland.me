@@ -11,7 +11,9 @@ I recently moved a WordPress blog from one domain to another without a hitch, we
 
 The first step is to access your database, whether that be using phpMyAdmin, MySQL Workbench or Sequel Pro. Select the WordPress database you wish to edit and open up a new SQL query window. Then place the code below in and hit GO (obviously replacing the example with your text or URL).
 
-    UPDATE wp_posts SET post_content = REPLACE(post_content, 'http://example.com', 'http://new-example.com');
+```sql
+UPDATE wp_posts SET post_content = REPLACE(post_content, 'http://example.com', 'http://new-example.com');
+```
 
 That should be complete now. Check the links on your website and see them pointing in the right direction.
 

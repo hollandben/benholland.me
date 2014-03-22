@@ -17,19 +17,23 @@ What we're trying to do here is increase the number of accordion sections and sl
 
 We need to add some new code to our file. Here's a few lines of code we need to add, you can re-write it yourself or just copy the element above it:
 
-	<div id="slide4" class="slide">
-		![](../img/thor.jpg)
-	</div>
+```html
+<div id="slide4" class="slide">
+	![](../img/thor.jpg)
+</div>
+```
 
 We add that code after all our other slider panels.
 
-	<div class="link-header">New Accordion Panel</div>
-	<div class="link-content">
-		<p>
-			<strong>Thor</strong> was a movie about a man with a hammer. He was pretty cool and beat a lot of people up, mostly dude's made of ice.
-		</p>
-		<p>He's pretty badass so don't mess with him</p>
-	</div>
+```html
+<div class="link-header">New Accordion Panel</div>
+<div class="link-content">
+	<p>
+		<strong>Thor</strong> was a movie about a man with a hammer. He was pretty cool and beat a lot of people up, mostly dude's made of ice.
+	</p>
+	<p>He's pretty badass so don't mess with him</p>
+</div>
+```
 
 Here we are adding another accordion section, adding some new text. If we preview the changes we've made, they won't be visible. This is because the height of each accordion section is fixed depending on the height of your Slidorion.
 

@@ -26,7 +26,7 @@ module.exports = function(grunt) {
             },
             site: {
                 files: {
-                    '_site/css/main.css': 'less/_build.less'
+                    'css/main.css': 'less/_build.less'
                 }
             }
         },

@@ -25,14 +25,16 @@ The snippet of code checks if the click element is either the popup itself or on
 
 It was pointed out by [Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper](http://benhowdle.im, Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper) that there is an even simpler way to solve this problem. Check it out:
 
-    var popup = $('#popup');
+```javascript
+var popup = $('#popup');
 
-    $(document).on('click', function(){
-        popup.hide();
-    });
-    
-    popup.click(function(e) {
-        e.stopPropagation();
-    });
+$(document).on('click', function(){
+    popup.hide();
+});
+
+popup.click(function(e) {
+    e.stopPropagation();
+});
+```
 
 You can [see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation](http://jsfiddle.net/hollandben/RqPfV/1/, see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation) in the jQuery documentation.

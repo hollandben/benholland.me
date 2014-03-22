@@ -27,7 +27,9 @@ When the install is finished, launch [http://localhost](http://localhost, http:/
 
 By default, the server we created will deny all incoming connections, so we need to change this. Click on the WAMP icon in the system tray, hover over `Apache` then click `httpd.conf`. Open this file and search for:
 
-    <Directory "c:/wamp/www/">
+```html
+<Directory "c:/wamp/www/">
+```
 
 Change this to `Allow from all`.
 
@@ -43,7 +45,9 @@ You should already see a `index.php` file in here. Open that within your text ed
 
 Create a new folder called `test-site` and within this copy the `index.php` file, delete everything in it and add some markup:
 
-    <h1>Welcome to Test-Site</h1>
+```html
+<h1>Welcome to Test-Site</h1>
+```
 
 Now go to `http://localhost/test-site` in your browser. As you can see, we have created a new website on our local server.
 

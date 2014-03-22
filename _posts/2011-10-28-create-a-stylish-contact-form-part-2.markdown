@@ -2,7 +2,6 @@
 layout: post
 title:  Create A Stylish Contact Form - Part 2
 date:   2011-10-28 04:21:19
-categories: html & css
 ---
 
 Welcome to part 2 of this 3 part tutorial on creating a stylish contact form. In this section, we'll be adding some functionality using jQuery, a JavaScript library. When I say functionality, I mean adding some extra features which will improve usability and also validating our form, itself from accidently submissions and mistakes.

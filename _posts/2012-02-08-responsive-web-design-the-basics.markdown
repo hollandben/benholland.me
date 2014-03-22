@@ -2,7 +2,6 @@
 layout: post
 title:  Responsive Web Design - The Basics
 date:   2012-02-08 00:36:44
-categories: html & css
 ---
 
 A term that has been thrown around as the biggest trend in 2012 is responsive web design, something that you should definitely take note of. A responsive design solves the problem of providing different cross-platform websites, mainly mobile sites. The recent increase in mobile devices and tablets capable of browsing the web with ease has been a main catalyst for the technique as it allows for changes to be made to a site depending on the screen dimensions. In theory, you're creating one website to rule them all! Ok that's a bad Lord of the Rings pun, but lets's get stuck in to what it's all about...

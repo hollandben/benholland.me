@@ -2,7 +2,6 @@
 layout: post
 title:  5 Useful CSS Tips and Tricks You Might Not Know About
 date:   2011-09-30 15:54:42
-categories: html & css
 ---
 
 CSS has been around the web since the start of 1997 and hasn't stopped growing since, and with the introduced of CSS3 last year, the styling language is making coding websites a lot more efficient. Here are some of my tips and tricks that you might not know about...

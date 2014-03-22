@@ -2,7 +2,6 @@
 layout: post
 title:  Working With Less - The CSS Preprocessor
 date:   2012-07-17 14:50:36
-categories: html & css
 ---
 
 I recently started working on a project which used the CSS preprocessor LESS. If you don't know what LESS or even a pre-processor is, then here's a quick description.

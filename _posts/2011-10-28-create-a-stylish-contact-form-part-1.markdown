@@ -2,7 +2,6 @@
 layout: post
 title:  Create A Stylish Contact Form - Part 1
 date:   2011-10-28 03:21:38
-categories: html & css
 ---
 
 Almost every website has a contact page, and if it doesn't then it really should. So why not make a contact form that really impresses visitors and leaves a lasting impression. Creating a great looking is simple and easy to do. In this 3 part tutorial, I'll be showing you how to build a form using the latest CCS3 styles to make it eye catching, some jQuery to make it more interactive and topping it off with some AJAX to make the functionality of the form slick to really impress you users.

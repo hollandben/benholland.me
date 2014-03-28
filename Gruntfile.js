@@ -19,15 +19,12 @@ module.exports = function(grunt) {
             options: {
                 compress: true
             },
-            src: {
-                files: {
-                    '_includes/main.css': 'less/_build.less'
-                }
-            },
             site: {
                 files: {
+                    '_includes/main.css': 'less/_build.less',
                     'css/main.css': 'less/_build.less',
-                    '_site/css/main.css': 'less/_build.less'
+                    '_site/css/main.css': 'less/_build.less',
+                    '_site/css/syntax.css': 'css/syntax.css'
                 }
             }
         },

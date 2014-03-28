@@ -3,6 +3,6 @@ markdown: redcarpet
 pygments: true
 highlighter: pygments
 
-exclude: [less, Gruntfile.js, package.json]
+exclude: [less, node_modules, Gruntfile.js, package.json]
 
 relative_permalinks: true

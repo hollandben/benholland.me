@@ -7,7 +7,7 @@ categories: javascript
 
 Ok, if you have no idea what [Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I've seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope](http://www.pinterest.com/) where blocks are perfectly positioned into a series of columns, and as the screen size changes, the columns re-shuffle to make sure they fit inside the screen. So the purpose of this tutorial is to re-create this responsive block effect ourselves...
 
-[Click here to see a demonstration of what we're making](http://benholland.me/labs/pinterest/) Tip: resize the window
+[Click here to see a demonstration of what we're making](http://labs.benholland.me/pinterest/) Tip: resize the window
 
 ### The Theory
 
@@ -76,7 +76,7 @@ The next line calculates the number of columns that will fit in current window. 
 
 We create a loop which creates values for each column. So if there are 4 possible columns that could fit in the window, there will be 4 values in the array.
 
-The code above should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-1.php)
+The code above should produce something like this... [DEMO](http://labs.benholland.me/pinterest/demo-1.php)
 
 (try changing the width of the window and refreshing. take note of the effect this has on the array)
 
@@ -130,7 +130,7 @@ blocks[index] = min+$(this).outerHeight()+margin;
 
 The function at the end is used to get the minimum value from the array. [You can read more about it here John Resig](http://ejohn.org/blog/fast-javascript-maxmin/). We finally need to call the function 'positionBlocks' to the end of the 'setupBlocks' function so it runs.
 
-Then you're code should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-2.php)
+Then you're code should produce something like this... [DEMO](http://labs.benholland.me/pinterest/demo-2.php)
 
 ### Finishing Touches
 
@@ -156,6 +156,6 @@ This will animate the blocks both on load, and when the window is resized. I hop
 
 Feel free to comment if this makes no sense or you're having problems with the code.
 
-[Check out the finished code here](http://benholland.me/labs/pinterest/)
+[Check out the finished code here](http://labs.benholland.me/pinterest/)
 
-[Also, check out the demo that keeps the blocks centered in the screen](http://benholland.me/labs/pinterest/demo-centered.php)
+[Also, check out the demo that keeps the blocks centered in the screen](http://labs.benholland.me/pinterest/demo-centered.php)

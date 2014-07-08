@@ -20,7 +20,7 @@ Once within a project, you can hit `Ctrl+P` (Cmd+P) and search for any filename 
 
 There are loads of packages out there for Sublime. The number is always growing, and to keep most of them in one place, Package Control was created.
 
-You first need to install [Package Control](http://wbond.net/sublime_packages/package_control, Package Control). Once that's done, hit `Ctrl+Shift+P` (Cmd+Shift+P). This is the command palette and lists all available commands currently installed. Start typing "Install Package" and hit enter. From here you can search for packages within the Package Control repo. You can even manually install them using a link (usually a public GitHub link).
+You first need to install [Package Control](http://wbond.net/sublime_packages/package_control). Once that's done, hit `Ctrl+Shift+P` (Cmd+Shift+P). This is the command palette and lists all available commands currently installed. Start typing "Install Package" and hit enter. From here you can search for packages within the Package Control repo. You can even manually install them using a link (usually a public GitHub link).
 
 Here are the packages I used often:
 
@@ -36,7 +36,7 @@ Here are the packages I used often:
 * **LESS build** - Adds a build engine to compile LESS
 * **Markdown Previewer** - Lets you see a temp file of your markdown code. Comes with GitHub flavoring option
 * **Sidebar Enhancements** - Adds windows functionality to the sidebar (right-click menu)
-* **Themes** - [Colour Schemes</a> : <a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Theme](https://github.com/daylerees/colour-schemes, Colour Schemes</a> : <a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Theme)
+* **Themes** - [Colour Schemes</a> : <a href="https://github.com/chriskempson/tomorrow-theme">Tomorrow Theme](https://github.com/daylerees/colour-schemes)
 
 There a loads more out there, so let me know if you find some more useful ones
 

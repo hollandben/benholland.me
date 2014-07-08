@@ -11,31 +11,31 @@ Converting images to black and white is a great way of making an ordinary photog
 
 Converting the image to grayscale is the simplest of all the method. To do this, go to _Image -&gt; Mode -&gt; Grayscale_ and boom, you have yourself a black and white image. All we are doing here is telling Photoshop (or your image editing software) to discard all colour in the image and replace them with shades of gray. Changing the mode of the image is a great technique as it can be performed in all image editing software. This is the outcome...
 
-![]({{ site.url }}/assets/2011/10/changing-mode.jpg)
+![image]({{ site.url }}/assets/2011/10/changing-mode.jpg)
 
 ### Method 2 - Desaturation
 
 This method is similar to the previous one. To change the saturation of the image, go to `Image -&gt; Adjustments -&gt; Hue/Saturation` or `Ctrl+U`. Change the saturation to be -100 or move the slider to the far left. You will see the image lose it's colour. I find that this method can leave the image looking quite flat and lifeless. This is the outcome...
 
-![]({{ site.url }}/assets/2011/10/saturation.jpg)
+![image]({{ site.url }}/assets/2011/10/saturation.jpg)
 
 ### Method 3 - Gradient Map
 
-Gradient maps are brilliant to use, not only when it comes to adding a different tone to an image, but for converting them to black and white ([see how to use gradient maps](http://benholland.me/design/photoshop-tutorial-using-gradient-maps/, see how to use gradient maps)). Simple apply the gradient map adjustment layer, making sure you have a black to white gradient. The difference between this and the other two methods is quite clear. Using a gradient map maintains the contrast of the image, keeping the blacks black and keeping life in the image. This is the outcome...
+Gradient maps are brilliant to use, not only when it comes to adding a different tone to an image, but for converting them to black and white ([see how to use gradient maps](http://benholland.me/design/photoshop-tutorial-using-gradient-maps/)). Simple apply the gradient map adjustment layer, making sure you have a black to white gradient. The difference between this and the other two methods is quite clear. Using a gradient map maintains the contrast of the image, keeping the blacks black and keeping life in the image. This is the outcome...
 
-![]({{ site.url }}/assets/2011/10/map.jpg)
+![image]({{ site.url }}/assets/2011/10/map.jpg)
 
 ### Method 4 - Black and White Adjustment Layer
 
 Another very simple method of converting an image to black and white is to use the black and white adjustment layer. This has a similar effect to the desturation method and can make the image become very flat, so it is not used often. This is the outcome...
 
-![]({{ site.url }}/assets/2011/10/black+white.jpg)
+![image]({{ site.url }}/assets/2011/10/black+white.jpg)
 
 ### Method 5 - Channel Mixer
 
 The channel mixer is a more complicated method, but yields the best results. For a more in-depth look at how to use this method, check out my post on `Converting to Black and White Using The Channel Mixer`. This method really gives you freedom about how you want the image to look and feel. If you have time to play around with the settings then this is the best method to use. This is the outcome...
 
-![]({{ site.url }}/assets/2011/10/mixer1.jpg)
+![image]({{ site.url }}/assets/2011/10/mixer1.jpg)
 
 ### Conclusion
 

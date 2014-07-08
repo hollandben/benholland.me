@@ -8,7 +8,7 @@ A term that has been thrown around as the biggest trend in 2012 is responsive we
 
 ### What Is Responsive Web Design
 
-RWD is a technique created by [Ethan Marcotte</a> back in 2010, that adjusts certain aspects of a website depending on the dimensions of the viewing screen. Loosely based on Fluid Grids, something that was never that popular, the technique moves away from having a fixed grid such as 960px and encourages you to utilise the full size of the screen. Two excellent examples of this are <a href="http://wwww.smashingmagazine.com/">Smashing Magazine</a> and <a href="http://www.css-tricks.com/">CSS-Tricks](http://www.alistapart.com/articles/responsive-web-design/, Ethan Marcotte</a> back in 2010, that adjusts certain aspects of a website depending on the dimensions of the viewing screen. Loosely based on Fluid Grids, something that was never that popular, the technique moves away from having a fixed grid such as 960px and encourages you to utilise the full size of the screen. Two excellent examples of this are <a href="http://wwww.smashingmagazine.com/">Smashing Magazine</a> and <a href="http://www.css-tricks.com/">CSS-Tricks). Try adjusting you're browser size and you'll see how the website responds.
+RWD is a technique created by [Ethan Marcotte</a> back in 2010, that adjusts certain aspects of a website depending on the dimensions of the viewing screen. Loosely based on Fluid Grids, something that was never that popular, the technique moves away from having a fixed grid such as 960px and encourages you to utilise the full size of the screen. Two excellent examples of this are <a href="http://wwww.smashingmagazine.com/">Smashing Magazine</a> and <a href="http://www.css-tricks.com/">CSS-Tricks](http://www.alistapart.com/articles/responsive-web-design/). Try adjusting you're browser size and you'll see how the website responds.
 
 CSS3 media queries are the key to responsive web design. They are expressions that check for conditions and apply different styles depending on these conditions. Confused?? Let's take a look at an example of a media query.
 
@@ -106,6 +106,6 @@ Next we need to add some media queries. What I want to do is make sure the wrapp
 }
 ```
 
-And that's basically it. You can see a [working demonstration](http://benholland.me/demo/repsonsive-web-design-structure.html, working demonstration) - all you need to do is resize the browser window and you can see how the elements changed based on the width of the viewport.
+And that's basically it. You can see a [working demonstration](http://benholland.me/demo/repsonsive-web-design-structure.html) - all you need to do is resize the browser window and you can see how the elements changed based on the width of the viewport.
 
 So there's a quick introduction to responsive web design. Have a play around with media queries and see what you can come up with, they're pretty cool!!

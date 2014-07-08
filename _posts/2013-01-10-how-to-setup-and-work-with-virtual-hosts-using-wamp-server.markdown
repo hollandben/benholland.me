@@ -8,7 +8,7 @@ categories: tutorials
 What you'll need:
 
 * A Windows machine
-* A working copy of WAMP server ([go here if not](/tutorial/setting-up-a-wamp-server-on-windows, go here if not))
+* A working copy of WAMP server ([go here if not](/tutorial/setting-up-a-wamp-server-on-windows))
 
 ### What is a virtual host?
 

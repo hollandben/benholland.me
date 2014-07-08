@@ -9,6 +9,6 @@ I've been using Twitter for a little while now and am loving it! But the other d
 
 If you want to view all the shortcuts within Twitter then scroll down to the Shortcuts link and click on it. A dialog box like this will pop up.
 
-![]({{ site.url }}/assets/2011/11/tw.jpg)
+![image]({{ site.url }}/assets/2011/11/tw.jpg)
 
 **Edit:**I later found out that these have been in place for a while now but nobody has ever told me about them!!

@@ -17,13 +17,13 @@ This post, along with some others, is a guide to setting up a Linux server on yo
 
 ### Installing WAMP
 
-Firstly, we need to grab a copy of WAMP. Head over to the [WampServer website](http://www.wampserver.com/en/, WampServer website), click the "start using WampServer" and download the correct version for you, depending on whether you're running a 32 or 64 bit version of Windows. (to see your version, right-click on 'My Computer' and find 'System Type'). I normally select 'WampServer (64 bits & PHP 5.4) 2.2E.
+Firstly, we need to grab a copy of WAMP. Head over to the [WampServer website](http://www.wampserver.com/en/), click the "start using WampServer" and download the correct version for you, depending on whether you're running a 32 or 64 bit version of Windows. (to see your version, right-click on 'My Computer' and find 'System Type'). I normally select 'WampServer (64 bits & PHP 5.4) 2.2E.
 
-![]({{ site.url }}/assets/2013/01/wampserver-download.jpg)
+![image]({{ site.url }}/assets/2013/01/wampserver-download.jpg)
 
 Install the program, leaving all settings as default.
 
-When the install is finished, launch [http://localhost](http://localhost, http://localhost) in your browser. You may be greeted by a pleasant message saying "Forbidden - You don't have permission to access / on this server". Let's fix this.
+When the install is finished, launch [http://localhost](http://localhost) in your browser. You may be greeted by a pleasant message saying "Forbidden - You don't have permission to access / on this server". Let's fix this.
 
 By default, the server we created will deny all incoming connections, so we need to change this. Click on the WAMP icon in the system tray, hover over `Apache` then click `httpd.conf`. Open this file and search for:
 
@@ -33,9 +33,9 @@ By default, the server we created will deny all incoming connections, so we need
 
 Change this to `Allow from all`.
 
-Now, when you go to [http://localhost](http://localhost, http://localhost), you should see the WAMP homepage!
+Now, when you go to [http://localhost](http://localhost), you should see the WAMP homepage!
 
-![]({{ site.url }}/assets/2013/01/wampserver-localhost-homepage.jpg)
+![image]({{ site.url }}/assets/2013/01/wampserver-localhost-homepage.jpg)
 
 ### Creating A Site
 
@@ -57,4 +57,4 @@ Now go to `http://localhost/test-site` in your browser. As you can see, we have 
 
 Stopping here is fine. You can work using this directory format, but things can get tricky with larger sites when it comes to htaccess and image/file paths (they did for me). So to combat this we create 'virtual hosts'. They allow you to point a custom URL to a certain project folder, i.e. `http://local.test-site` redirects to our test-site folder.
 
-To read more about this, checkout this post on "[How to Setup and Work with Virtual Hosts using WAMP Server](#, How to Setup and Work with Virtual Hosts using WAMP Server)"
+To read more about this, checkout this post on "[How to Setup and Work with Virtual Hosts using WAMP Server](#)"

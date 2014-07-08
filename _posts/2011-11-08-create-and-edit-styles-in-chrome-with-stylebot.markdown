@@ -13,18 +13,18 @@ Firstly, install **stylebot** by going here and installing it.
 
 After that, you'll now notice a small "CSS" icon at the end of your address bar. Click on that, and it'll open up **stylebot**
 
-![]({{ site.url }}/assets/2011/11/address.jpg)
+![image]({{ site.url }}/assets/2011/11/address.jpg)
 
 The interface is pretty simple, giving you a choice of the most commonly used styles. You can select an element using the pointer button in the top left of the window and apply native styles to that object by clicking advanced entering them there.
 
-![]({{ site.url }}/assets/2011/11/options.jpg)
+![image]({{ site.url }}/assets/2011/11/options.jpg)
 
 You'll see the changes happening live!! This can be really useful so get going with it NOW!!
 
 Another cool thing with **stylebot** is that you can change the look of your favourite websites (it saves the CSS changes so aslong as the add-on is enabled, it'll always be there). For instance, I changed all the profile pictures on my Facebook feed to circles and when I hovered over that specific story, the background becomes darker. Is only small changes but is kinda cool.
 
-![]({{ site.url }}/assets/2011/11/facebook.jpg)
+![image]({{ site.url }}/assets/2011/11/facebook.jpg)
 
-(Thanks to [Mike Onslow</a> for letting me use his Facebook feed. Check him out on <a href="https://twitter.com/#!/MikeOnslow">Twitter](http://blog.mikeonslow.com/, Mike Onslow</a> for letting me use his Facebook feed. Check him out on <a href="https://twitter.com/#!/MikeOnslow">Twitter)!)
+(Thanks to [Mike Onslow</a> for letting me use his Facebook feed. Check him out on <a href="https://twitter.com/#!/MikeOnslow">Twitter](http://blog.mikeonslow.com/)!)
 
 To turn **stylebot** off, just click the "CSS" button in the address bar and the styles will disappear.

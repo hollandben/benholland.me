@@ -5,19 +5,19 @@ date:   2012-02-20 06:49:32
 categories: javascript
 ---
 
-Ok, if you have no idea what [Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I've seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope](http://www.pinterest.com/, Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I've seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope) where blocks are perfectly positioned into a series of columns, and as the screen size changes, the columns re-shuffle to make sure they fit inside the screen. So the purpose of this tutorial is to re-create this responsive block effect ourselves...
+Ok, if you have no idea what [Pinterest</a> is then go check it out. It is a website that lets you organise and share all your favourite things by using pinboards. It really is a cool site, but what I find interesting is how these pinboards are laid out. I've seen something similar before with <a href="http://benholland.me/javascript/create-magical-layouts-with-isotope-a-great-jquery-plugin/">jQuery Isotope](http://www.pinterest.com/) where blocks are perfectly positioned into a series of columns, and as the screen size changes, the columns re-shuffle to make sure they fit inside the screen. So the purpose of this tutorial is to re-create this responsive block effect ourselves...
 
-[Click here to see a demonstration of what we're making](http://benholland.me/labs/pinterest/, Click here to see a demonstration of what we're making) Tip: resize the window
+[Click here to see a demonstration of what we're making](http://benholland.me/labs/pinterest/) Tip: resize the window
 
 ### The Theory
 
 Right, before jumping into the code, we need to get the theory sorted in our heads. It's a relatively simple system once you grasp the concept. To make this system work, we first need to know 3 things; the window width, the width of the blocks and the margin between these blocks.
 
-![]({{ site.url }}/assets/2012/02/diagram.jpg)
+![image]({{ site.url }}/assets/2012/02/diagram.jpg)
 
 From this data, we then calculate the number of possibly blocks that would fit in the window. This gives us our number of columns, so in the diagram above, it would be 4. So we create an array with 4 values in, defaulted at the value of the margin. This array is used to store the running heights of each column. E.g. a block of height 120px is added to column 3, so that value in the array is increased by 120. We also use the index number of each value to calculate the position from the left of the screen. Here's a flow diagram of how the function will work. This will also run everytime the window is resized so the blocks can update themselves.
 
-![]({{ site.url }}/assets/2012/02/flow-diagram.jpg)
+![image]({{ site.url }}/assets/2012/02/flow-diagram.jpg)
 
 ### Setting Up The Blocks
 
@@ -76,7 +76,7 @@ The next line calculates the number of columns that will fit in current window. 
 
 We create a loop which creates values for each column. So if there are 4 possible columns that could fit in the window, there will be 4 values in the array.
 
-The code above should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-1.php, DEMO)
+The code above should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-1.php)
 
 (try changing the width of the window and refreshing. take note of the effect this has on the array)
 
@@ -115,7 +115,7 @@ function positionBlocks() {
     $('.block').each(function(){
         var min = Array.min(blocks);
         var index = $.inArray(min, blocks);
-```        
+```
 
 To calculate the left position, we add the width of each column to the margin, multiple that by our index and finally add another margin. This additional margin acts as a padding on the left of the window. The new `leftPos` value and `min` is applied to that block. The last line is simply updating the array with the new height. This height is calculated by adding the current height, to the height of the current block and the margin.
 
@@ -128,9 +128,9 @@ $(this).css({
 blocks[index] = min+$(this).outerHeight()+margin;
 ```
 
-The function at the end is used to get the minimum value from the array. [You can read more about it here John Resig](http://ejohn.org/blog/fast-javascript-maxmin/, You can read more about it here John Resig). We finally need to call the function 'positionBlocks' to the end of the 'setupBlocks' function so it runs.
+The function at the end is used to get the minimum value from the array. [You can read more about it here John Resig](http://ejohn.org/blog/fast-javascript-maxmin/). We finally need to call the function 'positionBlocks' to the end of the 'setupBlocks' function so it runs.
 
-Then you're code should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-2.php, DEMO)
+Then you're code should produce something like this... [DEMO](http://benholland.me/labs/pinterest/demo-2.php)
 
 ### Finishing Touches
 
@@ -156,6 +156,6 @@ This will animate the blocks both on load, and when the window is resized. I hop
 
 Feel free to comment if this makes no sense or you're having problems with the code.
 
-[Check out the finished code here](http://benholland.me/labs/pinterest/, Check out the finished code here)
+[Check out the finished code here](http://benholland.me/labs/pinterest/)
 
-[Also, check out the demo that keeps the blocks centered in the screen](http://benholland.me/labs/pinterest/demo-centered.php, Also, check out the demo that keeps the blocks centered in the screen)
+[Also, check out the demo that keeps the blocks centered in the screen](http://benholland.me/labs/pinterest/demo-centered.php)

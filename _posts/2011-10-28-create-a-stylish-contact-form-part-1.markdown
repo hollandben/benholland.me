@@ -6,14 +6,14 @@ date:   2011-10-28 03:21:38
 
 Almost every website has a contact page, and if it doesn't then it really should. So why not make a contact form that really impresses visitors and leaves a lasting impression. Creating a great looking is simple and easy to do. In this 3 part tutorial, I'll be showing you how to build a form using the latest CCS3 styles to make it eye catching, some jQuery to make it more interactive and topping it off with some AJAX to make the functionality of the form slick to really impress you users.
 
-When you've completed all three parts of the tutorial, this is what you will see - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html, DEMO)
+When you've completed all three parts of the tutorial, this is what you will see - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html)
 
 ## Part 1 - Styling The Form
 
 ### The Setup
 
-Before we get going, you'll need to download [Eric Meyer's CSS reset file](http://meyerweb.com/eric/tools/css/reset/reset.css, Eric Meyer's CSS reset file). Place the file in your project folder and your ready to go...
- 
+Before we get going, you'll need to download [Eric Meyer's CSS reset file](http://meyerweb.com/eric/tools/css/reset/reset.css). Place the file in your project folder and your ready to go...
+
 **Creating The HTML Form**
 
 We need to create our HTML form. We're going to have 3 fields; name, email and comment followed by a submit button. This is what the form structure looks like:
@@ -206,6 +206,6 @@ Here we are styling the input fields and submit button so they give some feedbac
 
 The submit button is floated right and a width is set. Also, the background colour is set the become lighter, the cursor is changed to a pointer (the hand) and the font colour becomes darker to make it clear that the button is active and can be pressed.
 
-So that's it for part 1. This is what it should you should have now - [see part 1 DEMO](http://benholland.me/demo/stylish-contact-form/demo-part1.html, see part 1 DEMO)
+So that's it for part 1. This is what it should you should have now - [see part 1 DEMO](http://benholland.me/demo/stylish-contact-form/demo-part1.html)
 
-[Go ahead to part 2 of this tutorial](http://benholland.me/coding/create-a-stylish-contact-form-part-2/, Go ahead to part 2 of this tutorial)
+[Go ahead to part 2 of this tutorial](http://benholland.me/coding/create-a-stylish-contact-form-part-2/)

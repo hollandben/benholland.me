@@ -66,9 +66,9 @@ And this is the output:
 </ul>
 ```
 
-What's that sound? Oh that's right, it's your mind blowing!! OK let's get serious here. This is an amazing plugin, one that I have only been using for 2 days and now the thought of writing the above code without Zen Coding's assistance scares me. And I have only scratched the surface. You can use it for all HTML and CSS code ([see the cheat sheet here](http://code.google.com/p/zen-coding/downloads/detail?name=ZenCodingCheatSheet.pdf, see the cheat sheet here)).
+What's that sound? Oh that's right, it's your mind blowing!! OK let's get serious here. This is an amazing plugin, one that I have only been using for 2 days and now the thought of writing the above code without Zen Coding's assistance scares me. And I have only scratched the surface. You can use it for all HTML and CSS code ([see the cheat sheet here](http://code.google.com/p/zen-coding/downloads/detail?name=ZenCodingCheatSheet.pdf)).
 
-So my advice to you? Go to the [Zen Coding project](http://code.google.com/p/zen-coding/, Zen Coding project), download it and install it for whatever software you use. It fully supports a range of editors such as:
+So my advice to you? Go to the [Zen Coding project](http://code.google.com/p/zen-coding/), download it and install it for whatever software you use. It fully supports a range of editors such as:
 
 * Sublime Text 2
 * Aptana/Eclipse

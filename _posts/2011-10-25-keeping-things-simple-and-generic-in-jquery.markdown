@@ -8,7 +8,7 @@ categories: javascript
 Keeping code simple and generic makes programming in all languages a lot easier. For this tutorial, I'll be using jQuery. We're going to be creating some hidden elements, that when click on, will slide down. Let's get started
 
 ### The HTML
-Firstly, check out this [demo](http://benholland.me/demo/generic-jquery.html, demo) to see what we're going to be creating.
+Firstly, check out this [demo](http://benholland.me/demo/generic-jquery.html) to see what we're going to be creating.
 
 Ok, so the code we'll be working with:
 
@@ -102,4 +102,4 @@ $(document).ready(function(){
 });
 ```
 
-[Check out the final demo here](http://benholland.me/demo/generic-jquery.html, Check out the final demo here)
+[Check out the final demo here](http://benholland.me/demo/generic-jquery.html)

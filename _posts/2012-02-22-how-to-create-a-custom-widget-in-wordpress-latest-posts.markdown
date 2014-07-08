@@ -49,7 +49,7 @@ We then request the data and loop through each set of results. Within this loop,
 
 If you've done that all correctly then the widget should look something like this...
 
-![]({{ site.url }}/assets/2012/02/latest-posts.jpg)
+![image]({{ site.url }}/assets/2012/02/latest-posts.jpg)
 
 ### Finishing Touches
 
@@ -58,7 +58,7 @@ So the widget displays our latest posts, but they aren't currently linked to eac
 ```php
 foreach($posts as $post):setup_postdata($post);
     $content .= '<tr>
-        <td><strong>[ID.'&action=edit" title="Edit "'.$post->post_title.'"">'.$post->post_title.']('.get_bloginfo(, ID.'&action=edit" title="Edit "'.$post->post_title.'"">'.$post->post_title.')</strong></td>
+        <td><strong>[ID.'&action=edit" title="Edit "'.$post->post_title.'"">'.$post->post_title.']('.get_bloginfo()</strong></td>
         <td>'.get_the_author($post->post_author).'</td>
         <td>'.date('d/m/Y', strtotime($post->post_date_gmt)).'</td>
     </tr>';

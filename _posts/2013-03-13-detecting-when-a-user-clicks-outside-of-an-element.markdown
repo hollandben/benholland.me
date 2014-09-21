@@ -19,11 +19,11 @@ $(document).mouseup(function(e) {
 });
 ```
 
-The snippet of code checks if the click element is either the popup itself or one of it's children. You can read more about the `has` method in the [jQuery API documentation](http://api.jquery.com/has, jQuery API documentation).
+The snippet of code checks if the click element is either the popup itself or one of it's children. You can read more about the `has` method in the [jQuery API documentation](http://api.jquery.com/has).
 
 ### EDIT
 
-It was pointed out by [Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper](http://benhowdle.im, Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper) that there is an even simpler way to solve this problem. Check it out:
+It was pointed out by [Ben Howdle</a> and <a href="http://danharper.me/" target="_blank">Dan Harper](http://benhowdle.im) that there is an even simpler way to solve this problem. Check it out:
 
 ```javascript
 var popup = $('#popup');
@@ -37,4 +37,4 @@ popup.click(function(e) {
 });
 ```
 
-You can [see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation](http://jsfiddle.net/hollandben/RqPfV/1/, see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation) in the jQuery documentation.
+You can [see this in action</a> and readup about <a href="http://api.jquery.com/has" target="_blank">e.stopPropagation](http://jsfiddle.net/hollandben/RqPfV/1/) in the jQuery documentation.

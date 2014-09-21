@@ -17,7 +17,7 @@ First thing is to get a list of all the files you want to rename. Start by openi
 
 Then we need to change the current directory to the one we want. An easy way of doing this is to open the folder and copy the location. Got the command prompt, type `cd` and then right-click and hit paste. Hit enter and the directory we're working within will change to the one with all our images in.
 
-![]({{ site.url }}/assets/2011/11/list.jpg)
+![image]({{ site.url }}/assets/2011/11/list.jpg)
 
 Now we need to generate the list of images. Type this:
 
@@ -33,13 +33,13 @@ Open our newly generated file in a text editor and copy the list to a spreadshee
 
 Then add the following formula to the next cell across, replacing what you want to change with what I've put:
 
-![]({{ site.url }}/assets/2011/11/sub1.jpg)
+![image]({{ site.url }}/assets/2011/11/sub1.jpg)
 
 This replaces all the spaces with dashes. We put the text source (our original file name) then what we want to replace (in my case, the spaces) and then what we're replacing it with (the dashes). Drag this formula down so it renames all our files.
 
 Now we want to add `worktop` to the end of each filename, so we copy the process from before:
 
-![]({{ site.url }}/assets/2011/11/sub1.jpg)
+![image]({{ site.url }}/assets/2011/11/sub1.jpg)
 
 What I'm doing here is replacing the full stop before our file extension and replacing it with `-worktop`, but remembering to add the dot again.
 
@@ -55,10 +55,10 @@ ren [original filename] [new filename]
 
 So in our spreadsheet we are going to create this. To make sure we don't encounter any errors, we're going to wrap our old and new file name in quotes. Whenever we want to write quotes within excel, we need to use four of them together. This is so it knows to print a quote symbol and not to interpret it as a string. This is what our next column should look like:
 
-![]({{ site.url }}/assets/2011/11/ren-function.jpg)
+![image]({{ site.url }}/assets/2011/11/ren-function.jpg)
 
 ### Step 4 - Watch The Magic Happen
 
 Now, copy the last column and paste it into our command prompt (remember to right-click, Ctrl+V doesn't work). The window will now start working away, renaming all our files. And that's it. We've changed alot of images to be more SEO friendly and with no time at all. Once this method sticks in your head, it can be a real time saver!!
 
-![]({{ site.url }}/assets/2011/11/final_files.jpg)
+![image]({{ site.url }}/assets/2011/11/final_files.jpg)

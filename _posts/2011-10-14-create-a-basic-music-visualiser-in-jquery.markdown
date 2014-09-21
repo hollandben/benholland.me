@@ -7,9 +7,9 @@ categories: javascript
 
 In this tutorial, I'm going to show you how to create a basic music visualiser in jQuery. Although the visualiser won't be working in sync with any music, it's a great animation to put on your site and you can learn some cool stuff about jQuery. Let's start...
 
-[See demo](http://benholland.me/demo/visualiser/visualiser.html, See demo)
+[See demo](http://benholland.me/demo/visualiser/visualiser.html)
 
-[See advance demo (view in Chrome + FireFox)](http://benholland.me/demo/visualiser/visualiser-style.html, See advance demo (view in Chrome + FireFox))
+[See advance demo (view in Chrome + FireFox)](http://benholland.me/demo/visualiser/visualiser-style.html))
 
 ### The Setup
 We start by importing jQuery into our page along with a CSS reset file (this isn't necessary but is recommended) and lay the framework for our visualiser. This is pretty simple, a `<div>` containing several elements that will be our bars.
@@ -107,7 +107,7 @@ bar.animate({
 });
 ```
 
-Here we animate the bar by using the .animate() feature of jQuery ([read more here](http://api.jquery.com/animate/, read more here)). We set the new height of the bar using barHeight and tell it the time for the animation using the variable time. Then we call the same function again when the animation is complete, creating an infinite loop.
+Here we animate the bar by using the .animate() feature of jQuery ([read more here](http://api.jquery.com/animate/)). We set the new height of the bar using barHeight and tell it the time for the animation using the variable time. Then we call the same function again when the animation is complete, creating an infinite loop.
 
 This code kick starts the animation when the page has loaded.
 
@@ -165,6 +165,6 @@ Here is the full code:
 </html>
 ```
 
-And that's it. You now have a working jQuery music visualiser which is fully customisable. You can add gradients to bars and even [apply a reflection](http://benholland.me/demo/visualiser/visualiser-style.html, apply a reflection). Feel free to comment with any improves or issues...
+And that's it. You now have a working jQuery music visualiser which is fully customisable. You can add gradients to bars and even [apply a reflection](http://benholland.me/demo/visualiser/visualiser-style.html). Feel free to comment with any improves or issues...
 
-[Check it out on JSFiddle](http://jsfiddle.net/GeJgH/, Check it out on JSFiddle)
+[Check it out on JSFiddle](http://jsfiddle.net/GeJgH/)

@@ -11,7 +11,7 @@ There are 3 distinctive sections of a web development team: **design**, **develo
 
 Something I stumbled across whilst searching for a job this summer was how repetitive job listings were. Each post included the same required skills and provided very little detail as to what the employer really wanted. A shocking number of listings asked for every skill under the sun. Others were less informative and simply asked for **strong HTML and CSS skills**. Bear in mind all the jobs I am describing were listed as **front-end developer**.
 
-![]({{ site.url }}/assets/2012/11/stupid-job-listing.png)
+![image]({{ site.url }}/assets/2012/11/stupid-job-listing.png)
 
 
 This created a dilemma - do I apply for all jobs till I find out more or only apply for the ones that seem to know what they want.
@@ -26,7 +26,7 @@ I found it quite annoying when my new work colleagues (through not fault of thei
 
 The solution to this problem is to be more granular and the deciding factor seems to be how much JavaScript you know!
 
-![]({{ site.url }}/assets/2012/11/venn-diagram-web-development.jpg)
+![image]({{ site.url }}/assets/2012/11/venn-diagram-web-development.jpg)
 
 
 With the introduction of Node.js, and a growing number of single page JavaScript applications built on top of MVC frameworks, frontend developers are being spread over a larger area of technologies, moving them away from primarily doing HTML/CSS/jQuery.

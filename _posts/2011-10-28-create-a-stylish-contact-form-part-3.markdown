@@ -4,7 +4,7 @@ title:  Create A Stylish Contact Form - Part 3
 date:   2011-10-28 17:46:46
 ---
 
-Welcome to the final part of this tutorial on creating a stylish contact form. In this section, we'll be adding some AJAX functionality, submitting the form and tidying it up so it's ready for the world to see. When we've completed this part of the tutorial, we'll have this finished form which looks like this - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html, DEMO)
+Welcome to the final part of this tutorial on creating a stylish contact form. In this section, we'll be adding some AJAX functionality, submitting the form and tidying it up so it's ready for the world to see. When we've completed this part of the tutorial, we'll have this finished form which looks like this - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html)
 
 ## Part 3 - Adding AJAX and Submitting The Form
 
@@ -121,8 +121,8 @@ if(errors == 0){
 
 And that's all. Everything is finished now. You can check out the final form should look like (it will vary in later IE versions).
 
-[See finished form and more demos](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html, See finished form and more demos)
+[See finished form and more demos](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html)
 
-You can also [download the source files for tutorial](http://benholland.me/demo/stylish-contact-form/stylish-contact-form.zip, download the source files for tutorial)
+You can also [download the source files for tutorial](http://benholland.me/demo/stylish-contact-form/stylish-contact-form.zip)
 
 **NOTE:** To actually send an email using this form, your files will have to be hosted on a web server!!

@@ -6,9 +6,9 @@ date:   2011-10-28 04:21:19
 
 Welcome to part 2 of this 3 part tutorial on creating a stylish contact form. In this section, we'll be adding some functionality using jQuery, a JavaScript library. When I say functionality, I mean adding some extra features which will improve usability and also validating our form, itself from accidently submissions and mistakes.
 
-This is what we'll be making in this tutorial - [DEMO](http://benholland.me/demo/stylish-contact-form/demo-part2.html, DEMO).
+This is what we'll be making in this tutorial - [DEMO](http://benholland.me/demo/stylish-contact-form/demo-part2.html).
 
-When you've completed all three parts of the tutorial, this is what you will see - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html, DEMO)
+When you've completed all three parts of the tutorial, this is what you will see - [DEMO](http://benholland.me/demo/stylish-contact-form/stylish-contact-form-with-jquery-and-ajax.html)
 
 ## Part 2 - Adding Functionality with jQuery
 
@@ -48,7 +48,7 @@ $('input#name, input#email, textarea#comment').each(function() {
     });
 });
 </script>
-html
+```
 
 Ok, so if you're not similar with jQuery, this is probably going to scare the bejesus out of you. But don't fear, I shall explain:
 
@@ -78,7 +78,7 @@ The next line assigns the default value, i.e `name` or `email`, to a variable fo
 var default_value = this.value;
 ```
 
-Next, we are going to set a function where, when the user clicks (or focuses) on it, the text changes or stays the same depending on it's value. This is done by checking if the current value is equal to the default value earlier. So if the current value is still "emailî then it's removed and replaced with an empty field:
+Next, we are going to set a function where, when the user clicks (or focuses) on it, the text changes or stays the same depending on it's value. This is done by checking if the current value is equal to the default value earlier. So if the current value is still "email‚Äù then it's removed and replaced with an empty field:
 
 ```javascript
 $(this).focus(function() {
@@ -104,7 +104,7 @@ $(this).blur(function() {
 
 So that's that done. Not too hard in the end and it looks really slick. Now on to validation.
 
- 
+
 
 ### Validating Our Form
 
@@ -205,7 +205,7 @@ if(name == "email") {
 }
 ```
 
-Now for the cool stuff. This section of code is checking that the email provided is actually an email. We do this using regular expressions (read more), which checks the structure of the email address, checking for things such as the ë@' symbol and the address ending in `.com` or `.co.uk`. If this regular expression check fails, we set the text of the error div and then fade it in.
+Now for the cool stuff. This section of code is checking that the email provided is actually an email. We do this using regular expressions (read more), which checks the structure of the email address, checking for things such as the ‚Äò@' symbol and the address ending in `.com` or `.co.uk`. If this regular expression check fails, we set the text of the error div and then fade it in.
 
 ```javascript
 switch(value){
@@ -221,7 +221,7 @@ switch(value){
 }
 ```
 
-Here we are using a switch statement to check the value of the field. So if the user didn't enter a name, the value is still "Name *î  and our error div is updated with the error message and then faded in. This is the same for email and comment. You can customise these names depending on what you called your input fields earlier.
+Here we are using a switch statement to check the value of the field. So if the user didn't enter a name, the value is still "Name *‚Äù  and our error div is updated with the error message and then faded in. This is the same for email and comment. You can customise these names depending on what you called your input fields earlier.
 
 ```javascript
 if(errors == 0){
@@ -234,10 +234,8 @@ The last few lines check if there are any errors using our errors variable. If t
 
 And that's all for part 2. Here is the full jQuery code that we learnt today:
 
-```html
-<script src="js/jquery.js"></script>
-<script type="text/javascript">
-$(document).ready(function()M{
+```
+$(document).ready(function() {
     $('input#name, input#email, textarea#comment').each(function() {
         var default_value = this.value;
             $(this).focus(function() {
@@ -291,9 +289,8 @@ $(document).ready(function()M{
         return false;
     });
 });
-</script>
 ```
 
-This is what it should you should have now - [see part 2 DEMO](http://benholland.me/demo/stylish-contact-form/demo-part2.html, see part 2 DEMO)
+This is what it should you should have now - [see part 2 DEMO](http://benholland.me/demo/stylish-contact-form/demo-part2.html)
 
-[Go ahead to part 3 of this tutorial](http://benholland.me/news/create-a-stylish-contact-form-part-3/, Go ahead to part 3 of this tutorial)
+[Go ahead to part 3 of this tutorial](http://benholland.me/news/create-a-stylish-contact-form-part-3/)

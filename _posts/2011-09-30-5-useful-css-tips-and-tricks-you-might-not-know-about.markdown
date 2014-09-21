@@ -25,9 +25,9 @@ I recently used this trick to make sure that a pop up module I created at in the
 ```
 p {
     position: absolute;
-    top: 50%; 
-    left: 50%; 
-    width: 500px; 
+    top: 50%;
+    left: 50%;
+    width: 500px;
     height: 400px;
     margin-top: -200px;   /* 1/2 of your element height*/
     margin-left: -250px;  /* 1/2 of your element width */
@@ -74,7 +74,7 @@ div p {
 
 ### 5. Use Google Fonts API to embed fonts easily
 
-Google has a growing number of fonts online that you can quite easily embed into your website by adding a simple _link _in the head section of your webpage. Go to [Google Web Fonts](www.google.com/webfonts, Google Web Fonts), choose your font and add the link provided into the head section. The link should look something like this:
+Google has a growing number of fonts online that you can quite easily embed into your website by adding a simple _link _in the head section of your webpage. Go to [Google Web Fonts](www.google.com/webfonts), choose your font and add the link provided into the head section. The link should look something like this:
 
 ```
 <link href="http://fonts.googleapis.com/css?family=Spinnaker" rel="stylesheet" type="text/css">

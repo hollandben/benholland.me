@@ -9,38 +9,19 @@
         <link rel="author" href="https://plus.google.com/+BenHolland1/posts">
         <link href="data:image/x-icon;base64,AAABAAEAEBAAAAEACABoBQAAFgAAACgAAAAQAAAAIAAAAAEACAAAAAAAAAEAAAAAAAAAAAAAAAEAAAAAAAAAAAAAekI3ANLGwwBpNCoAT09PAII4KgCDOCoAcDswAGcwJAByc3MAXSkdAGIrIACITUIAezUoAPb29gDLy8sA////AEpKSgCDSz4AdTImAHPm5AAhISEAvb29AAgICABbKB0AhUY6AH83KQCHSj8AXyofAKampgBHR0cAhDkrAHk0JwB8Oi8A/v7+AB4eHgBZJx0AbDUqAPf39wB6OCsAKSkpANLGxAB9NigAo6OjACsrKwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHx8fHx8fHx8fAAAAAAAAAAwKHx8THx8cGwAAAAAAAAAMCh8fEx8fHBsAAAAAAAAADBgaGhMaGhwbAAAAAAAAAAwYHx8THx8cGwAAAAAAAAAMGA8PEx8fCxsAAAAAAAAADBgmEBMFBQsbAAAAAAAAAAwkDxATBh8LGwAAAAAAAAAMJBMTEx8fCxsAAAAAAAAADAcWIiEOIiUbAAAAAAAAAAwSBCwZLCgBGwAAAAAAAAAMAwkjJxUjCBsAAAAAAAAAIAArHR4XEQAgAAAAAAAAAAAqKioqKioNAAAAAAAAAAAAAAACICkAAAAAAAAAAAAAAAAAABQAAAAAAAAAAOAPAADgDwAA4A8AAOAPAADgDwAA4A8AAOAPAADgDwAA4A8AAOAPAADgDwAA4A8AAOAPAADwHwAA/H8AAP7/AAA=" rel="icon" type="image/x-icon" />
 
-        <style>{% include main.css %}</style>
-        <style>{% include syntax.css %}</style>
+        <!-- <style>{% include main.css %}</style> -->
+        <link rel="stylesheet" href="/css/main.css">
+        <!-- <style>{% include syntax.css %}</style> -->
+        <link rel="stylesheet" href="/css/syntax.css">
     </head>
     <body>
 
-        <header class="header">
-            <nav class="header__nav">
-                <a class="nav__link" href="/" title="Posts">
-                    <i class="i-home nav__icon"></i>
-                    <span class="nav__label">Posts</span>
-                </a>
-                <a class="nav__link" href="http://labs.benholland.me/" title="Labs">
-                    <i class="i-testtube nav__icon"></i>
-                    <span class="nav__label">Labs</span>
-                </a>
-                <a class="nav__link" href="http://github.com/hollandben" title="GitHub">
-                    <i class="i-github nav__icon"></i>
-                    <span class="nav__label">GitHub</span>
-                </a>
-                <a class="nav__link" href="http://twitter.com/hollandben" title="Twitter">
-                    <i class="i-twitter nav__icon"></i>
-                    <span class="nav__label">Twitter</span>
-                </a>
-            </nav>
-
-            <div class="header__title">
-                <a href="/">
-                    <h1>Ben Holland</h1>
-                    <h2>Web Developer and JavaScript Nerd</h2>
-                </a>
-            </div>
-        </header>
+        <nav class="header">
+            <a class="nav__link" href="/" title="Posts"><i class="i-home nav__icon"></i></a>
+            <a class="nav__link" href="http://labs.benholland.me/" target="blank" title="Labs"><i class="i-testtube nav__icon"></i></a>
+            <a class="nav__link" href="http://github.com/hollandben" target="blank" title="GitHub"><i class="i-github nav__icon"></i></a>
+            <a class="nav__link" href="http://twitter.com/hollandben" target="blank" title="Twitter"><i class="i-twitter nav__icon"></i></a>
+        </nav>
 
         <main class="content">
             {{ content }}

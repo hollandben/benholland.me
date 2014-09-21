@@ -1,6 +1,13 @@
+.latest-post {
+    margin-bottom: 60px;
+}
+
+.posts {
+    border-top: 1px solid #F0F0F0;
+}
+
 .post {
     .box-sizing();
-    padding: 20px;
 }
 
 .post--full {
@@ -8,7 +15,7 @@
 }
 
 .post__title {
-    margin-bottom: @baseline;
+    margin-bottom: @baseline / 2;
 }
 
 .post__body {
@@ -18,5 +25,24 @@
         margin: 10px 0;
         background-color: @border;
         margin-left: -3%;
+    }
+}
+
+.post-list__post {
+    padding: @baseline 0 (@baseline/3)*2 0;
+    border-top: 1px solid #F0F0F0;
+}
+
+.post-list__title {
+    margin-bottom: 0;
+    line-height: 1;
+    text-decoration: none;
+
+    > a {
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
     }
 }

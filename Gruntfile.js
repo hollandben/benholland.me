@@ -67,7 +67,7 @@ module.exports = function(grunt) {
                     collapseWhitespace: true
                 },
                 files: [{
-                    expand: true,  
+                    expand: true,
                     cwd: '_site/',
                     src: ['**/*.html'],
                     dest: '_site/'

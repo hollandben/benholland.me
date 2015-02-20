@@ -1,6 +1,5 @@
-name: benholland.me 
+name: benholland.me
 markdown: redcarpet
-pygments: true
 highlighter: pygments
 
 exclude: [less, node_modules, Gruntfile.js, package.json]

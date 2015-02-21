@@ -19,7 +19,7 @@ Committing to events on a regular basis can be tricky, but I urge you to attend 
 
 Here are some of the regular events in London that I attend. Checkout [Lanyrd](http://lanyrd.com/) and [Eventbrite](https://www.eventbrite.co.uk/) for the events nearest you.
 
-[Front-end London](http://www.frontendlondon.co.uk/)
-[FunctionalJS](http://funjs.co.uk/)
-[London Web Standards](http://londonwebstandards.org/)
-[LDN Sass](https://twitter.com/ldn_sass)
+* [Front-end London](http://www.frontendlondon.co.uk/)
+* [FunctionalJS](http://funjs.co.uk/)
+* [London Web Standards](http://londonwebstandards.org/)
+* [LDN Sass](https://twitter.com/ldn_sass)

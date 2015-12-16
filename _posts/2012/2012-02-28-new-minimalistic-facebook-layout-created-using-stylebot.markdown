@@ -2,7 +2,7 @@
 layout: post
 title:  New Minimalistic Facebook Layout - Created Using Stylebot
 date:   2012-02-28 01:09:27
-categories: news
+categories: [tutorials]
 ---
 
 Yesterday I discovered a great website for the Chrome plugin Stylebot where users can upload their CSS changes of popular websites for others to use and comment on. I think this is a really cool idea, and although half of the reworked skins are poor, the other half are really cool. There's a limited amount you can do when you're not able to re-structure any of the code, but I managed to work this out...

@@ -2,6 +2,7 @@
 layout: post
 title:  Working With Less - The CSS Preprocessor
 date:   2012-07-17 14:50:36
+categories: [tutorials]
 ---
 
 I recently started working on a project which used the CSS preprocessor LESS. If you don't know what LESS or even a pre-processor is, then here's a quick description.
@@ -89,7 +90,7 @@ Nested rules are another great way to make writing CSS more efficient. It reduce
 
 It's easy to see how this can be expanded to quickly style various different aspects of an element.
 
- 
+
 
 ### Operators
 

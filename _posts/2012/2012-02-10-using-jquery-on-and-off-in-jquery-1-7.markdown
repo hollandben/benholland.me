@@ -2,7 +2,7 @@
 layout: post
 title:  Using jQuery .on() and .off() in jQuery 1.7
 date:   2012-02-10 00:35:08
-categories: javascript
+categories: [javascript]
 ---
 
 jQuery 1.7 was released back in November 2011 and contained a series of changes. One of those was the introduction of .on() and .off(). The purpose - to unify all types of event handling in jQuery and make code more efficient. Here's the changes and how to use the new handlers...
@@ -22,7 +22,7 @@ $('div a').on('click', function(event) {
     console.log('clicked');
 });
 ```
- 
+
 
 ### Changes to .live()
 
@@ -39,7 +39,7 @@ $('div').on('click', 'a', function(event) {
     console.log('clicked');
 });
 ```
- 
+
 
 ### Changes to .delegate()
 
@@ -74,7 +74,7 @@ Or to unbind a specific handler, use:
 ```javascript
 $('div a').off('click', clickHandler);
 ```
- 
+
 
 ### Changes to .die()
 

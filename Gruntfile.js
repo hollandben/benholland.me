@@ -89,5 +89,5 @@ module.exports = function(grunt) {
 
     // Default task.
     grunt.registerTask('default', ['less', 'watch']);
-    grunt.registerTask('build', ['htmlmin', 'imagemin']);
+    grunt.registerTask('build', ['less', 'htmlmin', 'imagemin']);
 };

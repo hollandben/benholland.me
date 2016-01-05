@@ -23,7 +23,7 @@ title:
 <h1>Posts</h1>
 
 <ul class="unstyled post-list">
-{% for post in site.related_posts %}
+{% for post in site.posts limit:25 %}
     <li class="post-list__post">
         <h2 class="post-list__title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
         <span class="meta">{{ post.date | date_to_string }}</span>

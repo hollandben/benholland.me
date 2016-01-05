@@ -32,9 +32,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/',
+                    cwd: 'assets/2016',
                     src: ['**/*.png'],
-                    dest: 'assets/',
+                    dest: 'assets/2016',
                     ext: '.png'
                 }]
             },
@@ -44,9 +44,9 @@ module.exports = function(grunt) {
                 },
                 files: [{
                     expand: true,
-                    cwd: 'assets/',
+                    cwd: 'assets/2016',
                     src: ['**/*.jpg'],
-                    dest: 'assets/',
+                    dest: 'assets/2016',
                     ext: '.jpg'
                 }]
             }

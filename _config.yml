@@ -19,6 +19,8 @@ github_username:  hollandben
 
 # Build settings
 markdown: kramdown
+kramdown:
+    extensions: [strikethrough]
 highlighter: pygments
 
 exclude: [less, node_modules, Gruntfile.js, package.json]

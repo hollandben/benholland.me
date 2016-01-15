@@ -42,8 +42,8 @@ Again, if you wish to delete an entire line using `⌘+⌫` then follow steps 1-
 **Maintain current directory when splitting a pane**
 This is a real pane (whey!). Simple fix. Got preferences and click the `profiles` tab again but make sure that you are on the `General` tab. Look down to wear it says `Working Directory` and click `Edit` next to `Advanced configuration`. The bottom option should be what to do when you split a pane. Select `Reuse previous session's directory`. Done!
 
-![image][{{ site.url }}/assets/2016/01/15/iterm-advanced-working-directory-settings.png)
-![image][{{ site.url }}/assets/2016/01/15/maintaining-cwd-when-splitting-tabs-in-iterm.png)
+![image]({{ site.url }}/assets/2016/01/15/iterm-advanced-working-directory-settings.png)
+![image]({{ site.url }}/assets/2016/01/15/maintaining-cwd-when-splitting-tabs-in-iterm.png)
 
 [ollies-twitter]: https://twitter.com/OliverJAsh
 [my-setup-repo]: https://github.com/hollandben/mac-setup

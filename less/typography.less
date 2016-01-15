@@ -45,16 +45,20 @@ ul.unstyled {
 }
 
 code {
-    display: block;
-    padding: (@baseline/3)*2;
+    padding: @baseline/5 @baseline/3;
     background-color: #fafafa;
     border: 1px solid @border;
     border-radius: 4px;
-    margin: 0 0 10px;
     .font-size(12, 18);
     color: #333;
     word-break: break-all;
     word-wrap: break-word;
+}
+
+pre > code {
+    display: block;
+    padding: (@baseline/3)*2;
+    margin: 0 0 10px;
 }
 
 blockquote {

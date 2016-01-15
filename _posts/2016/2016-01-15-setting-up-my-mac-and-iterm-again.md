@@ -1,5 +1,5 @@
 ---
-layout:
+layout: post
 title: Setting up my Mac and iTerm... again!
 categories: [productivity]
 tags: [setup, productivity]

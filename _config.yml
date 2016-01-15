@@ -18,9 +18,6 @@ twitter_username: hollandben
 github_username:  hollandben
 
 # Build settings
-markdown: kramdown
-kramdown:
-    extensions: [strikethrough]
-highlighter: pygments
+markdown: redcarpet
 
 exclude: [less, node_modules, Gruntfile.js, package.json]

@@ -30,6 +30,7 @@ published: True
     - Jekyll `foreach` loop used to render each item from the data
     - Copied across all assets but didn't change the location of them, just updated references to be relative
     - The site is still running via nginx so the email form PHP file can still work
+    - Figuring out page redirect rules
 
 - Clean up
     - CSS

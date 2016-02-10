@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 gem "jekyll"
+gem "rb-inotify"
 gem "redcarpet"
 gem "rouge"
 gem "jekyll-watch"

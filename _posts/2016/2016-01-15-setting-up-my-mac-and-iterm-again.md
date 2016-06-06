@@ -31,7 +31,7 @@ If you don't have a full width keyboard, chances are you will use `⌘+←` and 
 3. In the action dropdown, select `Send Hex Code`
 4. Set the value as `0x01` for moving to the beginning of the line and `0x05` for the end of the line.
 
-![image][{{ site.url }}/assets/2016/01/15/adding-new-key-maps-in-iterm.png)
+![image]({{ site.url }}/assets/2016/01/15/adding-new-key-maps-in-iterm.png)
 
 **Deleting a word**
 Another huge annoyance is not being able to delete a single word using the popular keyboard shortcut `⌥+⌫`. To enable this, follow steps 1-3 above and use the code `0x17`.
